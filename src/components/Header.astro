@@ -1,6 +1,5 @@
 ---
 import ImageComp from "./ImageComp.astro";
-import { PHONE_NUMBER } from "../data/consts";
 
 interface ctaProp {
   url: string;
@@ -13,7 +12,6 @@ interface Props {
       src: string;
       alt: string;
     };
-    // eyebrow: string;
     title: string;
     subTitle?: string;
     cta?: ctaProp[];
@@ -46,10 +44,6 @@ const { data } = Astro.props;
   >
     <div class="flex flex-col justify-center items-center lg:justify-center lg:items-start">
       <div class="flex flex-col items-center lg:items-start gap-y-6 text-center lg:text-left">
-        <!-- <a class="eyebrow" href={`tel:${PHONE_NUMBER}`}>
-          {data.eyebrow}
-          {PHONE_NUMBER}
-        </a> -->
         <h1 class="max-w-3xl text-4xl sm:text-5xl md:text-6xl uppercase font-bold" set:html={data.title} />
         {data.subTitle && <h2 class="text-xl/6 font-light drop-shadow-md" set:html={data.subTitle} />}
       </div>
@@ -60,7 +54,7 @@ const { data } = Astro.props;
             {data.cta.map((item, index) => (
               <a
                 href={item.url}
-                class={`${index === 0 ? "btn-primary" : "btn-transparent"} text-lg group w-fit md:text-2xl`}
+                class={`${index === 0 ? "btn-secondary" : "btn-transparent"} text-lg group w-fit md:text-2xl`}
               >
                 {item.text}
               </a>
@@ -73,7 +67,7 @@ const { data } = Astro.props;
         data.ctaMobile && (
           <a
             href={data.ctaMobile.url}
-            class="btn-primary text-lg group w-fit my-8 sm:hidden! md:text-2xl"
+            class="btn-secondary text-lg group w-fit my-8 sm:hidden! md:text-2xl"
           >
             {data.ctaMobile.text}
           </a>

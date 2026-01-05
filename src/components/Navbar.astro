@@ -158,8 +158,8 @@ export const footerMenu: MenuItem[] = [
 const { pathname, navBarBG = false } = Astro.props;
 ---
 
-<nav id="navbar" class={`navbar ${navBarBG ? "force-navbar-bg" : ""}`}>
-  <div class="container px-4 md:px-0">
+<nav id="navbar" class={`navbar w-full flex justify-center transition-all duration-500 ease-in-out py-4 px-1 ${navBarBG ? "force-navbar-bg" : ""}`}>
+  <div class="container px-4 flex items-center justify-between gap-3 md:px-0">
     <!-- Logo -->
     <a href="/" class="object-contain h-auto">
       <ImageComp
@@ -170,13 +170,13 @@ const { pathname, navBarBG = false } = Astro.props;
     </a>
 
     <!-- Desktop Menu -->
-    <ul class="nav">
+    <ul class="nav flex gap-2 list-none">
       {
         menu.map((item, index) => (
-          <li class={`menu-item ${item.children ? "has-children" : ""}`} data-index={index}>
+          <li class={`menu-item group relative transition-colors duration-300 ease-in-out ${item.children ? "has-children" : ""}`} data-index={index}>
             <a href={item.url}>{item.label}</a>
             {item.children && (
-              <ul class="sub-menu">
+              <ul class="sub-menu absolute top-full left-0 z-40 min-w-56 bg-accent-800 border border-accent-800 list-none py-2 rounded-sm invisible opacity-0 translate-y-1.5 pointer-events-none transition-all duration-300 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
                 {item.children.map((child) => (
                   <li>
                     <a
@@ -313,38 +313,12 @@ const { pathname, navBarBG = false } = Astro.props;
 </nav>
 
 <style>
-  .navbar {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    transition: all 0.5s ease;
-    padding: 1rem 0.25rem; /* py-4 px-1 */
-  }
-
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem; /* gap-3 */
-  }
-
   .navbar.scrolled,
   .navbar.force-navbar-bg {
     background: rgba(0, 0, 0, 0.2);
     background: hsl(220, 43%, 11%, 0.6);
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  }
-
-  .nav {
-    display: flex;
-    gap: 0.5rem; /* gap-2 */
-    list-style: none;
-  }
-
-  .menu-item {
-    position: relative;
-    transition: color 0.3s ease;
   }
 
   .menu-item a {
@@ -357,13 +331,6 @@ const { pathname, navBarBG = false } = Astro.props;
   .menu-item a:hover,
   .menu-item a:has(+ ul > li > a.menu-link-hover) {
     color: oklch(75.019% 0.21579 135.347); /* primary-400 */
-  }
-
-  .navbar.scrolled .sub-menu li a:hover,
-  .navbar.scrolled .sub-menu li a.menu-link-hover,
-  .navbar.force-navbar-bg .sub-menu li a:hover,
-  .navbar.force-navbar-bg .sub-menu li a.menu-link-hover {
-    background: oklch(0.278 0.033 256.848); /* primary-400 */
   }
 
   .navbar.scrolled .nav > .menu-item > a,
@@ -381,32 +348,8 @@ const { pathname, navBarBG = false } = Astro.props;
     color: oklch(84.2% 0.22139 133.38); /* primary-400 */
   }
 
-  .navbar.scrolled .sub-menu li a.menu-link-hover,
-  .navbar.force-navbar-bg .sub-menu li a.menu-link-hover {
-    background: oklch(0.278 0.033 256.848); /* primary-400 */
-  }
-
   /* Dropdown (desktop) */
   .sub-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 40;
-    min-width: 220px;
-
-    background: #fff;
-    border: 1px solid #ddd;
-    list-style: none;
-    padding: 0.5rem 0;
-    border-radius: 0.25rem;
-
-    /* no display:none — use visibility + opacity to avoid hover gaps */
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(6px);
-    pointer-events: none;
-
-    /* 0.3s transition as requested */
     transition:
       opacity 0.3s ease,
       transform 0.3s ease,
@@ -415,10 +358,6 @@ const { pathname, navBarBG = false } = Astro.props;
 
   /* Show on hover */
   .menu-item:hover .sub-menu {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
     transition:
       opacity 0.3s ease,
       transform 0.3s ease,
@@ -426,9 +365,6 @@ const { pathname, navBarBG = false } = Astro.props;
   }
 
   /* Small invisible “bridge” to prevent hover loss between item and submenu */
-  .menu-item {
-    position: relative;
-  }
   .menu-item::after {
     content: "";
     position: absolute;
@@ -444,7 +380,7 @@ const { pathname, navBarBG = false } = Astro.props;
     display: block;
     padding: 0.5rem 1rem;
     white-space: nowrap;
-    color: oklch(21% 0.034 264.665);
+    color: white;
     transition:
       background 0.3s ease,
       color 0.3s ease,
@@ -452,26 +388,9 @@ const { pathname, navBarBG = false } = Astro.props;
     position: relative;
   }
 
-  .sub-menu li a:before {
-    content: " ";
-    display: block;
-    height: 100%;
-    width: 0%;
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: oklch(0.278 0.033 256.848); /* primary-400 */
-    transition: all 0.3s ease-in-out;
-  }
-
   .sub-menu li a:hover,
   .sub-menu li a.menu-link-hover {
-    color: oklch(89.056% 0.19115 131.459);
-  }
-
-  .sub-menu li a:hover:before,
-  .sub-menu li a.menu-link-hover:before {
-    width: 100%;
+    color: oklch(75.019% 0.21579 135.347);
   }
 
   .container .hamburger .hamburger-menu-x,
