@@ -1,57 +1,176 @@
 ---
-// Import the global.css file here so that it is included on
-// all pages through the use of the <BaseHead /> component.
-import '../styles/global.css';
-import type { ImageMetadata } from 'astro';
-import FallbackImage from '../assets/blog-placeholder-1.jpg';
-import { SITE_TITLE } from '../consts';
-
+import "../styles/global.css";
+import { SITE_TITLE, KEYWORDS, OG_IMAGE, FAVICON, COMPANY_NAME, ADDRESS_CITY } from "../data/consts";
+ 
 interface Props {
-	title: string;
-	description: string;
-	image?: ImageMetadata;
+  title: string;
+  description: string;
+  image?: string;
+  keywords?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = FallbackImage } = Astro.props;
+const {
+  title,
+  description,
+  image = OG_IMAGE,
+  keywords = KEYWORDS,
+} = Astro.props;
 ---
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="sitemap" href="/sitemap-index.xml" />
-<link
-	rel="alternate"
-	type="application/rss+xml"
-	title={SITE_TITLE}
-	href={new URL('rss.xml', Astro.site)}
-/>
-<meta name="generator" content={Astro.generator} />
+<!-- Site Created By:    
+       _____  _       _     _     _____           _     _           
+      |  __ \(_)     | |   | |   |  __ \         | |   | |          
+      | |__) |_  __ _| |__ | |_  | |__) |   _  __| | __| | ___ _ __ 
+      |  _  /| |/ _` | '_ \| __| |  _  / | | |/ _` |/ _` |/ _ \ '__|
+      | | \ \| | (_| | | | | |_  | | \ \ |_| | (_| | (_| |  __/ |   
+      |_|  \_\_|\__, |_| |_|\__| |_|  \_\__,_|\__,_|\__,_|\___|_|   
+      |  \/  |   __/ |  | |      | | (_)                            
+      | \  / | _|___/ __| | _____| |_ _ _ __   __ _                 
+      | |\/| |/ _` | '__| |/ / _ \ __| | '_ \ / _` |                
+      | |  | | (_| | |  |   <  __/ |_| | | | | (_| |                
+      |_|  |_|\__,_|_|  |_|\_\___|\__|_|_| |_|\__, |                
+                                               __/ |                
+                                              |___/                 
 
-<!-- Font preloads -->
-<link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
-<link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />
+    Nice to see you here.  Find new student pilots with Right Rudder Marketing.  https://rightruddermarketing.com/contact-us -->
+
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/png" href={FAVICON} />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
+
+<!-- SiteMap -->
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link
+  rel="alternate"
+  type="application/rss+xml"
+  title={SITE_TITLE}
+  href={new URL("rss.xml", Astro.site)}
+/>
+
+<meta name="generator" content={Astro.generator} />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FlightSchool",
+  "name": "Cirrus Aviation",
+  "url": "https://www.cirrusaviation.com/",
+  "logo": "https://www.cirrusaviation.com/cirrus-aviation-logo.png",
+  "image": "https://www.cirrusaviation.com/cirrus-aviation-logo.png",
+  "description": "Cirrus Aviation has specialized in pilot training at the Sarasota-Bradenton International Airport since 1994. Based out of KSRQ, we train local pilots from Clearwater, St. Petersburg, Riverview, Tampa, Punta Gorda, and Venice areas, in addition to Sarasota and Bradenton. We also have an International Student Pilot training program for students abroad looking to train in the United States and we offer accommodation assistance. Our mission is to provide safe and solid pilot training for all students while maintaining a friendly, fun, and professional atmosphere. Whether you’re looking to fly recreationally for fun or looking to fly for a career, Cirrus Aviation has programs to fit your needs. Give us a call today and get started flying!",
+  "telephone": "+1 (941) 360-9074",
+  "email": "dispatch@cirrusaviation.com", // TODO : Update?
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "8191 N. Tamiami Trail",
+    "addressLocality": "Sarasota",
+    "addressRegion": "FL",
+    "postalCode": "34243",
+    "addressCountry": "US"
+  },
+  "currenciesAccepted": "USD",
+  "paymentAccepted": "Cash, Credit Card, Visa, Mastercard, American Express, Discover",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 27.3946505,
+    "longitude": -82.5581929
+  },
+  "hasMap": "https://maps.app.goo.gl/tFoDLw257P1CvaKt6",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+  ],
+  "sameAs": [
+    "https://www.facebook.com/cirrusaviation",
+    "https://www.instagram.com/cirrus_aviation",
+    "https://www.linkedin.com/company/cirrus-aviation-inc.",
+    "https://twitter.com/CirrusAviation1",
+    "https://www.youtube.com/user/CirrusAviation1",
+    "https://www.yelp.com/biz/cirrus-aviation-sarasota",
+  ],
+  "areaServed": {
+    "@type": "Place",
+    "name": [
+      "Sarasota",
+      "Bradenton",
+      "Clearwater",
+      "Riverview",
+      "Tampa", 
+      "Punta Gorda", 
+      "Venice", 
+      "St. Petersburg",
+    ]
+  },
+  "makesOffer": {
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "serviceType": "Flight Instruction"
+    },
+    "priceCurrency": "USD",
+    "price": "Varies"
+  },
+  "identifier": [
+    {
+      "@type": "PropertyValue",
+      "name": "IATA Code",
+      "value": "SRQ"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "ICAO Code",
+      "value": "KSRQ"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Airport Code",
+      "value": "KSRQ"
+    }
+  ]
+}
+</script>
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<meta name="author" content={COMPANY_NAME} />
+<meta name="geo.region" content="US-FL" />
+<meta name="geo.placename" content={ADDRESS_CITY} />
+<meta name="geo.position" content="27.3946505;-82.5581929" />
+<meta name="IC BM" content="27.3946505, -82.5581929" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL(image.src, Astro.url)} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:locale" content="en_US" />
+<meta property="og:site_name" content={COMPANY_NAME} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL(image.src, Astro.url)} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />

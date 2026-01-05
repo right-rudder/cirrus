@@ -1,0 +1,85 @@
+---
+import { COMPANY_NAME, FACEBOOK_URL, INSTAGRAM_URL, X_URL, YOUTUBE_URL, PHONE_NUMBER_HEADER, ADDRESS_CITY, ADDRESS_STATE } from "../data/consts";
+import { FaPhoneSquareAlt } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+---
+
+{/* Careful when changing the size of this element or changing when it becomes visible. On Desktop view the BannerHomepage and Banner components have their height calculated with the height of this element in mind */}
+
+<div class="w-full bg-linear-to-br from-accent-200 via-accent-100 to-accent-300 z-0 h-12 px-4 text-accent-900 hidden md:block">
+  <div
+    class="mx-auto max-w-7xl font-bebas flex items-center align-middle h-full justify-between"
+  >
+    <p class="font-bebas tracking-widest text-lg block">
+      Flight Training in {ADDRESS_CITY}, {ADDRESS_STATE}
+    </p>
+    <div class="flex gap-3 w-auto">
+      <div
+        class="items-center justify-center align-middle gap-x-3 flex"
+      >
+        {
+            FACEBOOK_URL && (
+              <a
+                href={FACEBOOK_URL}
+                target="_blank"
+                class="transition-colors duration-200 ease-in-out hover:text-primary-600"
+              >
+                <FaFacebookSquare className="text-2xl" />
+                <span class="sr-only">{COMPANY_NAME} Facebook account link</span>
+              </a>
+            )
+          }
+          {
+            INSTAGRAM_URL && (
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                class="transition-colors duration-200 ease-in-out hover:text-primary-600"
+              >
+                <FaInstagram className="text-2xl" />
+                <span class="sr-only">{COMPANY_NAME} Instagram account link</span>
+              </a>
+            )
+          }
+          {
+            X_URL && (
+              <a
+                href={X_URL}
+                target="_blank"
+                class="transition-colors duration-200 ease-in-out hover:text-primary-600"
+              >
+                <FaXTwitter className="text-2xl" />
+                <span class="sr-only">{COMPANY_NAME} X account link</span>
+              </a>
+            )
+          }
+          {
+            YOUTUBE_URL && (
+              <a
+                href={YOUTUBE_URL}
+                target="_blank"
+                class="transition-colors duration-200 ease-in-out hover:text-primary-600"
+              >
+                <FaYoutube className="text-2xl" />
+                <span class="sr-only">{COMPANY_NAME} Youtube account link</span>
+              </a>
+            )
+          }
+      </div>
+
+      <a
+        href=`tel:${PHONE_NUMBER_HEADER}`
+        aria-labelledby="Call Us Now"
+        title="Call Us Now"
+        class="flex gap-3 w-full tracking-widest justify-center items-center text-center text-lg font-bold duration-300 ease-in-out hover:text-primary-500 lg:text-xl"
+        aria-label="Call telephone Link"
+      >
+        <FaPhoneSquareAlt className="text-2xl" />
+        {PHONE_NUMBER_HEADER}</a
+      >
+    </div>
+  </div>
+</div>
