@@ -1,0 +1,105 @@
+---
+import type { Field, FieldOption } from "../utils/types";
+
+interface Props {
+  f: Field;
+}
+
+const { f } = Astro.props;
+---
+
+{
+  (
+    <div class={`flex flex-col${f.colSpan ? " col-span-" + f.colSpan : ""}`}>
+      {f.type === "checkboxes" ? (
+        <label class="text-primary-100 text-sm font-medium">
+          {f.label}
+          {f.required && <span class="text-white">*</span>}
+        </label>
+      ) : (
+        <label for={f.id} class="text-primary-100 text-sm font-medium">
+          {f.label}
+          {f.required && <span class="text-white">*</span>}
+        </label>
+      )}
+      {!["textarea", "select", "checkboxes"].includes(f.type || "") ? (
+        <input
+          id={f.id}
+          name={f.name || f.id}
+          type={(f.type || "text") as any}
+          required={f.required}
+          placeholder={f.placeholder}
+          class={`bg-white text-accent-500 font-light mt-2 h-12 rounded-md border border-white/10 px-4 text-base valid:text-accent-900 valid:font-bold placeholder:text-accent-500`}
+          pattern={f.pattern}
+          inputmode={f.inputmode as any}
+          list={f.datalistId}
+          step={f.step}
+          min={f.min}
+          max={f.max}
+          autocomplete={f.autocomplete}
+        />
+      ) : null}
+      {f.type === "select" ? (
+        <select
+          id={f.id}
+          name={f.name || f.id}
+          required={f.required}
+          class={`bg-white text-accent-500 mt-2 h-12 w-full rounded-md border border-white/10 px-4 pr-10 outline-none text-base valid:text-accent-900 valid:font-bold [&>option]:bg-white [&>option]:text-accent-500 [&>optgroup]:bg-white [&>optgroup]:text-accent-400`}
+        >
+          {(f.options || []).map((o: FieldOption) => (
+            <option value={o.value} selected={o.selected} disabled={o.disabled} hidden={o.hidden}>
+              {o.label}
+            </option>
+          ))}
+        </select>
+      ) : null}
+      {f.type === "textarea" ? (
+        <textarea
+          id={f.id}
+          name={f.name || f.id}
+          rows={f.rows || 6}
+          required={f.required}
+          placeholder={f.placeholder}
+          class={`bg-white text-accent-500 font-light text-base mt-2 rounded-md border border-white/10 px-4 py-3 valid:text-accent-900 valid:font-bold`}
+        />
+      ) : null}
+      {f.type === "checkboxes" ? (
+        <fieldset id={f.id} data-required={f.required}>
+          <div class="mt-2 grid grid-cols-1 gap-y-2 sm:grid-cols-3 sm:gap-x-2">
+            {f.options?.map((item: any) => (
+              <label
+                aria-label={item.label}
+                class="group relative flex rounded-lg border border-accent-300 bg-white p-4 has-checked:outline-2 has-checked:-outline-offset-2 has-checked:outline-primary-600 has-focus-visible:outline-3 has-focus-visible:-outline-offset-1 has-disabled:border-accent-400 has-disabled:bg-accent-200 has-disabled:opacity-25"
+              >
+                <input
+                  type="checkbox"
+                  name={f.id}
+                  value={item.value}
+                  class="absolute inset-0 appearance-none focus:outline-none"
+                />
+                <div class="flex-1">
+                  <span class="block text-sm font-medium text-accent-500 transition-all duration-200 ease-in-out group-has-checked:text-accent-900 group-has-checked:font-bold">
+                    {item.label}
+                  </span>
+                </div>
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  data-slot="icon"
+                  aria-hidden="true"
+                  class="opacity-0 size-5 text-primary-600 transition-all duration-300 ease-in-out group-has-checked:opacity-100"
+                >
+                  <path
+                    d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z"
+                    clip-rule="evenodd"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+      ) : null}
+    </div>
+  )
+}
