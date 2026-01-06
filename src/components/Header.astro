@@ -12,6 +12,7 @@ interface Props {
       src: string;
       alt: string;
     };
+    videoSrc?: string;
     title: string;
     subTitle?: string;
     cta?: ctaProp[];
@@ -24,16 +25,36 @@ const { data } = Astro.props;
 
 <div
   class="relative overflow-hidden flex justify-center items-center text-accent-100 min-h-[75vh] md:min-h-[calc(100vh-48px)]"
-> 
-  {/* md:min-h-[calc(100vh-48px)] = Occupy the whole viewport height (100vh) minus the height of the HeaderContact (48px) */}
-  <ImageComp
-    src={data.image.src}
-    alt={data.image.alt}
-    class="absolute object-right lg:object-center lg:inset-0 h-full w-full object-cover brightness-130 animate-slow-zoom -z-20"
-    loading="eager"
-    quality={100}
-    fetchpriority="high"
-  />
+>
+  {
+    data.videoSrc && (
+      <video
+        autoplay
+        loop
+        playsinline
+        muted
+        preload="auto"
+        src={data.videoSrc}
+        class="block absolute left-0 top-0 size-full -z-20 object-cover object-center"
+      />
+    )
+  }
+
+  {
+    /* md:min-h-[calc(100vh-48px)] = Occupy the whole viewport height (100vh) minus the height of the HeaderContact (48px) */
+  }
+  {
+    !data.videoSrc && (
+      <ImageComp
+        src={data.image.src}
+        alt={data.image.alt}
+        class="absolute object-right lg:object-center lg:inset-0 h-full w-full object-cover brightness-90 animate-slow-zoom -z-20"
+        loading="eager"
+        quality={100}
+        fetchpriority="high"
+      />
+    )
+  }
   <div
     class="absolute inset-0 h-full w-full bg-linear-to-b lg:bg-linear-to-br from-slate-950/95 lg:via-slate-950/30 to-transparent -z-10"
   >
@@ -65,10 +86,7 @@ const { data } = Astro.props;
 
       {
         data.ctaMobile && (
-          <a
-            href={data.ctaMobile.url}
-            class="btn-secondary text-lg group w-fit my-8 sm:hidden! md:text-2xl"
-          >
+          <a href={data.ctaMobile.url} class="btn-secondary text-lg group w-fit my-8 sm:hidden! md:text-2xl">
             {data.ctaMobile.text}
           </a>
         )
