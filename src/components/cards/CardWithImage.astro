@@ -1,0 +1,13 @@
+---
+import ImageComp from '../ImageComp.astro';
+
+const { data } = Astro.props;
+---
+<a href={data.cta.url} target={data.cta.url.includes("http") ? "_blank" : ""} class="flex flex-col bg-white rounded-sm overflow-hidden shadow transition-all duration-500 ease-in-out hover:scale-105 hover:ring-2 hover:ring-rose-500">
+  <ImageComp src={data.img.src} alt={data.img.alt} class="w-full" />
+  <div class="flex-1 p-4 flex flex-col gap-4 justify-between">
+    <p class="text-slate-600 font-semibold text-lg">{data.title}</p>
+    <p class="text-slate-500 text-base">{data.description}</p>
+    <button class="card-cta-button btn-secondary text-base" data-href={data.cta.url}>{data.cta.text}</button>
+  </div>
+</a>

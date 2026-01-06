@@ -1,0 +1,36 @@
+---
+import Card from "./Card";
+import CardWithImage from "./CardWithImage.astro";
+import CardOnLyImage from "./CardOnlyImage.astro";
+
+const data: {
+  type: "simple" | "with-image" | "only-image";
+  img?: {
+    src: string;
+    alt: string;
+  };
+  icon?: any;
+  title: string;
+  description: string;
+  cta: {
+    url: string;
+    text: string;
+  };
+}[] = Astro.props.data;
+
+const gridClasses = data.length % 3 === 0 ? "grid-cols-1 md:grid-cols-3" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4";
+---
+
+<div class={`max-w-5xl mx-auto grid gap-4 ${gridClasses}`}>
+  {
+    data.map((card) => {
+      if (card.type === "simple") {
+        return <Card card={card} Icon={card.icon} />;
+      } else if (card.type === "with-image") {
+        return <CardWithImage data={card} />;
+      } else if (card.type === "only-image") {
+        return <CardOnLyImage data={card} />;
+      }
+    })
+  }
+</div>
