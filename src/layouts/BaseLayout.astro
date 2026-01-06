@@ -5,8 +5,8 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION, KEYWORDS, OG_IMAGE } from "../data/consts";
 import Navbar from "../components/Navbar.astro";
 import HeaderContact from "../components/HeaderContact.astro";
-// import '@fontsource-variable/atkinson-hyperlegible-mono';
-// import '@fontsource-variable/roboto';
+import "@fontsource-variable/montserrat";
+import "@fontsource/hind";
 
 const { pathname } = Astro.url;
 const { siteTitle, siteDescription, siteImage, siteKeywords, customBreadcrumbs, navBarBG = false } = Astro.props;
@@ -164,7 +164,7 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
                   ) : (
                     <a
                       href={crumb.url}
-                      class="hover:text-primary-600 transition-colors duration-200 font-medium"
+                      class="hover:text-lime-600 transition-colors duration-200 font-medium"
                     >
                       {crumb.name}
                     </a>
