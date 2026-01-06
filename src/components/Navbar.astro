@@ -315,7 +315,6 @@ const { pathname, navBarBG = false } = Astro.props;
 <style>
   .navbar.scrolled,
   .navbar.force-navbar-bg {
-    background: rgba(0, 0, 0, 0.2);
     background: hsl(220, 43%, 11%, 0.6);
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
@@ -335,7 +334,6 @@ const { pathname, navBarBG = false } = Astro.props;
 
   .navbar.scrolled .nav > .menu-item > a,
   .navbar.force-navbar-bg .nav > .menu-item > a {
-    color: #101828; /* accent-900 */
     color: white;
   }
 
@@ -410,7 +408,6 @@ const { pathname, navBarBG = false } = Astro.props;
     background: none;
     border: none;
     cursor: pointer;
-    color: #101828; /* accent-900 */
     color: white;
   }
 
@@ -422,7 +419,7 @@ const { pathname, navBarBG = false } = Astro.props;
     top: 100%;
     left: 0;
     width: 100%;
-    background: #f3f4f6; /* #101828 */
+    background: #f3f4f6;
     padding: 0 1rem;
     max-height: 0;
     overflow: hidden;
@@ -453,7 +450,7 @@ const { pathname, navBarBG = false } = Astro.props;
   @media (max-width: 1023px) {
     .navbar,
     .navbar.scrolled {
-      background: #101828;
+      background: #1d293d;
       padding: 0.5rem; /* p-4 */
     }
 
@@ -487,16 +484,6 @@ const { pathname, navBarBG = false } = Astro.props;
       font-weight: 600;
       color: #101828; /* accent-900 */
     }
-
-    /* TODO : Remove */
-    /* .mobile-item > a::after {
-      content: "⟫";
-      margin-left: 0.5rem;
-      transition: transform 0.25s ease;
-    }
-    .mobile-item > a.open::after {
-      transform: rotate(90deg);
-    } */
 
     /* Submenu styling */
     .mobile-submenu {

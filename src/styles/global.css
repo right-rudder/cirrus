@@ -38,7 +38,7 @@
 }
 
 .btn-primary {
-  @apply bg-lime-700 border border-lime-700 text-white font-semibold rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition duration-300 cursor-pointer hover:bg-accent-900 hover:border-accent-900 hover:text-lime-500;
+  @apply bg-lime-700 border border-lime-700 text-white font-semibold rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition duration-300 cursor-pointer hover:bg-slate-900 hover:border-slate-900 hover:text-lime-500;
 }
 
 .btn-primary:disabled,
@@ -47,7 +47,7 @@
 }
 
 .btn-primary-dark {
-  @apply bg-accent-900 text-lime-600 font-semibold rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition duration-300 cursor-pointer border border-transparent hover:border-lime-700 hover:bg-accent-50 hover:text-lime-700;
+  @apply bg-slate-900 text-lime-600 font-semibold rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition duration-300 cursor-pointer border border-transparent hover:border-lime-700 hover:bg-slate-50 hover:text-lime-700;
 }
 
 .btn-secondary {
@@ -55,11 +55,11 @@
 }
 
 .btn-transparent {
-  @apply bg-accent-900/40 text-white border border-lime-700 rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition font-semibold cursor-pointer hover:bg-lime-700 hover:border-lime-700;
+  @apply bg-slate-900/40 text-white border border-lime-700 rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition font-semibold cursor-pointer hover:bg-lime-700 hover:border-lime-700;
 }
 
 .btn-transparent-dark {
-  @apply bg-lime-800/20 text-accent-50 border border-lime-800 rounded-sm px-4 py-2 flex items-center justify-center gap-2 hover:bg-lime-800 transition font-semibold cursor-pointer;
+  @apply bg-lime-800/20 text-slate-50 border border-lime-800 rounded-sm px-4 py-2 flex items-center justify-center gap-2 hover:bg-lime-800 transition font-semibold cursor-pointer;
 }
 
 .btn-white {
@@ -68,11 +68,11 @@
 
 /* TODO : Remove */
 /* .eyebrow {
-  @apply text-accent-100 bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-sm text-sm border-b-2 border-l-2 border-r-2 border-t border-accent-500 mb-0! lg:text-base;
+  @apply text-slate-100 bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-sm text-sm border-b-2 border-l-2 border-r-2 border-t border-slate-500 mb-0! lg:text-base;
 }
 
 a.eyebrow {
-  @apply text-accent-100 bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-sm text-sm border-b-2 border-l-2 border-r-2 border-t border-lime-600 mb-0! lg:text-base hover:bg-lime-600 duration-300 ease-in-out;
+  @apply text-slate-100 bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-sm text-sm border-b-2 border-l-2 border-r-2 border-t border-lime-600 mb-0! lg:text-base hover:bg-lime-600 duration-300 ease-in-out;
 }
 
 .eyebrow-light {
@@ -80,7 +80,7 @@ a.eyebrow {
 }
 
 .eyebrow-dark {
-  @apply bg-accent-600 text-white font-semibold uppercase px-3 py-1 w-fit rounded-sm text-sm mb-2;
+  @apply bg-slate-600 text-white font-semibold uppercase px-3 py-1 w-fit rounded-sm text-sm mb-2;
 } */
 
 body {
