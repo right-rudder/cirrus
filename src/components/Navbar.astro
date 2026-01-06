@@ -282,7 +282,7 @@ const { pathname, navBarBG = false } = Astro.props;
           target="_blank"
           aria-label="Instagram"
           title="Instagram"
-          class="hover:text-primary-500 transition-all duration-300 ease-in-out"
+          class="hover:text-lime-500 transition-all duration-300 ease-in-out"
         >
           <FaInstagram className="text-2xl" />
         </a>
@@ -292,7 +292,7 @@ const { pathname, navBarBG = false } = Astro.props;
           target="_blank"
           aria-label="Facebook"
           title="Facebook"
-          class="hover:text-primary-500 transition-all duration-300 ease-in-out"
+          class="hover:text-lime-500 transition-all duration-300 ease-in-out"
         >
           <FaFacebookSquare className="text-2xl" />
         </a>
@@ -301,7 +301,7 @@ const { pathname, navBarBG = false } = Astro.props;
           href=`tel:${PHONE_NUMBER_HEADER}`
           aria-labelledby="Call Us Now"
           title="Call Us Now"
-          class="flex gap-3 justify-center items-center tracking-widest text-lg font-bold duration-300 ease-in-out hover:text-primary-500"
+          class="flex gap-3 justify-center items-center tracking-widest text-lg font-bold duration-300 ease-in-out hover:text-lime-500"
           aria-label="Call telephone Link"
         >
           <FaPhoneSquareAlt className="text-2xl" />
@@ -411,6 +411,7 @@ const { pathname, navBarBG = false } = Astro.props;
     border: none;
     cursor: pointer;
     color: #101828; /* accent-900 */
+    color: white;
   }
 
   /* Mobile sheet (base) */
@@ -421,7 +422,7 @@ const { pathname, navBarBG = false } = Astro.props;
     top: 100%;
     left: 0;
     width: 100%;
-    background: #f3f4f6;
+    background: #f3f4f6; /* #101828 */
     padding: 0 1rem;
     max-height: 0;
     overflow: hidden;
@@ -452,7 +453,7 @@ const { pathname, navBarBG = false } = Astro.props;
   @media (max-width: 1023px) {
     .navbar,
     .navbar.scrolled {
-      background: #f3f4f6;
+      background: #101828;
       padding: 0.5rem; /* p-4 */
     }
 
@@ -486,14 +487,16 @@ const { pathname, navBarBG = false } = Astro.props;
       font-weight: 600;
       color: #101828; /* accent-900 */
     }
-    .mobile-item > a::after {
+
+    /* TODO : Remove */
+    /* .mobile-item > a::after {
       content: "⟫";
       margin-left: 0.5rem;
       transition: transform 0.25s ease;
     }
     .mobile-item > a.open::after {
       transform: rotate(90deg);
-    }
+    } */
 
     /* Submenu styling */
     .mobile-submenu {
