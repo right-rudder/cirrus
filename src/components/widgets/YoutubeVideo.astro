@@ -1,0 +1,14 @@
+---
+const { url, class: classes = "", allowFullScreen = true, title = "" } = Astro.props;
+---
+
+<iframe
+  src={url}
+  title={title || "Youtube Video Player"}
+  class={classes}
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen={allowFullScreen}
+>
+</iframe>
