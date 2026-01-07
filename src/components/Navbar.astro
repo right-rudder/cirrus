@@ -1,10 +1,9 @@
 ---
 import ImageComp from "./ImageComp.astro";
 import { IoIosAirplane } from "react-icons/io";
-import { COMPANY_NAME, FACEBOOK_URL, INSTAGRAM_URL, PHONE_NUMBER_HEADER } from "../data/consts";
+import { COMPANY_NAME, PHONE_NUMBER_HEADER } from "../data/consts";
 import { FaPhoneSquareAlt } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaFacebookSquare } from "react-icons/fa";
+import Socials from "./Socials.astro";
 
 export type MenuItem = {
   label: string;
@@ -158,7 +157,10 @@ export const footerMenu: MenuItem[] = [
 const { pathname, navBarBG = false } = Astro.props;
 ---
 
-<nav id="navbar" class={`navbar w-full flex justify-center transition-all duration-500 ease-in-out py-4 px-1 ${navBarBG ? "force-navbar-bg" : ""}`}>
+<nav
+  id="navbar"
+  class={`navbar w-full flex justify-center transition-all duration-500 ease-in-out py-4 px-1 ${navBarBG ? "force-navbar-bg" : ""}`}
+>
   <div class="container px-4 flex items-center justify-between gap-3 md:px-0">
     <!-- Logo -->
     <a href="/" class="object-contain h-auto">
@@ -173,16 +175,21 @@ const { pathname, navBarBG = false } = Astro.props;
     <ul class="nav flex gap-2 list-none">
       {
         menu.map((item, index) => (
-          <li class={`menu-item group relative transition-colors duration-300 ease-in-out ${item.children ? "has-children" : ""}`} data-index={index}>
+          <li
+            class={`menu-item group relative transition-colors duration-300 ease-in-out ${item.children ? "has-children" : ""}`}
+            data-index={index}
+          >
             <a href={item.url}>{item.label}</a>
             {item.children && (
-              <ul class="sub-menu absolute top-full left-0 z-40 min-w-56 bg-accent-800 border border-accent-800 list-none py-2 rounded-sm invisible opacity-0 translate-y-1.5 pointer-events-none transition-all duration-300 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
+              <ul class="sub-menu absolute top-full left-0 z-40 min-w-56 bg-white border border-white list-none py-2 rounded-sm invisible opacity-0 translate-y-1.5 pointer-events-none transition-all duration-300 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
                 {item.children.map((child) => (
                   <li>
                     <a
                       href={child.url}
                       class={
-                        (child.url === pathname || child.url + "/" === pathname) && child.url !== "/"
+                        (child.url === pathname ||
+                          child.url + "/" === pathname) &&
+                        child.url !== "/"
                           ? "menu-link-hover"
                           : ""
                       }
@@ -254,7 +261,9 @@ const { pathname, navBarBG = false } = Astro.props;
                     <a
                       href={child.url}
                       class={
-                        (child.url === pathname || child.url + "/" === pathname) && child.url !== "/"
+                        (child.url === pathname ||
+                          child.url + "/" === pathname) &&
+                        child.url !== "/"
                           ? "menu-link-hover"
                           : ""
                       }
@@ -277,37 +286,24 @@ const { pathname, navBarBG = false } = Astro.props;
       </a>
 
       <div class="flex justify-center items-center gap-3">
-        <a
-          href={INSTAGRAM_URL}
-          target="_blank"
-          aria-label="Instagram"
-          title="Instagram"
-          class="hover:text-lime-500 transition-all duration-300 ease-in-out"
-        >
-          <FaInstagram className="text-2xl" />
-        </a>
-
-        <a
-          href={FACEBOOK_URL}
-          target="_blank"
-          aria-label="Facebook"
-          title="Facebook"
-          class="hover:text-lime-500 transition-all duration-300 ease-in-out"
-        >
-          <FaFacebookSquare className="text-2xl" />
-        </a>
-
-        <a
-          href=`tel:${PHONE_NUMBER_HEADER}`
-          aria-labelledby="Call Us Now"
-          title="Call Us Now"
-          class="flex gap-3 justify-center items-center tracking-widest text-lg font-bold duration-300 ease-in-out hover:text-lime-500"
-          aria-label="Call telephone Link"
-        >
-          <FaPhoneSquareAlt className="text-2xl" />
-          {PHONE_NUMBER_HEADER}</a
-        >
+        <Socials />
       </div>
+      {
+        PHONE_NUMBER_HEADER && (
+          <div class="flex justify-center items-center gap-3">
+            <a
+              href={`tel:${PHONE_NUMBER_HEADER}`}
+              aria-labelledby="Call Us Now"
+              title="Call Us Now"
+              class="flex gap-3 justify-center items-center tracking-widest text-lg font-bold duration-300 ease-in-out hover:text-lime-500"
+              aria-label="Call telephone Link"
+            >
+              <FaPhoneSquareAlt className="text-2xl" />
+              {PHONE_NUMBER_HEADER}
+            </a>
+          </div>
+        )
+      }
     </div>
   </div>
 </nav>
@@ -329,7 +325,7 @@ const { pathname, navBarBG = false } = Astro.props;
 
   .menu-item a:hover,
   .menu-item a:has(+ ul > li > a.menu-link-hover) {
-    color: oklch(75.019% 0.21579 135.347); /* primary-400 */
+    color: #7ccf00; /* text-lime-500 */
   }
 
   .navbar.scrolled .nav > .menu-item > a,
@@ -342,8 +338,11 @@ const { pathname, navBarBG = false } = Astro.props;
   .navbar.scrolled .nav > .menu-item a:has(+ ul > li > a.menu-link-hover),
   .navbar.force-navbar-bg .nav > .menu-item > a:hover,
   .navbar.force-navbar-bg .nav > .menu-item > a.menu-link-hover,
-  .navbar.force-navbar-bg .nav > .menu-item a:has(+ ul > li > a.menu-link-hover) {
-    color: oklch(84.2% 0.22139 133.38); /* primary-400 */
+  .navbar.force-navbar-bg
+    .nav
+    > .menu-item
+    a:has(+ ul > li > a.menu-link-hover) {
+    color: #7ccf00; /* text-lime-500 */
   }
 
   /* Dropdown (desktop) */
@@ -378,7 +377,7 @@ const { pathname, navBarBG = false } = Astro.props;
     display: block;
     padding: 0.5rem 1rem;
     white-space: nowrap;
-    color: white;
+    color: #314158; /* text-slate-700 */
     transition:
       background 0.3s ease,
       color 0.3s ease,
@@ -388,7 +387,7 @@ const { pathname, navBarBG = false } = Astro.props;
 
   .sub-menu li a:hover,
   .sub-menu li a.menu-link-hover {
-    color: oklch(75.019% 0.21579 135.347);
+    color: black;
   }
 
   .container .hamburger .hamburger-menu-x,
@@ -482,33 +481,35 @@ const { pathname, navBarBG = false } = Astro.props;
       justify-content: space-between;
       padding: 12px 4px;
       font-weight: 600;
-      color: #101828; /* accent-900 */
+      color: #314158; /* slate-700 */
+      transition: color 0.3s ease-in-out;
     }
 
     /* Submenu styling */
     .mobile-submenu {
-      border-left: 2px solid #101828; /* accent-900 */
+      border-left: 2px solid #0f172b; /* slate-900 */
       margin-left: 10px;
       padding-left: 6px;
     }
     a:has(+ .mobile-submenu.open),
     a:has(+ .mobile-submenu .menu-link-hover) {
-      color: oklch(75.019% 0.21579 135.347); /* primary-400 */
+      color: #0f172b; /* slate-900 */
     }
     .mobile-submenu li a {
       display: block;
       padding: 10px 12px 10px 18px;
       border-radius: 6px;
-      color: #101828; /* accent-900 */
+      color: #314158; /* slate-700 */
+      transition: all 0.2s ease-in-out;
     }
     .mobile-submenu li a:hover {
-      background: oklch(0.278 0.033 256.848); /* primary-400 */
+      background: oklch(0.278 0.033 256.848);
       color: #f3f4f6;
       font-weight: bold;
     }
 
     .mobile-submenu li a.menu-link-hover {
-      background: oklch(0.278 0.033 256.848); /* primary-400 */
+      background: oklch(0.278 0.033 256.848);
       color: #f3f4f6;
       font-weight: bold;
     }
@@ -518,7 +519,7 @@ const { pathname, navBarBG = false } = Astro.props;
       background-color: #f3f4f6;
       bottom: 0;
       padding: 12px 0 14px;
-      border-top: 1px solid #101828; /* accent-900 */
+      border-top: 1px solid #0f172b; /* slate-900 */
       display: flex;
       flex-direction: column;
       gap: 12px;
@@ -540,7 +541,8 @@ const { pathname, navBarBG = false } = Astro.props;
 
   function updateNavbar() {
     if (
-      ((window.scrollY > 40 || window.innerWidth <= 1023) && !navbar.classList.contains("scrolled")) ||
+      ((window.scrollY > 40 || window.innerWidth <= 1023) &&
+        !navbar.classList.contains("scrolled")) ||
       navbar.classList.contains("force-navbar-bg")
     ) {
       navbar.classList.add("scrolled");
@@ -548,7 +550,11 @@ const { pathname, navBarBG = false } = Astro.props;
       return;
     }
 
-    if (window.scrollY <= 40 && window.innerWidth > 1023 && navbar.classList.contains("scrolled")) {
+    if (
+      window.scrollY <= 40 &&
+      window.innerWidth > 1023 &&
+      navbar.classList.contains("scrolled")
+    ) {
       navbar.classList.remove("scrolled");
     }
   }
@@ -588,16 +594,19 @@ const { pathname, navBarBG = false } = Astro.props;
 
         const isOpen = submenu.classList.contains("open");
 
-        document.querySelectorAll(".mobile-submenu.open").forEach((openSubmenu) => {
-          if (openSubmenu !== submenu) {
-            openSubmenu.classList.remove("open");
-            openSubmenu.style.maxHeight = "0px";
-            openSubmenu.style.opacity = "0";
+        document
+          .querySelectorAll(".mobile-submenu.open")
+          .forEach((openSubmenu) => {
+            if (openSubmenu !== submenu) {
+              openSubmenu.classList.remove("open");
+              openSubmenu.style.maxHeight = "0px";
+              openSubmenu.style.opacity = "0";
 
-            const openLink = openSubmenu.parentElement.querySelector(":scope > a.open");
-            if (openLink) openLink.classList.remove("open");
-          }
-        });
+              const openLink =
+                openSubmenu.parentElement.querySelector(":scope > a.open");
+              if (openLink) openLink.classList.remove("open");
+            }
+          });
 
         submenu.classList.toggle("open", !isOpen);
         link.classList.toggle("open", !isOpen);
@@ -616,10 +625,12 @@ const { pathname, navBarBG = false } = Astro.props;
   document.querySelectorAll("#mobile-menu a").forEach((link) => {
     link.addEventListener("click", (e) => {
       const parentItem = link.closest(".mobile-item");
-      const hasSubmenu = parentItem && parentItem.querySelector(".mobile-submenu");
+      const hasSubmenu =
+        parentItem && parentItem.querySelector(".mobile-submenu");
 
       // If this link just toggles a submenu, do nothing here
-      if (hasSubmenu && e.target.closest("a").nextElementSibling === hasSubmenu) return;
+      if (hasSubmenu && e.target.closest("a").nextElementSibling === hasSubmenu)
+        return;
 
       // Close mobile menu if it's open
       if (mobileMenu.classList.contains("open")) {

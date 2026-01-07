@@ -38,7 +38,7 @@
 }
 
 .btn-primary {
-  @apply bg-lime-700 border border-lime-700 text-white font-semibold rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition duration-300 cursor-pointer hover:bg-slate-900 hover:border-slate-900 hover:text-lime-500;
+  @apply bg-lime-500 border border-lime-500 text-slate-950 font-semibold rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition duration-300 cursor-pointer hover:bg-slate-950 hover:border-slate-950 hover:text-lime-500;
 }
 
 .btn-primary:disabled,
@@ -47,7 +47,7 @@
 }
 
 .btn-primary-dark {
-  @apply bg-slate-900 text-lime-600 font-semibold rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition duration-300 cursor-pointer border border-transparent hover:border-lime-700 hover:bg-slate-50 hover:text-lime-700;
+  @apply bg-slate-900 text-lime-500 font-semibold rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition duration-300 cursor-pointer border border-transparent hover:border-lime-600 hover:bg-slate-50 hover:text-lime-600;
 }
 
 .btn-secondary {
@@ -55,7 +55,7 @@
 }
 
 .btn-transparent {
-  @apply bg-slate-900/40 text-white border border-lime-700 rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition font-semibold cursor-pointer hover:bg-lime-700 hover:border-lime-700;
+  @apply bg-slate-900/40 text-white border border-lime-600 rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition font-semibold cursor-pointer hover:bg-lime-600 hover:border-lime-600;
 }
 
 .btn-transparent-dark {
@@ -72,7 +72,7 @@
 }
 
 a.eyebrow {
-  @apply text-slate-100 bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-sm text-sm border-b-2 border-l-2 border-r-2 border-t border-lime-600 mb-0! lg:text-base hover:bg-lime-600 duration-300 ease-in-out;
+  @apply text-slate-100 bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-sm text-sm border-b-2 border-l-2 border-r-2 border-t border-lime-500 mb-0! lg:text-base hover:bg-lime-500 duration-300 ease-in-out;
 }
 
 .eyebrow-light {
