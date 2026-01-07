@@ -61,7 +61,8 @@ export const LOCATION_KEYWORDS = {
   primary:
     "Sarasota-Bradenton International Airport flight training, Sarasota flight lessons, Bradenton flight lessons",
   secondary:
-    "Clearwater flight school, Riverview aviation training, Florida flight instruction, Tampa flight lessons, Punta Gorda pilot school, Venice FL flight training, St. Petersburg pilot training",
+    `Clearwater flight school, Riverview aviation training, Florida flight instruction, Tampa flight lessons, Punta Gorda pilot school, Venice FL flight training, St. Petersburg pilot training,
+    Parrish flight training, Ellenton flight school, North Port aviation training, Ft. Myers pilot school`,
 };
 
 export const OG_IMAGE = "";

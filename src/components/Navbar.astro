@@ -27,12 +27,16 @@ export const menu: MenuItem[] = [
     ],
   },
   {
-    label: "Pilot Training",
+    label: "Flight Training",
     url: "/flight-training",
     children: [
       {
-        label: "Pilot Training",
+        label: "Flight Training",
         url: "/flight-training",
+      },
+      {
+        label: "Career Pilot Program",
+        url: "/flight-training/career-pilot",
       },
       {
         label: "Private Pilot",
@@ -55,8 +59,12 @@ export const menu: MenuItem[] = [
         url: "/flight-training/cfi",
       },
       {
-        label: "Flight Simulation",
+        label: "Flight Simulator Lab",
         url: "/flight-training/flight-simulation",
+      },
+      {
+        label: "IFR Ground School",
+        url: "/flight-training/ifr-ground-school",
       },
     ],
   },
@@ -65,8 +73,9 @@ export const menu: MenuItem[] = [
     url: "/services",
     children: [
       { label: "Services", url: "/services" },
-      { label: "Aircraft Maintenance", url: "/services/aircraft-maintenance" },
       { label: "Aircraft Rental", url: "/services/aircraft-rental" },
+      { label: "Aircraft Brokerage", url: "/services/aircraft-brokerage" },
+      { label: "Airman Testing", url: "/services/airman-testing" },
     ],
   },
   {
@@ -79,19 +88,37 @@ export const menu: MenuItem[] = [
       },
       {
         label: "Education",
-        url: "/resources/education/",
+        url: "/resources/education",
       },
       {
         label: "Financing",
-        url: "/resources/financing/",
+        url: "/resources/financing",
       },
       {
         label: "Insurance",
-        url: "/resources/insurance/",
+        url: "/resources/insurance",
       },
       {
         label: "Scholarships",
-        url: "/resources/scholarships/",
+        url: "/resources/scholarships",
+      },
+      {
+        label: "Customer Forms",
+        url: "/resources/customer-forms",
+      },
+    ],
+  },
+  {
+    label: "Flight Schedule",
+    url: "https://app.flightschedulepro.com/Account/Login/139257",
+    children: [
+      {
+        label: "Login",
+        url: "https://app.flightschedulepro.com/Account/Login/139257",
+      },
+      {
+        label: "Sign Up",
+        url: "https://app.flightschedulepro.com/Account/Signup/139257",
       },
     ],
   },
@@ -100,11 +127,10 @@ export const menu: MenuItem[] = [
     url: "/about-us",
     children: [
       { label: "About Us", url: "/about-us" },
-      /* { label: "Our Team", url: "/about-us/team" }, */
       { label: "Our Fleet", url: "/about-us/fleet" },
       { label: "FAQ", url: "/about-us/faq" },
       { label: "Blog", url: "/blog" },
-      { label: "Contact Us", url: "/contact" },
+      { label: "Contact Us", url: "/contact-us" },
     ],
   },
 ];
@@ -114,41 +140,61 @@ export const footerMenu: MenuItem[] = [
     label: "Quick Links",
     url: "",
     children: [
-      { label: "New to Flying", url: "/new-to-flying/" },
-      { label: "Discovery Flight", url: "/discovery-flight/" },
-      { label: "Aircraft Services", url: "/services/" },
-      { label: "Resources", url: "/resources/" },
-      { label: "FAQ", url: "/about-us/faq/" },
-      { label: "Contact Us", url: "/contact/" },
+      { label: "New to Flying", url: "/new-to-flying" },
+      { label: "Discovery Flight", url: "/discovery-flight" },
+      { label: "Aircraft Services", url: "/services" },
+      { label: "Resources", url: "/resources" },
+      { label: "FAQ", url: "/about-us/faq" },
+      {
+        label: "Flight Schedule Login",
+        url: "https://app.flightschedulepro.com/Account/Login/139257",
+      },
+      {
+        label: "Flight Schedule Sign Up",
+        url: "https://app.flightschedulepro.com/Account/Signup/139257",
+      },
+      { label: "Contact Us", url: "/contact-us" },
     ],
   },
   {
-    label: "Pilot Training",
+    label: "Flight Training",
     url: "/flight-training/",
     children: [
       {
+        label: "Flight Training",
+        url: "/flight-training",
+      },
+      {
+        label: "Career Pilot Program",
+        url: "/flight-training/career-pilot",
+      },
+      {
         label: "Private Pilot",
-        url: "/flight-training/private-pilot/",
+        url: "/flight-training/private-pilot",
       },
       {
         label: "Instrument Rating",
-        url: "/flight-training/instrument-rating/",
+        url: "/flight-training/instrument-rating",
       },
       {
         label: "Commercial Pilot",
-        url: "/flight-training/commercial-pilot/",
+        url: "/flight-training/commercial-pilot",
       },
       {
         label: "Multi Engine",
-        url: "/flight-training/multi-engine/",
+        url: "/flight-training/multi-engine",
       },
       {
         label: "Certified Flight Instructor",
-        url: "/flight-training/cfi/",
+        url: "/flight-training/cfi",
       },
       {
-        label: "Flight Simulation",
-        url: "/flight-training/flight-simulation/",
+        label: "Flight Simulator Lab",
+        url: "/flight-training/flight-simulation",
+      },
+      {
+        label: "IFR Ground School",
+        url: "/flight-training/ifr-ground-school",
       },
     ],
   },
@@ -159,27 +205,27 @@ const { pathname, navBarBG = false } = Astro.props;
 
 <nav
   id="navbar"
-  class={`navbar w-full flex justify-center transition-all duration-500 ease-in-out py-4 px-1 ${navBarBG ? "force-navbar-bg" : ""}`}
+  class={`navbar w-full flex justify-center transition-all duration-500 ease-in-out p-4 ${navBarBG ? "force-navbar-bg" : ""}`}
 >
-  <div class="container px-4 flex items-center justify-between gap-3 md:px-0">
+  <div class="container-desktop-nav flex items-center justify-between gap-6 w-full lg:w-fit">
     <!-- Logo -->
     <a href="/" class="object-contain h-auto">
       <ImageComp
-        class="logo-white w-64 md:w-72"
+        class="logo-white w-64 lg:w-48 xl:w-72"
         src="/src/assets/cirrus-anniversary-logo-white.webp"
         alt={`${COMPANY_NAME} Logo`}
       />
     </a>
 
     <!-- Desktop Menu -->
-    <ul class="nav flex gap-2 list-none">
+    <ul class="nav flex gap-3 list-none">
       {
         menu.map((item, index) => (
           <li
-            class={`menu-item group relative transition-colors duration-300 ease-in-out ${item.children ? "has-children" : ""}`}
+            class={`menu-item group text-base xl:text-lg 2xl:text-xl relative transition-colors duration-300 ease-in-out ${item.children ? "has-children" : ""}`}
             data-index={index}
           >
-            <a href={item.url}>{item.label}</a>
+            <a href={item.url} class="whitespace-nowrap">{item.label}</a>
             {item.children && (
               <ul class="sub-menu absolute top-full left-0 z-40 min-w-56 bg-white border border-white list-none py-2 rounded-sm invisible opacity-0 translate-y-1.5 pointer-events-none transition-all duration-300 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
                 {item.children.map((child) => (
@@ -207,7 +253,7 @@ const { pathname, navBarBG = false } = Astro.props;
 
     <!-- Buttons -->
     <div class="buttons">
-      <a href="/contact" class="btn-primary text-lg!">
+      <a href="/contact" class="btn-primary text-base! xl:text-lg!">
         <IoIosAirplane className="size-6" />
         Contact Us
       </a>
@@ -377,7 +423,8 @@ const { pathname, navBarBG = false } = Astro.props;
     display: block;
     padding: 0.5rem 1rem;
     white-space: nowrap;
-    color: #314158; /* text-slate-700 */
+    color: #314158; /* text-slate-700 */ /* TODO : Define better option */
+    color: #45556c; /* text-slate-600 */
     transition:
       background 0.3s ease,
       color 0.3s ease,
@@ -390,13 +437,13 @@ const { pathname, navBarBG = false } = Astro.props;
     color: black;
   }
 
-  .container .hamburger .hamburger-menu-x,
-  .container.open .hamburger .hamburger-menu-bars {
+  .container-desktop-nav .hamburger .hamburger-menu-x,
+  .container-desktop-nav.open .hamburger .hamburger-menu-bars {
     display: none;
   }
 
-  .container.open .hamburger .hamburger-menu-x,
-  .container .hamburger .hamburger-menu-bars {
+  .container-desktop-nav.open .hamburger .hamburger-menu-x,
+  .container-desktop-nav .hamburger .hamburger-menu-bars {
     display: block;
   }
 
@@ -537,7 +584,7 @@ const { pathname, navBarBG = false } = Astro.props;
   const navbar = document.getElementById("navbar");
   const mobileToggle = document.getElementById("mobile-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
-  const menuHeaderContainer = document.querySelector("#navbar > .container");
+  const menuHeaderContainer = document.querySelector("#navbar > .container-desktop-nav");
 
   function updateNavbar() {
     if (

@@ -5,6 +5,9 @@ pubDate: 'Jun 19 2024'
 heroImage: /src/assets/cessna-172-cirrus-aviation-sarasota-flight-training.jpg
 ---
 
+https://www.cirrusaviation.com/accommodations/
+
+
 Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
 
 ## Headings
