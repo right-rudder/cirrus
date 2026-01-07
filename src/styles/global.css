@@ -62,8 +62,12 @@
   @apply bg-lime-800/20 text-slate-50 border border-lime-800 rounded-sm px-4 py-2 flex items-center justify-center gap-2 hover:bg-lime-800 transition font-semibold cursor-pointer;
 }
 
-.btn-white {
+.btn-white-rose {
   @apply bg-white text-slate-900 rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition duration-300 cursor-pointer hover:bg-slate-900 hover:text-rose-500;
+}
+
+.btn-white-lime {
+  @apply bg-white text-lime-700 rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition duration-300 cursor-pointer hover:bg-slate-900 hover:text-lime-400;
 }
 
 /* TODO : Remove */

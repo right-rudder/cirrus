@@ -1,10 +1,32 @@
 ---
-import ImageComp from '../ImageComp.astro';
+import ImageComp from "../ImageComp.astro";
 
-const { data } = Astro.props;
+const { data, breakpoint } = Astro.props;
+
+const desktopVisible = `${breakpoint}:block`;
+const desktopInvisible = `${breakpoint}:hidden`;
 ---
-<a href={data.cta.url} target={data.cta.url.includes("http") ? "_blank" : ""} class="group rounded-sm overflow-hidden shadow relative min-h-64">
-  <ImageComp src={data.img.src} alt={data.img.alt} class="absolute left-0 top-0 size-full object-cover transition-all duration-300 ease-in-out group-hover:scale-105 group-hover" />
-  <div class="absolute inset-0 bg-rose-950 opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-60"></div>
-  <p class="absolute top-1/2 left-0 -translate-y-1/2 w-full text-center text-white font-semibold text-2xl opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100 px-4">{data.title}</p>
+
+<a
+  href={data.cta.url}
+  target={data.cta.url.includes("http") ? "_blank" : ""}
+  class="group rounded-sm overflow-hidden shadow relative min-h-64"
+>
+  <ImageComp
+    src={data.img.src}
+    alt={data.img.alt}
+    class="absolute left-0 top-0 size-full object-cover transition-all duration-300 ease-in-out group-hover:scale-105 group-hover"
+  />
+  <div
+    class={`absolute inset-0 bg-rose-950 opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-60 hidden ${desktopVisible}`}
+  >
+  </div>
+  <p
+    class={`absolute top-1/2 left-0 -translate-y-1/2 w-full text-center text-white font-semibold text-2xl opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100 px-4 hidden ${desktopVisible}`}
+    set:html={data.title}
+  />
+  <p
+    class={`absolute bottom-0 left-0 w-full py-6 px-4 rounded-sm bg-slate-900/40 text-white text-2xl text-center backdrop-blur-sm ${desktopInvisible}`}
+    set:html={data.title}
+  />
 </a>
