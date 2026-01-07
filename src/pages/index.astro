@@ -2,202 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import CardList from "../components/cards/CardList.astro";
-import { LiaPlaneSolid } from "react-icons/lia";
-import { LiaFlag } from "react-icons/lia";
-import { LiaGraduationCapSolid } from "react-icons/lia";
-import { LiaCompass } from "react-icons/lia";
-import YoutubeVideo from "../components/widgets/YoutubeVideo.astro";
+import VideoSection from "../components/sections/VideoSection.astro";
 import ElfsightGoogleReviews from "../components/widgets/ElfsightGoogleReviews.astro";
-
-const data = {
-  header: {
-    image: {
-      src: "/src/assets/cessna-172-cirrus-aviation-sarasota-flight-training.jpg",
-      alt: "Cessna 172 preparing for take off with the sun in the background",
-    },
-    /* videoSrc: "/Adobe_Spark_Video-2.mp4", */
-    title: "Learn to Fly at Cirrus Aviation",
-    subTitle:
-      "Earn your Private Pilot License, or begin an exciting career as a commercial pilot. No matter your path, Cirrus Aviation can help you achieve your dream.",
-    cta: [
-      {
-        url: "https://www.cirrusaviation.com/contact-us",
-        text: "Learn More About Flight Training",
-      },
-    ],
-  },
-  cards: [
-    {
-      type: "simple",
-      icon: LiaPlaneSolid,
-      title: "Advanced Flight Sim Lab",
-      description: "Pioneering new ways to use simulators in flight training.",
-      cta: {
-        url: "https://www.cirrusaviation.com/flight-simulator-lab",
-        text: "Flight Sim Lab",
-      },
-    },
-    {
-      type: "simple",
-      icon: LiaFlag,
-      title: "Veterans: Use Your GI Bill",
-      description: "Pay for your flight training with your U.S. military benefits.",
-      cta: {
-        url: "https://www.cirrusaviation.com/flight-training-for-military-veterans",
-        text: "Use GI Bill",
-      },
-    },
-    {
-      type: "simple",
-      icon: LiaGraduationCapSolid,
-      title: "Earn Your College Degree",
-      description: "Liberty University FTA: Earn your degree while you fly.",
-      cta: {
-        url: "https://www.cirrusaviation.com/get-your-bachelors-degree-in-aeronautics",
-        text: "University Program",
-      },
-    },
-    {
-      type: "simple",
-      icon: LiaCompass,
-      title: "Destination Flight Training",
-      description: "Intensive accelerated flight training in just a few weeks.",
-      cta: {
-        url: "https://www.cirrusaviation.com/flight-training",
-        text: "Accelerated Training",
-      },
-    },
-  ],
-  path: {
-    title: "Choose Your Path: Recreational Pilot or Commercial Pilot",
-    cards: [
-      {
-        type: "with-image",
-        img: {
-          src: "/src/assets/cockpit-instrument-panel-cirrus-aviation-flight-training-sarasota.jpg",
-          alt: "View from the back of the instrument panel in the cockpit of an airplane",
-        },
-        title: "Career Pilot Program",
-        description:
-          "Demand for professional pilots is growing and there are ample opportunities for those with the right training.",
-        cta: {
-          url: "https://www.cirrusaviation.com/career-pilot-program",
-          text: "Learn How To Start Your Career",
-        },
-      },
-      {
-        type: "with-image",
-        img: {
-          src: "/src/assets/student-beside-ariplane-with-first-solo-shirt-in-hands-cirrus-aviation-bradenton.jpg",
-          alt: "Female student leaning on an airplane's wing while holding a first solo shirt",
-        },
-        title: "Recreational Flight Program",
-        description: "For everyone who dreams of becoming a licensed pilot, there comes the moment to finally choose.",
-        cta: {
-          url: "https://www.cirrusaviation.com/learn-to-fly",
-          text: "Earn Your Private Pilot License",
-        },
-      },
-      {
-        type: "with-image",
-        img: {
-          src: "/src/assets/pilot-in-airplane-flying-cirrus-aviation-flight-school-florida.jpg",
-          alt: "View from outside the left window of an airplane of two pilots during flight",
-        },
-        title: "Take a Discovery Flight",
-        description:
-          "Ever wondered what it’s like to fly an airplane? In our “Discovery Flight” package, a Certified Flight …",
-        cta: {
-          url: "https://www.cirrusaviation.com/take-a-discovery-flight",
-          text: "See What Flight Training Is Like",
-        },
-      },
-    ],
-  },
-  aboutUs: {
-    title: "About Cirrus Aviation",
-    description: `We are a Sarasota-based flight school and aviation services provider built on decades of hands-on experience in pilot training and aircraft operations. As an FAA-approved training organization, we work with aircraft every day—training pilots, managing fleets, and upholding the highest standards of safety, professionalism, and regulatory compliance.
-
-    That operational foundation shapes everything we do, from flight training to aircraft brokerage and aviation services. Our team brings practical insight, transparency, and a long-term ownership mindset to every client relationship, helping pilots and aircraft owners make confident, well-informed decisions at every stage of their aviation journey.`,
-    cta: {
-      url: "https://www.cirrusaviation.com/contact-us",
-      text: "Contact Us",
-    },
-    youtubeVideoURL: "https://www.youtube.com/embed/HBrcyC1FsdU?si=YNRDgoNCVJ1J0794",
-  },
-  explore: {
-    title: "Explore Your Options",
-    subTitle: "Learn more about our flight sim lab, our aircraft fleet, and our training programs",
-    cards: [
-      {
-        type: "only-image",
-        img: {
-          src: "/src/assets/asian-pilot-smiling-to-camera-inside-cockpit-cirrus-aviation-tampa-discovery-flight.jpg",
-          alt: "Asian pilot smiling at the camera inside an airplane's cockpit",
-        },
-        title: "International Students",
-        cta: {
-          url: "https://www.cirrusaviation.com/portfolio/portfolio-5-copy",
-        }
-      },
-      {
-        type: "only-image",
-        img: {
-          src: "/src/assets/soldier-talking-on-handheld-radio-obscured-by-shadow-cirrus-aviation-private-pilot-clearwater.jpg",
-          alt: "Soldier talking on a handheld radio while obscured by shadow",
-        },
-        title: "Use Your GI Bill",
-        cta: {
-          url: "https://www.cirrusaviation.com/portfolio/portfolio-8",
-        }
-      },
-      {
-        type: "only-image",
-        img: {
-          src: "/src/assets/liberty-sports-logo-cirrus-aviation-riverview-flight-school.jpg",
-          alt: "Liberty Sports Logo",
-        },
-        title: "Get Your Bachelor's Degree In Aeronautics",
-        cta: {
-          url: "https://www.cirrusaviation.com/portfolio/aeronautics-degree/",
-        }
-      },
-      {
-        type: "only-image",
-        img: {
-          src: "/src/assets/left-view-of-airplane-cockpit-from-open-door-cirrus-aviation-punta-gorda-pilot-training.jpg",
-          alt: "Airplane's cockpit seen from its open left door",
-        },
-        title: "Flight Sim Lab",
-        cta: {
-          url: "https://www.cirrusaviation.com/portfolio/portfolio-5/",
-        }
-      },
-      {
-        type: "only-image",
-        img: {
-          src: "/src/assets/three-airplanes-in-front-of-hangar-cirrus-aviation-instrument-rating.jpg",
-          alt: "Three airplanes in front of hangars",
-        },
-        title: "Our Aircraft Fleet",
-        cta: {
-          url: "https://www.cirrusaviation.com/portfolio/portfolio-item-4/",
-        }
-      },
-      {
-        type: "only-image",
-        img: {
-          src: "/src/assets/inside-airplane-two-pilots-landing-on-runway-cirrus-aviation-st-petersburg-certified-flight-instructor.jpg",
-          alt: "View from inside and airplane of two pilots almost landing with the runway close in sight",
-        },
-        title: "Aircraft Checkout And Rental Rates",
-        cta: {
-          url: "https://www.cirrusaviation.com/portfolio/portfolio-item-3/",
-        }
-      },
-    ],
-  }
-};
+import CTA from "../components/sections/CTA.astro";
+import { data } from "../data/index";
 ---
 
 <BaseLayout>
@@ -207,27 +15,35 @@ const data = {
     <CardList data={data.cards} />
   </section>
 
+  <!-- TODO : Improve program list -->
+
   <section class="py-24 px-4 bg-slate-100">
-    <h2 class="text-slate-900 text-4xl text-center my-8 font-bold">{data.path.title}</h2>
+    <h2 class="text-slate-900 text-5xl text-center my-2 font-bold">
+      {data.path.title}
+    </h2>
+    <p class="text-slate-600 text-2xl text-center mb-16">
+      {data.path.subTitle}
+    </p>
     <CardList data={data.path.cards} />
   </section>
 
   <ElfsightGoogleReviews />
 
-  <section class="bg-rose-700">
-    <div class="flex flex-col lg:flex-row">
-      <YoutubeVideo url={data.aboutUs.youtubeVideoURL} class="aspect-video lg:w-1/2" />
-      <div class="flex-col gap-4 justify-center items-center py-12 px-4 lg:py-24 lg:px-12 lg:w-1/2">
-        <h2 class="text-white text-4xl mb-6">{data.aboutUs.title}</h2>
-        <p class="text-slate-50 text-base whitespace-pre-line mb-6">{data.aboutUs.description}</p>
-        <a class="btn-white w-fit" href={data.aboutUs.cta.url} target={data.aboutUs.cta.url.includes("http") ? "_blank" : ""}>{data.aboutUs.cta.text}</a>
-      </div>
-    </div>
-  </section>
+  <VideoSection data={data.aboutUs} />
 
   <section class="py-24 px-4 bg-slate-100">
-    <h2 class="text-slate-900 text-4xl text-center mb-6 font-bold">{data.explore.title}</h2>
-    <p class="text-slate-600 text-lg text-center mb-8">{data.explore.subTitle}</p>
+    <h2 class="text-slate-900 text-5xl text-center mb-6 font-bold">
+      {data.explore.title}
+    </h2>
+    <p class="text-slate-600 text-2xl text-center mb-8">
+      {data.explore.subTitle}
+    </p>
     <CardList data={data.explore.cards} />
   </section>
+
+  <!-- TODO : Add FAQ -->
+
+  <CTA data={data.cta} />
+
+  <!-- TODO : Add newsletter -->
 </BaseLayout>
