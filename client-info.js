@@ -1,4 +1,4 @@
-{
+const info = {
   "id": 38,
   "name": "Cirrus Aviation",
   "random_id": "ac_8kudpslo",
@@ -32,3 +32,17 @@
   "team_members": [],
   "aircrafts": []
 }
+
+
+/* 
+TODO : Make sure this is followed:
+- Manter sitemap do site original
+- No pricing on course pages
+
+TODO : 
+- Landing page
+  - Add FAQ
+  - Add Blog feed
+  - Add marquee on military / airline future
+- Update flight training programs
+ */
