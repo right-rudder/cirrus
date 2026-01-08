@@ -6,7 +6,7 @@ const Card = ({ Icon, card }) => {
       {Icon && <Icon className="text-5xl text-rose-500" />}
       <p class="text-slate-600 font-semibold text-xl">{card.title}</p>
       <p class="text-slate-500 text-lg">{card.description}</p>
-      <a class="btn-secondary text-lg" href={card.cta.url} target={card.cta.url.includes("http") ? "_blank" : ""}>{card.cta.text}</a>
+      <a class="btn-rose text-lg" href={card.cta.url} target={card.cta.url.includes("http") ? "_blank" : ""}>{card.cta.text}</a>
     </div>
   );
 };

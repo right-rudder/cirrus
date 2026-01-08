@@ -117,6 +117,7 @@ export const data = {
 
   aboutUs: {
     title: "About Cirrus Aviation",
+    subTitle: "Get to know us",
     description: `We are a Sarasota-based flight school and aviation services provider built on decades of hands-on experience in pilot training and aircraft operations. As an FAA-approved training organization, we work with aircraft every day—training pilots, managing fleets, and upholding the highest standards of safety, professionalism, and regulatory compliance.
 
     That operational foundation shapes everything we do, from flight training to aircraft brokerage and aviation services. Our team brings practical insight, transparency, and a long-term ownership mindset to every client relationship, helping pilots and aircraft owners make confident, well-informed decisions at every stage of their aviation journey.`,
