@@ -1,6 +1,5 @@
 ---
 import ImageComp from "./ImageComp.astro";
-import { IoIosAirplane } from "react-icons/io";
 import { COMPANY_NAME, PHONE_NUMBER_HEADER } from "../data/consts";
 import { FaPhoneSquareAlt } from "react-icons/fa";
 import Socials from "./Socials.astro";
@@ -253,8 +252,7 @@ const { pathname, navBarBG = false } = Astro.props;
 
     <!-- Buttons -->
     <div class="buttons">
-      <a href="/contact" class="btn-primary text-base! xl:text-lg!">
-        <IoIosAirplane className="size-6" />
+      <a href="/contact" class="btn-lime text-base! xl:text-lg!">
         Contact Us
       </a>
     </div>
@@ -326,8 +324,7 @@ const { pathname, navBarBG = false } = Astro.props;
     </ul>
 
     <div class="mobile-buttons">
-      <a href="/contact" class="btn-primary text-lg!">
-        <IoIosAirplane className="size-6" />
+      <a href="/contact" class="btn-lime text-lg!">
         Contact Us
       </a>
 

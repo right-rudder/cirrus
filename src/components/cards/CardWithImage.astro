@@ -8,6 +8,6 @@ const { data } = Astro.props;
   <div class="flex-1 p-4 flex flex-col gap-4 justify-between">
     <p class="text-slate-600 font-semibold text-xl">{data.title}</p>
     <p class="text-slate-500 text-base">{data.description}</p>
-    <button class="card-cta-button btn-secondary text-base" data-href={data.cta.url}>{data.cta.text}</button>
+    <button class="card-cta-button btn-dark text-base" data-href={data.cta.url}>{data.cta.text}</button>
   </div>
 </a>
