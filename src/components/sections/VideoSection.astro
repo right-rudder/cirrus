@@ -4,18 +4,21 @@ import YoutubeVideo from "../widgets/YoutubeVideo.astro";
 const { data } = Astro.props;
 ---
 
-<section class="bg-rose-700">
+<section class="bg-slate-900">
   <div class="flex flex-col lg:flex-row">
     <YoutubeVideo url={data.videoURL} class="aspect-video lg:w-1/2" />
     <div
       class="flex-col gap-4 justify-center items-center py-12 px-4 lg:py-24 lg:px-12 lg:w-1/2"
     >
-      <h2 class="text-white text-5xl mb-6">{data.title}</h2>
-      <p class="text-slate-50 text-lg whitespace-pre-line mb-6">
+      <h2 class="text-white text-5xl mb-4">{data.title}</h2>
+      <p class="text-rose-500 text-2xl mb-12">
+        {data.subTitle}
+      </p>
+      <p class="text-slate-50 text-lg whitespace-pre-line mb-8">
         {data.description}
       </p>
       <a
-        class="btn-white-rose w-fit"
+        class="btn-rose w-fit"
         href={data.cta.url}
         target={data.cta.url.includes("http") ? "_blank" : ""}
         >{data.cta.text}</a
