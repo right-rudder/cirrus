@@ -139,6 +139,7 @@ export const data = {
           alt: "Asian pilot smiling at the camera inside an airplane's cockpit",
         },
         title: "International Students",
+        description: "Find out about available accommodations, admissions processes, and general student information so you can start your flight training in Sarasota today.",
         cta: {
           url: "https://www.cirrusaviation.com/portfolio/portfolio-5-copy",
         },
@@ -150,6 +151,7 @@ export const data = {
           alt: "Soldier talking on a handheld radio while obscured by shadow",
         },
         title: "Use Your GI Bill",
+        description: "Learn about military benefits through our partnership with Liberty University.",
         cta: {
           url: "https://www.cirrusaviation.com/portfolio/portfolio-8",
         },
@@ -161,6 +163,7 @@ export const data = {
           alt: "Liberty Sports Logo",
         },
         title: `Get Your Bachelor's Degree<br/>In Aeronautics`,
+        description: "Study at Liberty University and see the available flight training programs so you can start flying today.",
         cta: {
           url: "https://www.cirrusaviation.com/portfolio/aeronautics-degree/",
         },
@@ -172,6 +175,7 @@ export const data = {
           alt: "Airplane's cockpit seen from its open left door",
         },
         title: "Flight Sim Lab",
+        description: "Prepare to fly an aircraft through our advanced flight simulators while still adding time toward your flight certifications.",
         cta: {
           url: "https://www.cirrusaviation.com/portfolio/portfolio-5/",
         },
@@ -183,6 +187,7 @@ export const data = {
           alt: "Three airplanes in front of hangars",
         },
         title: "Our Aircraft Fleet",
+        description: "See our well-maintained Cessna 172 fleet with advanced avionics available for flight training and rental.",
         cta: {
           url: "https://www.cirrusaviation.com/portfolio/portfolio-item-4/",
         },
@@ -194,6 +199,7 @@ export const data = {
           alt: "View from inside and airplane of two pilots almost landing with the runway close in sight",
         },
         title: `Aircraft Checkout<br/>And Rental Rates`,
+        description: "Read more about the requirements to rent an aircraft with Cirrus Aviation.",
         cta: {
           url: "https://www.cirrusaviation.com/portfolio/portfolio-item-3/",
         },

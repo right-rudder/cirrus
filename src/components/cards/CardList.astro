@@ -18,8 +18,18 @@ const data: {
   };
 }[] = Astro.props.data;
 
-const gridClasses = data.length % 3 === 0 ? "grid-cols-1 md:grid-cols-3" : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4";
-const cardMobileBreakpoint = gridClasses.includes("sm:") ? "sm" : "md";
+let gridClasses = "grid-cols-1";
+if (data.length % 2 === 0) {
+  gridClasses += " sm:grid-cols-2";
+}
+
+if (data.length % 3 === 0) {
+  gridClasses += " md:grid-cols-3";
+}
+
+if (data.length % 4 === 0) {
+  gridClasses += " lg:grid-cols-4";
+}
 ---
 
 <div class={`max-w-7xl mx-auto grid gap-4 ${gridClasses}`}>
@@ -30,7 +40,7 @@ const cardMobileBreakpoint = gridClasses.includes("sm:") ? "sm" : "md";
       } else if (card.type === "with-image") {
         return <CardWithImage data={card} />;
       } else if (card.type === "only-image") {
-        return <CardOnLyImage data={card} breakpoint={cardMobileBreakpoint} />;
+        return <CardOnLyImage data={card} />;
       }
     })
   }
