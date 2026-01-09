@@ -1,77 +1,40 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import FormattedDate from "../components/FormattedDate.astro";
 import BaseLayout from "./BaseLayout.astro";
-import ImageComp from "../components/ImageComp.astro";
+import Header from "../components/Header.astro";
+import { formatDate, capitalize } from "../components/utils/utils";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, author, heroImage, heroImageAlt, category } = Astro.props;
+
+const header = {
+  image: {
+    src: heroImage,
+    alt: heroImageAlt,
+  },
+  title: title,
+  subTitle: description,
+};
 ---
 
-<BaseLayout>
-  <style>
-    main {
-      width: calc(100% - 2em);
-      max-width: 100%;
-      margin: 0;
-    }
-    .hero-image {
-      width: 100%;
-    }
-    .hero-image img {
-      display: block;
-      margin: 0 auto;
-      border-radius: 12px;
-      box-shadow: var(--box-shadow);
-    }
-    .prose {
-      width: 720px;
-      max-width: calc(100% - 2em);
-      margin: auto;
-      padding: 1em;
-      color: rgb(var(--gray-dark));
-    }
-    .title {
-      margin-bottom: 1em;
-      padding: 1em 0;
-      text-align: center;
-      line-height: 1;
-    }
-    .title h1 {
-      margin: 0 0 0.5em 0;
-    }
-    .date {
-      margin-bottom: 0.5em;
-      color: rgb(var(--gray));
-    }
-    .last-updated-on {
-      font-style: italic;
-    }
-  </style>
-</BaseLayout>
-
-<main>
-  <article>
-    <div class="hero-image">
-      {heroImage && <ImageComp src={heroImage} alt="" />}
-    </div>
-    <div class="prose">
-      <div class="title">
-        <div class="date">
-          <FormattedDate date={pubDate} />
-          {
-            updatedDate && (
-              <div class="last-updated-on">
-                Last updated on <FormattedDate date={updatedDate} />
-              </div>
-            )
-          }
-        </div>
-        <h1>{title}</h1>
-        <hr />
+<BaseLayout pageTitle={title} pageDescription={description}
+  ><!-- TODO : Add keywords? -->
+  <Header data={header} />
+  <main class="bg-slate-100 min-h-screen">
+    <article id="blog-post" class="max-w-5xl py-24 px-4 mx-auto bg-white text-slate-900 overflow-hidden lg:px-12">
+      <div
+        class="prose prose-lg max-w-none prose-img:rounded-sm prose-a:hover:text-slate-500 prose-a:transition prose-a:duration-200 prose-a:ease-in-out prose-hr:h-0.5 prose-hr:bg-slate-300 prose-hr:rounded-full"
+      >
+        <h2 class="mb-4">{title}</h2>
+        <p class="flex flex-wrap gap-4 items-center mb-8">
+          <span class="px-2 py-1 rounded-sm bg-slate-200 text-xs w-fit">{capitalize(category)}</span>
+          <span>{formatDate(pubDate)}</span>
+          <span>•</span>
+          <span>{capitalize(author)}</span>
+        </p>
+        <slot />
       </div>
-      <slot />
-    </div>
-  </article>
-</main>
+    </article>
+  </main>
+</BaseLayout>
