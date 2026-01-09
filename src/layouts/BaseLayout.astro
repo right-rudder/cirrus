@@ -9,7 +9,7 @@ import "@fontsource-variable/montserrat";
 import "@fontsource/hind";
 
 const { pathname } = Astro.url;
-const { siteTitle, siteDescription, siteImage, siteKeywords, customBreadcrumbs, navBarBG = false } = Astro.props;
+const { pageTitle, pageDescription, pageImage, pageKeywords, customBreadcrumbs, navBarBG = false } = Astro.props;
 
 // Generate breadcrumbs based on URL path
 function generateBreadcrumbs(pathname: string, customBreadcrumbs?: Array<{name: string, url: string}>) {
@@ -71,10 +71,10 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
 <html lang="en" class="scroll-smooth">
   <head>
     <BaseHead
-      title={siteTitle || SITE_TITLE}
-      description={siteDescription || SITE_DESCRIPTION}
-      image={siteImage || OG_IMAGE}
-      keywords={siteKeywords || KEYWORDS}
+      title={pageTitle || SITE_TITLE}
+      description={pageDescription || SITE_DESCRIPTION}
+      image={pageImage || OG_IMAGE}
+      keywords={pageKeywords || KEYWORDS}
     />
     
     <!-- Breadcrumb Schema Markup -->
@@ -135,7 +135,7 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
 
       <!-- Breadcrumb Navigation -->
       {breadcrumbs.length > 1 && (
-        <nav aria-label="Breadcrumb" class="bg-accent-100 border-b border-accent-200 text-accent-900">
+        <nav aria-label="Breadcrumb" class="bg-white border-t border-slate-200 text-slate-900">
           <div class="max-w-7xl mx-auto px-5 md:px-10 lg:px-20 py-3">
             <ol class="flex items-center space-x-2 text-sm">
               {breadcrumbs.map((crumb, index) => (
@@ -152,7 +152,7 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
                   ) : (
                     <a
                       href={crumb.url}
-                      class="hover:text-lime-600 transition-colors duration-200 font-medium"
+                      class="hover:text-slate-500 transition-colors duration-200 font-medium"
                     >
                       {crumb.name}
                     </a>

@@ -52,7 +52,7 @@ function checkFormValidity(form: any) {
   const checkboxes: any = document.querySelectorAll(`#${form.id} fieldset:has(input[type="checkbox"])`);
 
   let numberOfInvalid = 0;
-  
+
   checkboxes.forEach((item: any) => {
     if (!item.dataset.required) {
       return;
@@ -68,4 +68,21 @@ function checkFormValidity(form: any) {
   return numberOfInvalid <= 0;
 }
 
-export {generatePortalPostBody, updateSubmitButtonState, normalizePhone, checkFormValidity};
+function formatDate(date: Date): string {
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  };
+
+  return new Date(date).toLocaleDateString(undefined, options);
+}
+
+function capitalize(str: string): string {
+  if (typeof str !== "string" || str.length === 0) {
+    return str;
+  }
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+export { generatePortalPostBody, updateSubmitButtonState, normalizePhone, checkFormValidity, formatDate, capitalize };
