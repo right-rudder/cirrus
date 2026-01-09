@@ -207,6 +207,11 @@ export const data = {
       },
     ],
   },
+
+  faqs: {
+    title: "Frequently Asked Questions",
+    subTitle: "Clear any doubts you might have",
+  },
   
   cta: {
     title: "Ready to Take the Left Seat?",

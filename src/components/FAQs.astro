@@ -1,0 +1,108 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  category?: string;
+  limit?: number;
+  showCategory?: boolean;
+}
+
+type FAQ = CollectionEntry<"faqs">;
+
+const { category, limit, showCategory = false } = Astro.props;
+
+let faqs = await getCollection("faqs");
+
+// Filter by category if specified
+if (category) {
+  faqs = faqs.filter((faq: FAQ) => faq.data.category === category);
+}
+
+// Sort by order
+const sortedFaqs = faqs.sort((a: FAQ, b: FAQ) => (a.data.order || 999) - (b.data.order || 999));
+
+// Limit results if specified
+const displayFaqs = limit ? sortedFaqs.slice(0, limit) : sortedFaqs;
+---
+
+<div class="space-y-4">
+  {
+    displayFaqs.map(async (faq: FAQ) => {
+      const { Content } = await faq.render();
+      return (
+        <div class="faq-container group bg-white border border-slate-200 rounded-xl">
+          <div class="faq-question flex items-start justify-between cursor-pointer p-6 transition-colors">
+            <div class="flex-1 pr-4 flex gap-4 items-center flex-wrap">
+              {showCategory && faq.data.category && (
+                <span class="inline-block text-sm font-semibold text-rose-600 bg-rose-100 px-2 py-1 rounded-sm">
+                  {faq.data.category}
+                </span>
+              )}
+              <h3 class="text-lg font-bold text-slate-900 mb-1 transition duration-500 group-hover:text-rose-600">{faq.data.question}</h3>
+            </div>
+            <svg
+              class="w-5 h-5 text-slate-500 shrink-0 transition-all duration-500 group-open:rotate-180 group-hover:text-rose-600"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+          <div class="faq-answer transition-all duration-500 ease-in-out max-h-0 overflow-hidden">
+            <div class="prose prose-slate max-w-none text-slate-700 leading-relaxed mt-2 mb-6 mx-6 prose-blockquote:[quotes:none] prose-blockquote:not-italic prose-a:no-underline prose-a:w-fit text-lg">
+              <Content />
+            </div>
+          </div>
+        </div>
+      );
+    })
+  }
+
+  {
+    displayFaqs.length > 0 && (
+      <div class="flex flex-col items-center mt-12">
+        <p class="text-slate-600 text-2xl text-center mb-4">
+          Got Any More Questions?
+        </p>
+        <a href="/contact-us" class="btn-rose">Contact Us</a>
+      </div>
+    )
+  }
+</div>
+
+{
+  displayFaqs.length === 0 && (
+    <div class="text-center py-12 bg-slate-50 rounded-xl border border-slate-200">
+      <svg class="w-12 h-12 text-slate-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+      <p class="text-slate-600 font-medium bg-rose-600">No FAQs found</p>
+    </div>
+  )
+}
+
+<script type="text/javascript">
+  document.querySelectorAll(".faq-container").forEach((container) => {
+    const question = container.querySelector(".faq-question");
+    const answer = container.querySelector(".faq-answer");
+
+    question.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      if (answer.style.maxHeight) {
+        answer.style.maxHeight = null;
+        container.removeAttribute("open");
+      } else {
+        container.setAttribute("open", true);
+        answer.style.maxHeight = `${answer.scrollHeight}px`;
+      }
+    })
+  });
+</script>

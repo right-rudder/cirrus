@@ -1,0 +1,17 @@
+---
+import FAQs from "../FAQs.astro"
+
+const { data } = Astro.props;
+---
+
+<section class="py-24 px-4 bg-slate-100">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-slate-900 text-5xl text-center mb-4 font-bold">
+        {data.title}
+      </h2>
+      <p class="text-slate-600 text-2xl text-center mb-12">
+        {data.subTitle}
+      </p>
+      <FAQs showCategory={true} />
+    </div>
+  </section>

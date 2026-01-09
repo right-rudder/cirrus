@@ -6,6 +6,7 @@ import VideoSection from "../components/sections/VideoSection.astro";
 import ElfsightGoogleReviews from "../components/widgets/ElfsightGoogleReviews.astro";
 import CTA from "../components/sections/CTA.astro";
 import { data } from "../data/index";
+import FAQsSection from "../components/sections/FAQsSection.astro";
 ---
 
 <BaseLayout>
@@ -43,7 +44,7 @@ import { data } from "../data/index";
     <CardList data={data.explore.cards} />
   </section>
 
-  <!-- TODO : Add FAQ -->
+  <FAQsSection data={data.faqs} />
 
   <CTA data={data.cta} />
 
