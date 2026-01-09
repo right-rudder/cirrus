@@ -4,7 +4,7 @@ import BaseLayout from "./BaseLayout.astro";
 import Header from "../components/Header.astro";
 import { formatDate, capitalize } from "../components/utils/utils";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"news">["data"];
 
 const { title, description, pubDate, author, heroImage, heroImageAlt, category } = Astro.props;
 
