@@ -1,8 +1,15 @@
 ---
-import FAQs from "../FAQs.astro"
+import FAQs from "../FAQs.astro";
 import SimpleSection from "./SimpleSection.astro";
 
-const { data } = Astro.props;
+const title = "";
+
+const {
+  data = {
+    title: "Frequently Asked Questions",
+    subTitle: "Clear any doubts you might have",
+  },
+} = Astro.props;
 ---
 
 <SimpleSection title={data.title} subTitle={data.subTitle} bg="bg-slate-100">

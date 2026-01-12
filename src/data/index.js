@@ -125,7 +125,10 @@ export const data = {
       url: "https://www.cirrusaviation.com/contact-us",
       text: "Contact Us",
     },
-    videoURL: "https://www.youtube.com/embed/HBrcyC1FsdU?si=YNRDgoNCVJ1J0794",
+    video: {
+      type: "youtube",
+      url: "https://www.youtube.com/embed/HBrcyC1FsdU?si=YNRDgoNCVJ1J0794",
+    },
   },
 
   explore: {
@@ -136,7 +139,7 @@ export const data = {
       {
         type: "only-image",
         img: {
-          src: "/src/assets/asian-pilot-smiling-to-camera-inside-cockpit-cirrus-aviation-tampa-discovery-flight.jpg",
+          src: "/src/assets/stock/asian-pilot-smiling-to-camera-inside-cockpit-cirrus-aviation-tampa-discovery-flight.jpg",
           alt: "Asian pilot smiling at the camera inside an airplane's cockpit",
         },
         title: "International Students",
@@ -148,7 +151,7 @@ export const data = {
       {
         type: "only-image",
         img: {
-          src: "/src/assets/soldier-talking-on-handheld-radio-obscured-by-shadow-cirrus-aviation-private-pilot-clearwater.jpg",
+          src: "/src/assets/stock/soldier-talking-on-handheld-radio-obscured-by-shadow-cirrus-aviation-private-pilot-clearwater.jpg",
           alt: "Soldier talking on a handheld radio while obscured by shadow",
         },
         title: "Use Your GI Bill",
@@ -206,11 +209,6 @@ export const data = {
         },
       },
     ],
-  },
-
-  faqs: {
-    title: "Frequently Asked Questions",
-    subTitle: "Clear any doubts you might have",
   },
   
   cta: {

@@ -70,7 +70,7 @@ const { data, position = "left" } = Astro.props;
             {data.cta.map((item, index) => (
               <a
                 href={item.url}
-                class={`${index === 0 ? "btn-rose" : "btn-transparent"} text-lg group w-fit md:text-2xl`}
+                class={`${index === 0 ? "btn-rose" : "btn-rose-outline"} text-lg group w-fit md:text-2xl`}
               >
                 {item.text}
               </a>

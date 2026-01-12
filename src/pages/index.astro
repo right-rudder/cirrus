@@ -34,11 +34,11 @@ import SimpleSection from "../components/sections/SimpleSection.astro";
     <CardList data={data.explore.cards} />
   </SimpleSection>
 
-  <FAQsSection data={data.faqs} />
-
-  <CTA data={data.cta} />
+  <FAQsSection />
 
   <BlogFeed />
+  
+  <CTA data={data.cta} />
 
   <!-- TODO : Add newsletter -->
 </BaseLayout>
