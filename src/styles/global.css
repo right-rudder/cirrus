@@ -75,6 +75,10 @@
   @apply bg-white text-lime-700 rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition duration-300 cursor-pointer hover:bg-slate-900 hover:text-lime-400;
 }
 
+.btn-rose-outline {
+  @apply bg-transparent text-rose-600 border border-rose-600 rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition duration-300 cursor-pointer hover:bg-rose-800 hover:border-rose-800 hover:text-white;
+}
+
 /* TODO : Remove */
 /* .eyebrow {
   @apply text-slate-100 bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-sm text-sm border-b-2 border-l-2 border-r-2 border-t border-slate-500 mb-0! lg:text-base;
