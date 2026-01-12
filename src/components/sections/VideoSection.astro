@@ -6,10 +6,22 @@ const { data } = Astro.props;
 
 <section class="bg-slate-900">
   <div class="flex flex-col lg:flex-row">
-    <YoutubeVideo url={data.videoURL} class="aspect-video lg:w-1/2" />
-    <div
-      class="flex-col gap-4 justify-center items-center py-12 px-4 lg:py-24 lg:px-12 lg:w-1/2"
-    >
+    {
+      data.video.type === "youtube" ? (
+        <YoutubeVideo url={data.video.url} class="aspect-video lg:w-1/2" />
+      ) : (
+        <video
+          autoplay
+          loop
+          playsinline
+          muted
+          preload="auto"
+          src={data.video.url}
+          class={data.video.class ? data.video.class : "aspect-video lg:w-1/2"}
+        />
+      )
+    }
+    <div class="flex-col gap-4 justify-center items-center py-12 px-4 lg:py-24 lg:px-12 lg:w-1/2">
       <h2 class="text-white text-5xl mb-4">{data.title}</h2>
       <p class="text-rose-500 text-2xl mb-12">
         {data.subTitle}
@@ -17,10 +29,7 @@ const { data } = Astro.props;
       <p class="text-slate-50 text-lg whitespace-pre-line mb-8">
         {data.description}
       </p>
-      <a
-        class="btn-rose w-fit"
-        href={data.cta.url}
-        target={data.cta.url.includes("http") ? "_blank" : ""}
+      <a class="btn-rose w-fit" href={data.cta.url} target={data.cta.url.includes("http") ? "_blank" : ""}
         >{data.cta.text}</a
       >
     </div>
