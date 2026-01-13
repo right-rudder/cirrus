@@ -97,7 +97,8 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-MQWFVHLQ');</script>
+    })(window,document,'script','dataLayer','GTM-MQWFVHLQ');
+    </script>
     <!-- End Google Tag Manager -->
 
     <!-- Preconnect to external domains to improve performance -->
@@ -165,5 +166,13 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
       )}
     </main>
     <Footer />
+
+    <script>
+      import AOS from "aos";
+
+      AOS.init({
+        once: true,
+      });
+    </script>
   </body>
 </html>
