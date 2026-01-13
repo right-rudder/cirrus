@@ -9,7 +9,7 @@ const { data } = Astro.props;
   <div class="relative flex flex-col gap-6">
     <span id="roadmap-sticky-sentinel" class="block h-px" aria-hidden="true"></span>
 
-    <div class="hidden absolute left-1/2 -translate-x-1/2 top-0 -bottom-4 w-3 bg-rose-600 rounded-full z-20 lg:block">
+    <div class="hidden absolute left-1/2 -translate-x-1/2 top-8 -bottom-4 w-3 bg-rose-600 rounded-full z-20 lg:block">
       <div class="absolute bottom-0 left-1/2 -translate-x-1/2 size-12 bg-white border-8 border-rose-600 rounded-full">
       </div>
     </div>
@@ -23,12 +23,21 @@ const { data } = Astro.props;
 
     {
       data.cards.map((item: any, index: number) => (
-        <div data-roadmap-step class={`flex flex-col gap-6 transition-all duration-300 ease-in-out lg:items-center ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}>
+        <div
+          data-roadmap-step
+          class={`flex flex-col gap-6 transition-all duration-300 ease-in-out lg:items-center ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
+        >
           <div class={`lg:px-12 ${index % 2 === 0 ? "lg:text-right" : "lg:text-left"}`}>
-            <h3 class="text-slate-900 font-bold text-4xl mb-12">{item.title}</h3>
-            <p class="text-slate-600 text-2xl">{item.description}</p>
+            <h3 class="text-slate-900 font-bold text-4xl mb-4">{item.title}</h3>
+            <p class="text-slate-600 mb-12 text-2xl">{item.subTitle}</p>
+            <p class="text-slate-600 text-lg whitespace-pre-line">{item.description}</p>
+            {item.cta && (
+              <a class="btn-rose w-fit mt-8 lg:ml-auto" href={item.cta.url}>
+                {item.cta.text}
+              </a>
+            )}
           </div>
-          <div class="roadmap-image-container relative group overflow-hidden -mx-4 max-h-[75vh] lg:rounded-sm lg:min-w-1/2 lg:mx-0">
+          <div class="roadmap-image-container relative group overflow-hidden -mx-6 max-h-[75vh] lg:rounded-sm lg:min-w-1/2 lg:mx-0">
             <ImageComp
               src={item.img.src}
               alt={item.img.alt}
@@ -45,37 +54,40 @@ const { data } = Astro.props;
 <style>
   @import "tailwindcss";
 
-  @keyframes scale-pulse {
-    0%,
-    100% {
-      transform: scale(1.1);
-      box-shadow: 0 0 4px 2px rgba(236, 0, 63, 0.4);
+  @media screen and (min-width: 1024px) {
+    @keyframes scale-pulse {
+      0%,
+      100% {
+        transform: scale(1.1);
+        box-shadow: 0 0 4px 2px rgba(236, 0, 63, 0.4);
+      }
+      50% {
+        transform: scale(1.2);
+        box-shadow: 0 0 4px 2px rgba(236, 0, 63, 0.4);
+      }
     }
-    50% {
-      transform: scale(1.2);
-      box-shadow: 0 0 4px 2px rgba(236, 0, 63, 0.4);
+  
+    .is-stuck {
+      animation: scale-pulse 2s ease-in-out infinite;
+    }
+  
+    [data-roadmap-step] {
+      @apply opacity-60! scale-[0.98]!;
+    }
+  
+    [data-roadmap-step][data-active="true"] {
+      @apply opacity-100! scale-100!;
+    }
+  
+    [data-roadmap-step][data-active="true"] img {
+      @apply scale-105;
+    }
+  
+    [data-roadmap-step][data-active="true"] .roadmap-image-container > div {
+      @apply opacity-100;
     }
   }
 
-  .is-stuck {
-    animation: scale-pulse 2s ease-in-out infinite;
-  }
-
-  [data-roadmap-step] {
-    @apply opacity-60! scale-[0.98]!;
-  }
-
-  [data-roadmap-step][data-active="true"] {
-    @apply opacity-100! scale-100!;
-  }
-
-  [data-roadmap-step][data-active="true"] img {
-    @apply scale-105;
-  }
-
-  [data-roadmap-step][data-active="true"] .roadmap-image-container > div {
-    @apply opacity-100;
-  }
 </style>
 
 <script>

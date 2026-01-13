@@ -3,28 +3,28 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import FAQsSection from "../components/sections/FAQsSection.astro";
 import CTA from "../components/sections/CTA.astro";
-import SimpleSection from "../components/sections/SimpleSection.astro";
 import VideoSection from "../components/sections/VideoSection.astro";
 import InstagramPost from "../components/widgets/InstagramPost.astro";
-
-import { FaCheckCircle } from "react-icons/fa";
-
-import { data } from "../data/new-to-flying";
 import SectionBulletPoints from "../components/sections/SectionBulletPoints.astro";
 import SectionRoadmap from "../components/sections/SectionRoadmap.astro";
+import SectionImageGrid from "../components/sections/SectionImageGrid.astro";
+
+import { data } from "../data/new-to-flying";
 ---
 
 <BaseLayout pageTitle={data.pageTitle} pageDescription={data.pageDescription} pageKeywords={data.pageKeywords}>
   <Header data={data.header} />
 
-  <VideoSection data={data.whatItMeans} />
+  <VideoSection data={data.journeyStart} />
+
+  <SectionRoadmap data={data.journeyRoadmap} />
+  
+  <SectionImageGrid data={data.journeyFuture} />
 
   <SectionBulletPoints data={data.whyUs}>
     <InstagramPost data={data.whyUs.instagram} />
   </SectionBulletPoints>
-
-  <SectionRoadmap data={data.roadmap} />
-
+  
   <FAQsSection />
 
   <CTA data={data.cta} />
