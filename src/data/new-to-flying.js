@@ -2,7 +2,7 @@ import { COMPANY_NAME, KEYWORDS } from "./consts";
 
 export const data = {
   pageTitle: `New to Flying | ${COMPANY_NAME}`,
-  pageDescription: "",
+  pageDescription: `Learn about flight training, from beginning with a discovery flight, to getting your private pilot certificate, to exploring future programs, as well as, the career of a pilot. Schedule your discovery flight at ${COMPANY_NAME} and start flying today.`,
   pageKeywords: KEYWORDS,
   header: {
     image: {
@@ -14,7 +14,7 @@ export const data = {
     subTitle: "Your first step into aviation starts here, with guidance, structure, and support from day one.",
     cta: [
       {
-        url: "/discovery-flight",
+        url: "/take-a-discovery-flight#discovery-flight-form",
         text: "Book a Discovery Flight",
       },
       {
@@ -38,7 +38,7 @@ export const data = {
       class: "aspect-16/9 object-cover object-center ml-auto lg:w-1/3",
     },
     cta: {
-      url: "/discovery-flight",
+      url: "/take-a-discovery-flight#discovery-flight-form",
       text: "Try Flying For The First Time",
     },
   },
@@ -56,7 +56,7 @@ export const data = {
           alt: "Sea and islands seen from above through an airplane window",
         },
         cta: {
-          url: "/discovery-flight",
+          url: "/take-a-discovery-flight#discovery-flight-form",
           text: "Schedule Your Discovery Flight Now"
         }
       },
@@ -120,7 +120,7 @@ export const data = {
       },
     ],
     cta: {
-      url: "/discovery-flight",
+      url: "/take-a-discovery-flight#discovery-flight-form",
       text: "Start Now",
     }
   },
@@ -148,7 +148,7 @@ export const data = {
     description:
       "Starting flight training may feel like a big decision, but it begins with a simple first step. A Discovery Flight allows you to experience flying firsthand, meet an instructor, and see if aviation is right for you, no commitment required.",
     cta: {
-      url: "/discovery-flight",
+      url: "/take-a-discovery-flight#discovery-flight-form",
       text: "Book a Discovery Flight",
     },
     img: {

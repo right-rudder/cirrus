@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import FAQsSection from "../components/sections/FAQsSection.astro";
+import DiscoveryFlightForm from "../components/forms/FormDiscoveryFlight.astro";
+
+import { data } from "../data/take-a-discovery-flight";
+---
+
+<BaseLayout pageTitle={data.pageTitle} pageDescription={data.pageDescription} pageKeywords={data.pageKeywords}>
+  <Header data={data.header} />
+
+  <DiscoveryFlightForm />
+
+  <FAQsSection categories={["requirements", "discovery-flight", "new-to-flying"]} />
+</BaseLayout>

@@ -108,7 +108,7 @@ export const data = {
         description:
           "Ever wondered what it’s like to fly an airplane? In our “Discovery Flight” package, a Certified Flight Instructor will give you a lesson in our AL172 Flight Simulator, and then cap it off with a flying lesson in the airplane.",
         cta: {
-          url: "https://www.cirrusaviation.com/take-a-discovery-flight",
+          url: "/take-a-discovery-flight#discovery-flight-form",
           text: "See What Flight Training Is Like",
         },
       },

@@ -15,9 +15,9 @@ export default defineConfig({
       PORTAL_URL: envField.string({ context: "client", access: "public", optional: false }),
       PORTAL_API_KEY: envField.string({ context: "client", access: "public", optional: false }),
       SCHOOL_RANDOM_ID: envField.string({ context: "client", access: "public", optional: false }),
-      /* ENROLL_WEBHOOK_URL: envField.string({ context: "client", access: "public", optional: false }),
+      ENROLL_WEBHOOK_URL: envField.string({ context: "client", access: "public", optional: false }),
       CONTACT_US_WEBHOOK_URL: envField.string({ context: "client", access: "public", optional: false }),
-      DISCOVERY_SESSION_WEBHOOK_URL: envField.string({ context: "client", access: "public", optional: false }), */
+      DISCOVERY_SESSION_WEBHOOK_URL: envField.string({ context: "client", access: "public", optional: false }),
     },
   },
   vite: {
