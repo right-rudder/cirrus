@@ -6,24 +6,108 @@ const { data } = Astro.props;
 ---
 
 <SimpleSection title={data.title} subTitle={data.subTitle}>
-  <div class="flex flex-col gap-6">
+  <div class="relative flex flex-col gap-6">
+    <span id="roadmap-sticky-sentinel" class="block h-px" aria-hidden="true"></span>
+
+    <div class="hidden absolute left-1/2 -translate-x-1/2 top-0 -bottom-4 w-3 bg-rose-600 rounded-full z-20 lg:block">
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 size-12 bg-white border-8 border-rose-600 rounded-full">
+      </div>
+    </div>
+
+    <div
+      id="roadmap-starting-point"
+      class=`hidden sticky top-28 left-1/2 -translate-x-1/2 size-12 bg-white border-8 border-rose-600 rounded-full z-30 transition-all duration-300 ease-in-out 
+       lg:block`
+    >
+    </div>
+
     {
       data.cards.map((item: any, index: number) => (
-        <div class={`flex flex-col gap-6 lg:items-center ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}>
+        <div data-roadmap-step class={`flex flex-col gap-6 transition-all duration-300 ease-in-out lg:items-center ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}>
           <div class={`lg:px-12 ${index % 2 === 0 ? "lg:text-right" : "lg:text-left"}`}>
             <h3 class="text-slate-900 font-bold text-4xl mb-12">{item.title}</h3>
             <p class="text-slate-600 text-2xl">{item.description}</p>
           </div>
-          <div class="relative group overflow-hidden lg:rounded-sm lg:min-w-1/2">
+          <div class="roadmap-image-container relative group overflow-hidden -mx-4 max-h-[75vh] lg:rounded-sm lg:min-w-1/2 lg:mx-0">
             <ImageComp
               src={item.img.src}
               alt={item.img.alt}
-              class="-mx-4 object-center object-cover transition duration-300 ease-in-out lg:mx-0 lg:aspect-square group-hover:scale-105"
+              class="object-center object-cover transition duration-300 ease-in-out lg:aspect-square"
             />
-            <div class="opacity-0 absolute inset-0 size-full bg-radial from-slate-900/20 to-slate-900/50 z-10 transition duration-300 ease-in-out group-hover:opacity-100" />
+            <div class="opacity-0 absolute inset-0 size-full bg-radial from-white/20 to-slate-900/30 z-10 transition duration-300 ease-in-out" />
           </div>
         </div>
       ))
     }
   </div>
 </SimpleSection>
+
+<style>
+  @import "tailwindcss";
+
+  @keyframes scale-pulse {
+    0%,
+    100% {
+      transform: scale(1.1);
+      box-shadow: 0 0 4px 2px rgba(236, 0, 63, 0.4);
+    }
+    50% {
+      transform: scale(1.2);
+      box-shadow: 0 0 4px 2px rgba(236, 0, 63, 0.4);
+    }
+  }
+
+  .is-stuck {
+    animation: scale-pulse 2s ease-in-out infinite;
+  }
+
+  [data-roadmap-step] {
+    @apply opacity-60! scale-[0.98]!;
+  }
+
+  [data-roadmap-step][data-active="true"] {
+    @apply opacity-100! scale-100!;
+  }
+
+  [data-roadmap-step][data-active="true"] img {
+    @apply scale-105;
+  }
+
+  [data-roadmap-step][data-active="true"] .roadmap-image-container > div {
+    @apply opacity-100;
+  }
+</style>
+
+<script>
+  const sentinel = document.getElementById("roadmap-sticky-sentinel");
+  const sticky = document.getElementById("roadmap-starting-point");
+
+  if (sentinel && sticky) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        sticky.classList.toggle("is-stuck", !entry.isIntersecting);
+      },
+      {
+        rootMargin: "-96px 0px 0px 0px", // matches top-24
+      }
+    );
+
+    observer.observe(sentinel);
+  }
+
+  const imageContainers = document.querySelectorAll("[data-roadmap-step]");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry: any) => {
+        entry.target.dataset.active = entry.isIntersecting;
+      });
+    },
+    {
+      root: null,
+      threshold: 0.6,
+    }
+  );
+
+  imageContainers.forEach((container) => observer.observe(container));
+</script>
