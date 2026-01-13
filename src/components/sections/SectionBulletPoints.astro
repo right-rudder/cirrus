@@ -6,7 +6,7 @@ const { data } = Astro.props;
 ---
 
 <SimpleSection>
-  <div class="flex flex-col gap-6 lg:flex-row lg:items-center">
+  <div id={data.id || "section-bullet-points"} class="flex flex-col gap-6 lg:flex-row lg:items-center">
     <div class="text-slate-600 lg:px-12 lg:text-right">
       <h2 class="text-slate-900 font-bold text-5xl mb-4">{data.title}</h2>
       <p class="mb-12 text-2xl">{data.subTitle}</p>
@@ -14,11 +14,11 @@ const { data } = Astro.props;
         {data.description}
       </p>
 
-      <ul class="list-disc ml-6 my-8">
+      <ul class="my-8">
         {
-          data.bulletPoints.map((item: string) => (
-            <li class="group flex items-center leading-8 gap-4 my-6 bg-slate-100 border border-slate-200 rounded-sm py-4 px-8 transition duration-500 ease-in-out lg:flex-row-reverse hover:scale-105 hover:shadow-xl">
-              <FaCheckCircle className="size-6 shrink-0 text-rose-600 transition duration-500 ease-in-out group-hover:scale-105" />
+          data.bulletPoints.map((item: string, index: number) => (
+            <li data-aos="fade-down" data-aos-delay={index * 50} data-aos-anchor={data.id || "section-bullet-points"} class="flex items-center leading-8 gap-4 my-6 bg-slate-100 border border-slate-200 rounded-sm py-4 px-8 transition! duration-500 ease-in-out shadow-md lg:flex-row-reverse hover:scale-105 hover:shadow-xl">
+              <FaCheckCircle className="size-6 shrink-0 text-rose-600" />
               {item}
             </li>
           ))

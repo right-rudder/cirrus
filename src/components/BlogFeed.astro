@@ -1,14 +1,16 @@
 ---
+import { COMPANY_NAME } from "../data/consts";
 import { getCollection } from "astro:content";
 import CardBlog from "./cards/CardBlog.astro";
+import SimpleSection from "./sections/SimpleSection.astro";
 
 const posts = (await getCollection("news"))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .splice(0, 3);
 ---
 
-<section class="py-24 px-4 bg-slate-100">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 gap-4 md:grid-cols-3">
-    {posts.map((post) => <CardBlog blogEntry={post} />)}
+<SimpleSection title="News and Highlights" subTitle=`Read the latest news from ${COMPANY_NAME}` bg="bg-slate-100" >
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
+    {posts.map((post, index) => <CardBlog blogEntry={post} index={index} />)}
   </div>
-</section>
+</SimpleSection>

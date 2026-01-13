@@ -11,6 +11,7 @@ interface Props {
     image: {
       src: string;
       alt: string;
+      objectPosition?: string;
     };
     videoSrc?: string;
     title: string;
@@ -30,7 +31,7 @@ const { data, position = "left" } = Astro.props;
   <ImageComp
     src={data.image.src}
     alt={data.image.alt}
-    class="absolute object-right lg:object-center lg:inset-0 h-full w-full object-cover brightness-90 -z-20"
+    class={`absolute lg:inset-0 h-full w-full object-cover brightness-90 -z-20 ${data.image.objectPosition ? data.image.objectPosition : "object-right lg:object-center" }`}`
     loading="eager"
     quality={100}
     fetchpriority="high"
@@ -60,13 +61,13 @@ const { data, position = "left" } = Astro.props;
   >
     <div class="w-full flex flex-col justify-center items-center lg:justify-center lg:items-start">
       <div class={`w-full flex flex-col items-center gap-y-6 text-center ${position === "center" ? "" : "lg:items-start lg:text-left"}`}>
-        <h1 class="max-w-3xl text-4xl sm:text-5xl md:text-6xl uppercase font-bold" set:html={data.title} />
-        {data.subTitle && <h2 class="max-w-2xl text-xl/6 font-light drop-shadow-md" set:html={data.subTitle} />}
+        <h1 data-aos="fade-down" class="max-w-3xl text-4xl sm:text-5xl md:text-6xl uppercase font-bold text-white" set:html={data.title} />
+        {data.subTitle && <h2 data-aos="fade-down" data-aos-delay="100" class="max-w-2xl text-xl/6 font-light drop-shadow-md text-white" set:html={data.subTitle} />}
       </div>
 
       {
         data.cta && (
-          <div class="hidden flex-row gap-4 items-center justify-start my-12 mx-auto sm:flex lg:mx-0">
+          <div data-aos="fade-down" data-aos-delay="200" class="flex flex-col gap-4 items-center justify-start my-12 mx-auto sm:flex-row lg:mx-0">
             {data.cta.map((item, index) => (
               <a
                 href={item.url}
@@ -79,13 +80,14 @@ const { data, position = "left" } = Astro.props;
         )
       }
 
-      {
+      <!-- TODO : Remove? -->
+      {/*
         data.ctaMobile && (
           <a href={data.ctaMobile.url} class="btn-rose text-lg group w-fit my-8 sm:hidden! md:text-2xl">
             {data.ctaMobile.text}
           </a>
         )
-      }
+      */}
     </div>
   </div>
 </div>

@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
+  id?: string;
   category?: string;
   limit?: number;
   showCategory?: boolean;
@@ -10,7 +11,7 @@ interface Props {
 
 type FAQ = CollectionEntry<"faqs">;
 
-const { category, limit, showCategory = false } = Astro.props;
+const { id="faqs", category, limit, showCategory = false } = Astro.props;
 
 let faqs = await getCollection("faqs");
 
@@ -26,12 +27,12 @@ const sortedFaqs = faqs.sort((a: FAQ, b: FAQ) => (a.data.order || 999) - (b.data
 const displayFaqs = limit ? sortedFaqs.slice(0, limit) : sortedFaqs;
 ---
 
-<div class="space-y-4">
+<div id={id} class="space-y-4">
   {
-    displayFaqs.map(async (faq: FAQ) => {
+    displayFaqs.map(async (faq: FAQ, index: number) => {
       const { Content } = await faq.render();
       return (
-        <div class="faq-container group bg-white border border-slate-200 rounded-xl">
+      <div data-aos-anchor={`#${id}`} data-aos="fade-down" data-aos-delay={(index * 50) + 200} data-aos-duration="600" class="faq-container group bg-white border border-slate-200 rounded-xl">
           <div class="faq-question flex items-start justify-between cursor-pointer p-6 transition-colors">
             <div class="flex-1 pr-4 flex gap-4 items-center flex-wrap">
               {showCategory && faq.data.category && (
@@ -62,7 +63,7 @@ const displayFaqs = limit ? sortedFaqs.slice(0, limit) : sortedFaqs;
 
   {
     displayFaqs.length > 0 && (
-      <div class="flex flex-col items-center mt-12">
+      <div data-aos-anchor={`#${id}`} data-aos="fade-down" data-aos-delay={(displayFaqs.length * 50) + 200} data-aos-duration="600" class="flex flex-col items-center mt-12">
         <p class="text-slate-600 text-2xl text-center mb-4">
           Got Any More Questions?
         </p>
@@ -74,7 +75,7 @@ const displayFaqs = limit ? sortedFaqs.slice(0, limit) : sortedFaqs;
 
 {
   displayFaqs.length === 0 && (
-    <div class="text-center py-12 bg-slate-50 rounded-xl border border-slate-200">
+    <div data-aos-anchor={`#${id}`} data-aos="fade-down" data-aos-delay="250" class="text-center py-12 bg-slate-50 rounded-xl border border-slate-200">
       <svg class="w-12 h-12 text-slate-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
           stroke-linecap="round"

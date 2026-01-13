@@ -1,9 +1,11 @@
 ---
 import ImageComp from "../ImageComp.astro";
 
-const { data} = Astro.props;
+const { data, index } = Astro.props;
 ---
 <a
+  data-aos="fade-right"
+  data-aos-delay={(index * 50) + 200}
   href={data.cta.url}
   target={data.cta.url.includes("http") ? "_blank" : ""}
   class="group rounded-sm overflow-hidden shadow relative min-h-64"

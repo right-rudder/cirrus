@@ -34,13 +34,13 @@ if (data.length % 4 === 0) {
 
 <div class={`max-w-7xl mx-auto grid gap-4 ${gridClasses}`}>
   {
-    data.map((card) => {
+    data.map((card, index) => {
       if (card.type === "simple") {
-        return <Card card={card} Icon={card.icon} />;
+        return <Card card={card} Icon={card.icon} index={index} />;
       } else if (card.type === "with-image") {
-        return <CardWithImage data={card} />;
+        return <CardWithImage data={card} index={index} />;
       } else if (card.type === "only-image") {
-        return <CardOnLyImage data={card} />;
+        return <CardOnLyImage data={card} index={index} />;
       }
     })
   }
