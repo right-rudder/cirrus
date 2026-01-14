@@ -221,8 +221,8 @@ export const data = {
       text: "Start Today",
     },
     img: {
-      src: "/src/assets/stock/airplane-taking-off-sunset-cirrus-aviation-private-pilot-sarasota.jpg",
-      alt: "Airplane taking of with the sunset in the background",
+      src: "/src/assets/stock/airplane-flying-mountains-background-cirrus-aviation-commercial-pilot-bradenton.jpg",
+      alt: "Airplane flying with mountains in the background",
       objectPosition: "object-bottom",
       quality: 90,
     },

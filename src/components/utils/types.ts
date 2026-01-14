@@ -11,7 +11,7 @@ export type Field = {
   id: string;
   name?: string;
   label: string;
-  type?: string;
+  type: "text" | "tel" | "email" | "date" | "month" | "number" | "time" | "textarea" | "select" | "checkboxes";
   required?: boolean;
   placeholder?: string;
   pattern?: string;
@@ -25,6 +25,7 @@ export type Field = {
   min?: string;
   max?: string;
   autocomplete?: string;
+  addClass?: string;
 };
 
 export type FormData = {
