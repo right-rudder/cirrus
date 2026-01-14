@@ -1,0 +1,33 @@
+---
+import { COMPANY_NAME, COURSES, KEYWORDS } from "../data/consts";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import FormEnroll from "../components/forms/FormEnroll.astro";
+
+const data = {
+  pageTitle: `Enroll | ${COMPANY_NAME}`,
+  pageDescription: `Enroll at ${COMPANY_NAME} for clear instruction, consistent guidance and expertise developed from years of experience, all to help you start your journey toward mastering the skies. We offer a variety of courses, including ${COURSES.join(", ")}.`,
+  pageKeywords: KEYWORDS,
+  header: {
+    image: {
+      src: "/src/assets/airport-runway-sunset-cirrus-aviation-flight-school-riverview.webp",
+      alt: "Airport runway with planes in sight and the sunset in the horizon",
+      objectPosition: "object-center lg:object-right"
+    },
+    title: "Enroll",
+    subTitle: "Ready to start flying?<br/>Enroll now and make your dream of becoming a pilot a reality!",
+    cta: [
+      {
+        url: "#enroll-form",
+        text: "Enroll Now",
+      },
+    ],
+  },
+};
+---
+
+<BaseLayout pageTitle={data.pageTitle} pageDescription={data.pageDescription} pageKeywords={data.pageKeywords}>
+  <Header data={data.header} />
+
+  <FormEnroll />
+</BaseLayout>

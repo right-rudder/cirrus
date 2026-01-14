@@ -1,10 +1,17 @@
+import { COMPANY_NAME, COURSES, ADDRESS_LINE_1, ADDRESS_LINE_2, PHONE_NUMBER } from "../consts";
 import type { FormData } from "../../components/utils/types";
-import { ADDRESS_LINE_1, ADDRESS_LINE_2, PHONE_NUMBER } from "../consts";
+
+const programOptions = COURSES.map((item) => {
+  return {
+    value: item,
+    label: item,
+  }
+});
 
 const formData: FormData = {
-  id: "discovery-flight-form",
-  redirection: "/discovery-flight-confirmation",
-  campaign: "discovery_flight",
+  id: "enroll-form",
+  redirection: "/enroll-confirmation",
+  campaign: "enroll",
   fields: [
     {
       id: "first_name",
@@ -41,40 +48,19 @@ const formData: FormData = {
       autocomplete: "tel",
     },
     {
-      id: "flight_date",
-      label: "Preferred Discovery Flight date",
-      type: "date",
+      id: "preferred_programs",
+      label: "Preferred Programs",
       required: true,
+      type: "checkboxes",
+      options: programOptions,
+      colSpan: "full",
+      addClass: "md:grid-cols-2",
     },
     {
-      id: "flight_time",
-      label: "Preferred Discovery Flight time",
-      type: "select",
+      id: "message",
+      label: "Message",
       required: true,
-      options: [
-        {
-          value: "",
-          label: "",
-        },
-        {
-          value: "Morning",
-          label: "Morning",
-        },
-        {
-          value: "Early afternoon",
-          label: "Early afternoon",
-        },
-        {
-          value: "Late afternoon",
-          label: "Late afternoon",
-        },
-      ],
-    },
-    /* TODO : Add Siesta Key Beach coastline, St Armands Circle, Longboat Key */
-    {
-      id: "additional-info",
-      label: "Additional Information",
-      placeholder: "Write your message here...",
+      placeholder: "Anything else we need to know?",
       type: "textarea",
       colSpan: "full",
       rows: 6,
@@ -83,9 +69,9 @@ const formData: FormData = {
 };
 
 export const data = {
-  eyebrow: "Discovery Flight",
-  heading: "Let's Plan Your Flight",
-  subheading: "Prepare to take off, schedule your discovery flight and experience the joy of flying through the sky.",
+  eyebrow: "Enroll",
+  heading: "Let's Start Flying",
+  subheading: `Enroll at ${COMPANY_NAME} today for clear instruction, consistent guidance and expertise developed from years of experience, all to help you start your journey toward mastering the skies.`,
   info: {
     title: "Fill out this form and let's start flying",
     intro: "We're here to help you get started on your aviation journey, call us if you need anything.",

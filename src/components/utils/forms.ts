@@ -156,6 +156,12 @@ export class Form {
     const data = Object.fromEntries(formData.entries());
     if (data["confirm_email"]) return; // honeypot
 
+    this.formData.fields.forEach((field) => {
+      if (field.type !== "checkboxes") return;
+
+      data[field.id] = formData.getAll(field.id).join(", ");
+    });
+
     const portalBody = this.generatePortalPostBody(data);
 
     try {

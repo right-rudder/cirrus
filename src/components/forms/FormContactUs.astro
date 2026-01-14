@@ -1,25 +1,25 @@
 ---
-import { contactData } from "../../data/forms/contact-us-form";
+import { data } from "../../data/forms/contact-us-form";
 import FormComp from "./FormComp.astro";
 ---
 
-<section class="bg-white px-4 py-12 sm:px-6 lg:px-8 lg:py-20" aria-labelledby="contact-heading" id="discovery-form">
-  <div class="flex flex-wrap gap-8 lg:gap-12 max-w-7xl mx-auto lg:flex-nowrap">
+<section class="bg-white px-4 py-12 sm:px-6 xl:px-8 xl:py-20" aria-labelledby="contact-heading">
+  <div class="flex flex-col gap-8 max-w-7xl mx-auto xl:gap-12 xl:flex-row">
     {/* LEFT: Info panel */}
-    <div class="w-full overflow-hidden rounded-lg text-slate-900 top-28 lg:w-1/2 lg:self-start lg:sticky">
-      <div class="text-slate-900 p-6 sm:p-8 lg:p-10">
+    <div class="max-w-5xl w-full mx-auto overflow-hidden rounded-lg text-slate-900 top-28 xl:w-1/2 xl:self-start xl:sticky">
+      <div class="text-slate-900 p-6 sm:p-8 xl:p-10">
         <h2 class="text-4xl font-extrabold text-slate-950 sm:text-5xl">
-          {contactData.info.title}
+          {data.info.title}
         </h2>
         {
-          contactData.info.intro && (
-            <p class="text-muted-200 text-xl/5 font-light mt-6 max-w-prose">{contactData.info.intro}</p>
+          data.info.intro && (
+            <p class="text-muted-200 text-xl/5 font-light mt-6 max-w-prose">{data.info.intro}</p>
           )
         }
 
         <ul class="mt-12 space-y-6">
           {
-            contactData.info.addressLine1 && (
+            data.info.addressLine1 && (
               <li class="flex items-center gap-4">
                 <svg viewBox="0 0 24 24" class="h-10 w-10 text-rose-500">
                   <path
@@ -28,10 +28,10 @@ import FormComp from "./FormComp.astro";
                   />
                 </svg>
                 <div>
-                  <p class="text-muted-100 font-bold">{contactData.info.locationLabel || "Location"}</p>
+                  <p class="text-muted-100 font-bold">{data.info.locationLabel || "Location"}</p>
                   <div class="flex flex-wrap gap-1">
-                    <p class="text-muted-300">{contactData.info.addressLine1},</p>
-                    {contactData.info.addressLine2 && <p class="text-muted-300">{contactData.info.addressLine2}</p>}
+                    <p class="text-muted-300">{data.info.addressLine1},</p>
+                    {data.info.addressLine2 && <p class="text-muted-300">{data.info.addressLine2}</p>}
                   </div>
                 </div>
               </li>
@@ -39,7 +39,7 @@ import FormComp from "./FormComp.astro";
           }
 
           {
-            contactData.info.phoneValue && (
+            data.info.phoneValue && (
               <li class="flex items-center gap-4">
                 <svg viewBox="0 0 24 24" class="h-10 w-10 text-rose-500">
                   <path
@@ -48,12 +48,12 @@ import FormComp from "./FormComp.astro";
                   />
                 </svg>
                 <div>
-                  <p class="text-muted-100 font-bold">{contactData.info.phoneLabel || "Phone"}</p>
+                  <p class="text-muted-100 font-bold">{data.info.phoneLabel || "Phone"}</p>
                   <a
-                    href={`tel:${contactData.info.phoneValue}`}
+                    href={`tel:${data.info.phoneValue}`}
                     class="text-muted-300 transition-colors duration-300 ease-in-out hover:text-rose-500!"
                   >
-                    {contactData.info.phoneValue}
+                    {data.info.phoneValue}
                   </a>
                 </div>
               </li>
@@ -64,35 +64,35 @@ import FormComp from "./FormComp.astro";
     </div>
 
     {/* RIGHT: Form */}
-    <div class="bg-slate-900 rounded-sm p-6 text-white font-semibold sm:p-8 lg:p-10 lg:min-w-3xl">
+    <div class="max-w-5xl w-full mx-auto bg-slate-900 rounded-sm p-6 text-white font-semibold sm:p-8 xl:p-10 xl:min-w-3xl">
       {
-        contactData.eyebrow && (
+        data.eyebrow && (
           <p class="relative tracking-widest mb-8 w-fit">
-            {contactData.eyebrow}
+            {data.eyebrow}
             <span class="absolute left-0 right-0 -bottom-2 bg-rose-500 h-1 rounded-b-full" />
           </p>
         )
       }
 
       {
-        contactData.heading && (
+        data.heading && (
           <h2 id="contact-heading" class="text-4xl font-bold mb-4 sm:text-5xl">
-            {contactData.heading}
+            {data.heading}
           </h2>
         )
       }
 
-      {contactData.subheading && <p class="text-lg max-w-prose">{contactData.subheading}</p>}
+      {data.subheading && <p class="text-lg max-w-prose">{data.subheading}</p>}
 
-      <FormComp content={contactData.form} />
+      <FormComp content={data.form} />
     </div>
   </div>
 </section>
 
 <script>
-  import { contactData } from "../../data/forms/contact-us-form";
+  import { data } from "../../data/forms/contact-us-form";
   import { CONTACT_US_WEBHOOK_URL } from "astro:env/client";
   import { Form } from "../../components/utils/forms";
 
-  new Form(contactData.form, CONTACT_US_WEBHOOK_URL);
+  new Form(data.form, CONTACT_US_WEBHOOK_URL);
 </script>

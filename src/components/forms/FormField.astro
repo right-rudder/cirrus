@@ -6,6 +6,25 @@ interface Props {
 }
 
 const { f } = Astro.props;
+
+let gridColsClasses = "grid-cols-1";
+if ((f.type === "checkboxes") && f.options) {
+  if (f.addClass) {
+    gridColsClasses += " " + f.addClass;
+  } else {
+    if (f.options.length % 2 === 0) {
+      gridColsClasses += " sm:grid-cols-2";
+    }
+  
+    if (f.options.length % 3 === 0) {
+      gridColsClasses += " md:grid-cols-3";
+    }
+  
+    if (f.options.length % 4 === 0) {
+      gridColsClasses += " lg:grid-cols-4";
+    }
+  }
+}
 ---
 
 {
@@ -65,7 +84,7 @@ const { f } = Astro.props;
       ) : null}
       {f.type === "checkboxes" ? (
         <fieldset id={f.id} data-required={f.required}>
-          <div class="mt-2 grid grid-cols-1 gap-y-2 sm:grid-cols-3 sm:gap-x-2">
+          <div class={`mt-2 grid gap-2 ${gridColsClasses}`}>
             {f.options?.map((item: any) => (
               <label
                 aria-label={item.label}
@@ -75,7 +94,7 @@ const { f } = Astro.props;
                   type="checkbox"
                   name={f.id}
                   value={item.value}
-                  class="absolute inset-0 appearance-none focus:outline-none"
+                  class="absolute inset-0 appearance-none cursor-pointer focus:outline-none"
                 />
                 <div class="flex-1">
                   <span class="block text-sm font-medium text-slate-500 transition-all duration-200 ease-in-out group-has-checked:text-slate-900 group-has-checked:font-bold">

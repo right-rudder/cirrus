@@ -113,7 +113,7 @@ const formData: FormData = {
   ],
 };
 
-export const contactData = {
+export const data = {
   eyebrow: "Contact Us",
   heading: "Let's Plan Your Flight",
   subheading: `Contact ${COMPANY_NAME} today for expert guidance, program details, and professional advice to start your journey toward mastering the skies.`,

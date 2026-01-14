@@ -1,25 +1,25 @@
 ---
-import { data } from "../../data/forms/discovery-flight-form";
+import { data } from "../../data/forms/enroll-form";
 import FormComp from "./FormComp.astro";
 ---
 
 <section class="bg-white px-4 py-12 sm:px-6 xl:px-8 xl:py-20" aria-labelledby="contact-heading">
-  <div class="flex flex-col gap-8 xl:gap-12 max-w-7xl mx-auto xl:flex-row">
+  <div class="flex flex-col gap-8 max-w-7xl mx-auto xl:flex-row xl:gap-12">
     {/* LEFT: Info panel */}
     <div class="max-w-5xl w-full mx-auto overflow-hidden rounded-lg text-slate-900 top-28 xl:w-1/2 xl:self-start xl:sticky">
       <div class="text-slate-900 p-6 sm:p-8 xl:p-10">
         <h2 class="text-4xl font-extrabold text-slate-950 sm:text-5xl">
-          {data.info?.title}
+          {data.info.title}
         </h2>
         {
-          data.info?.intro && (
+          data.info.intro && (
             <p class="text-muted-200 text-xl/5 font-light mt-6 max-w-prose">{data.info.intro}</p>
           )
         }
 
         <ul class="mt-12 space-y-6">
           {
-            data.info?.addressLine1 && (
+            data.info.addressLine1 && (
               <li class="flex items-center gap-4">
                 <svg viewBox="0 0 24 24" class="h-10 w-10 text-rose-500">
                   <path
@@ -28,10 +28,10 @@ import FormComp from "./FormComp.astro";
                   />
                 </svg>
                 <div>
-                  <p class="text-muted-100 font-bold">{data.info?.locationLabel || "Location"}</p>
+                  <p class="text-muted-100 font-bold">{data.info.locationLabel || "Location"}</p>
                   <div class="flex flex-wrap gap-1">
                     <p class="text-muted-300">{data.info.addressLine1},</p>
-                    {data.info?.addressLine2 && <p class="text-muted-300">{data.info.addressLine2}</p>}
+                    {data.info.addressLine2 && <p class="text-muted-300">{data.info.addressLine2}</p>}
                   </div>
                 </div>
               </li>
@@ -39,7 +39,7 @@ import FormComp from "./FormComp.astro";
           }
 
           {
-            data.info?.phoneValue && (
+            data.info.phoneValue && (
               <li class="flex items-center gap-4">
                 <svg viewBox="0 0 24 24" class="h-10 w-10 text-rose-500">
                   <path
@@ -48,7 +48,7 @@ import FormComp from "./FormComp.astro";
                   />
                 </svg>
                 <div>
-                  <p class="text-muted-100 font-bold">{data.info?.phoneLabel || "Phone"}</p>
+                  <p class="text-muted-100 font-bold">{data.info.phoneLabel || "Phone"}</p>
                   <a
                     href={`tel:${data.info.phoneValue}`}
                     class="text-muted-300 transition-colors duration-300 ease-in-out hover:text-rose-500!"
@@ -90,9 +90,9 @@ import FormComp from "./FormComp.astro";
 </section>
 
 <script>
-  import { data } from "../../data/forms/discovery-flight-form";
-  import { DISCOVERY_SESSION_WEBHOOK_URL } from "astro:env/client";
-  import { Form } from "../utils/forms";
+  import { data } from "../../data/forms/enroll-form";
+  import { ENROLL_WEBHOOK_URL } from "astro:env/client";
+  import { Form } from "../../components/utils/forms";
 
-  new Form(data.form, DISCOVERY_SESSION_WEBHOOK_URL);
+  new Form(data.form, ENROLL_WEBHOOK_URL);
 </script>
