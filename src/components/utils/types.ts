@@ -19,10 +19,20 @@ export type Field = {
   datalistId?: string;
   rows?: number;
   options?: FieldOption[];
-  colSpan?: number;
+  colSpan?: string;
   row?: number;
   step?: number | string;
   min?: string;
   max?: string;
   autocomplete?: string;
+};
+
+export type FormData = {
+  id: string;
+  method?: string;
+  action?: string;
+  redirection: string;
+  campaign: string;
+  fields: Field[];
+  submitBtnText?: string;
 };
