@@ -1,0 +1,55 @@
+---
+import { COMPANY_NAME, COURSES, KEYWORDS } from "../data/consts";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import SimpleSection from "../components/sections/SimpleSection.astro";
+
+const data = {
+  pageTitle: `Contact Us Confirmation | ${COMPANY_NAME}`,
+  pageDescription: `Contact submission confirmation, we have received your message and will get back to you within one business day. ${COMPANY_NAME} is a flight school based in Sarasota, FL, that offers a variety of flight training programs, including ${COURSES.join(", ")}.`,
+  pageKeywords: KEYWORDS,
+  header: {
+    image: {
+      src: "/src/assets/stock/airplane-cockpit-cirrus-aviation-bradenton-certified-flight-instructor.jpg",
+      alt: "Airplane's cockpit",
+    },
+    title: "Success",
+    subTitle: "Your message was sent and will be reviewed soon.",
+  },
+  title: "Your Message Has Been Successfully Sent",
+  subTitle: "Our team will review your message and get back to you within one business day.",
+  description:
+    "If you are interested in our flight training programs, want to learn more about our school or about aviation in general, please take a look around our website.",
+  cta: [
+    {
+      url: "/",
+      text: "Home Page",
+      class: "btn-rose-outline text-rose-600! hover:text-white!",
+    },
+    {
+      url: "/flight-training",
+      text: "Flight Training",
+      class: "btn-rose",
+    },
+  ],
+};
+---
+
+<BaseLayout pageTitle={data.pageTitle} pageDescription={data.pageDescription} pageKeywords={data.pageTitle}>
+  <Header data={data.header} />
+
+  <SimpleSection title={data.title} subTitle={data.subTitle} size="large">
+    <p data-aos="fade-down" data-aos-delay="200" class="text-slate-500 text-center max-w-xl mx-auto mb-12">
+      {data.description}
+    </p>
+    <div data-aos="fade-down" data-aos-delay="300" class="flex gap-4 flex-wrap items-center justify-center">
+      {
+        data.cta.map((item) => (
+          <a href={item.url} class={item.class}>
+            {item.text}
+          </a>
+        ))
+      }
+    </div>
+  </SimpleSection>
+</BaseLayout>
