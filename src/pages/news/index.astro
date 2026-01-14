@@ -1,5 +1,5 @@
 ---
-import { KEYWORDS } from "../../data/consts";
+import { COMPANY_NAME, KEYWORDS } from "../../data/consts";
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
@@ -8,9 +8,9 @@ import CardBlog from "../../components/cards/CardBlog.astro";
 const posts = (await getCollection("news")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
 const data = {
-  pageTitle: "News and Highlights | Cirrus Aviation",
+  pageTitle: `News and Highlights | ${COMPANY_NAME}`,
   pageDescription:
-    "Read the latest aviation news from Cirrus Aviation. We are a flight school based in Sarasota, Florida, and have multiple flight training programs for you to choose from, start training at Cirrus Aviation today.",
+    `Read the latest aviation news from ${COMPANY_NAME}. We are a flight school based in Sarasota, Florida, and have multiple flight training programs for you to choose from, start training at ${COMPANY_NAME} today.`,
   pageKeywords: KEYWORDS,
   header: {
     image: {
@@ -18,7 +18,7 @@ const data = {
       alt: "Cessna 172s instrument panel",
     },
     title: "News and Highlights",
-    subTitle: "Read the latest news from Cirrus Aviation",
+    subTitle: `Read the latest news from ${COMPANY_NAME}`,
   },
 };
 ---

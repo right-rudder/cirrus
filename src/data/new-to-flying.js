@@ -18,7 +18,7 @@ export const data = {
         text: "Book a Discovery Flight",
       },
       {
-        url: "/contact-us",
+        url: "/contact-us#contact-us-form",
         text: "Talk to an Instructor",
       },
     ],
@@ -72,7 +72,7 @@ export const data = {
       {
         title: "Optional Next Steps",
         subTitle: "Advance your training when you’re ready",
-        description: "After earning your Private Pilot Certificate, many pilots choose to continue their training to expand their capabilities and flying opportunities. These next steps are entirely optional and depend on your personal interests, travel needs, or long-term goals.\n\nAdvanced training options include an Instrument Rating, which allows you to fly in a wider range of weather conditions, or Commercial Pilot training for those considering aviation as a career. Cirrus Aviation works with you to evaluate your goals and create a training path that fits your schedule and ambitions, without pressure to move faster than you’re ready for.",
+        description: `After earning your Private Pilot Certificate, many pilots choose to continue their training to expand their capabilities and flying opportunities. These next steps are entirely optional and depend on your personal interests, travel needs, or long-term goals.\n\nAdvanced training options include an Instrument Rating, which allows you to fly in a wider range of weather conditions, or Commercial Pilot training for those considering aviation as a career. ${COMPANY_NAME} works with you to evaluate your goals and create a training path that fits your schedule and ambitions, without pressure to move faster than you’re ready for.`,
         img: {
           src: "/src/assets/cessna-172s-instrument-panel-cirrus-aviation-flight-school-florida.jpg",
           alt: "Cessna 172s instrument panel",
@@ -87,7 +87,7 @@ export const data = {
     description: `
       If your end goal is to become a professional pilot, then the Private Pilot License is “Flying 101”, the place where everyone begins their aviation journey. If your aspirations are more personal than professional, the Private Pilot License will open up a whole new world to you. Imagine renting a plane and taking your spouse, family members, and friends on a flight down the coast for dinner, to Key West for a weekend getaway, or even just tooling around for a few hours in the brilliant blue sky and exploring the world below.
 
-      Your Private Pilot License has practical benefits as well. Ever need to travel for business or pleasure? Avoid the crowded roads and soar high above the traffic, getting to your destination much faster and more safely than by car! Aircraft ownership is more cost effective than many people realize, especially if you share ownership with a few other pilots. Whatever your goals may be, you can accomplish them  here at Cirrus Aviation!
+      Your Private Pilot License has practical benefits as well. Ever need to travel for business or pleasure? Avoid the crowded roads and soar high above the traffic, getting to your destination much faster and more safely than by car! Aircraft ownership is more cost effective than many people realize, especially if you share ownership with a few other pilots. Whatever your goals may be, you can accomplish them  here at ${COMPANY_NAME}!
     `,
     imgs: [
       {

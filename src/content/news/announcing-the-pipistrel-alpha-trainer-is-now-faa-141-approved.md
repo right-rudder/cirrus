@@ -43,7 +43,7 @@ The FAA Part 141-approved Pipistrel Alpha Trainer offers an unparalleled trainin
 
 Ready to learn more about the Pipistrel Alpha Trainer and how it can elevate your training? Contact us today to schedule a tour or learn more about our FAA Part 141-approved programs.
 
-Call us at [(941) 360-9074](tel:9413609074) or [contact us](/contact-us) for more details.
+Call us at [(941) 360-9074](tel:9413609074) or [contact us](/contact-us#contact-us-form) for more details.
 
 ---
 

@@ -35,4 +35,4 @@ Ready to soar? Contact us today to learn more about our flight training programs
 
 ### Get in touch
 
-Call us at [(941) 360-9074](tel:9413609074) or [contact us](/contact-us) to begin your journey in aviation.
+Call us at [(941) 360-9074](tel:9413609074) or [contact us](/contact-us#contact-us-form) to begin your journey in aviation.

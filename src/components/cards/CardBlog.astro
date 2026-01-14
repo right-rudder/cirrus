@@ -5,7 +5,7 @@ import { formatDate, capitalize } from "../utils/utils";
 
 interface Props {
   blogEntry: CollectionEntry<"news">;
-  index: number;
+  index?: number;
 }
 
 const { blogEntry, index } = Astro.props;

@@ -1,20 +1,20 @@
 ---
-import { KEYWORDS } from "../data/consts";
+import { COMPANY_NAME, KEYWORDS } from "../data/consts";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import SimpleSection from "../components/sections/SimpleSection.astro";
 
 const data = {
-  pageTitle: "404 | Cirrus Aviation",
+  pageTitle: `404 | ${COMPANY_NAME}`,
   pageDescription:
-    "404 page, this page does not exists. If you need information or would like to report a problem, please contact Cirrus Aviation.",
+    `404 page, this page does not exists. If you need information or would like to report a problem, please contact ${COMPANY_NAME}.`,
   pageKeywords: KEYWORDS,
   header: {
     image: {
       src: "/src/assets/cessna-172s-instrument-panel-cirrus-aviation-flight-school-florida.jpg",
       alt: "Cessna 172s instrument panel",
     },
-    title: "404</br><br/>Page Not Found",
+    title: "404<br/><br/>Page Not Found",
   },
   title: "This Page Seems To Have Taken Off",
   subTitle: "We couldn't find this page, return to the home page or contact us if you have any questions.",
@@ -25,7 +25,7 @@ const data = {
       class: "btn-rose-outline",
     },
     {
-      url: "/contact-us",
+      url: "/contact-us#contact-us-form",
       text: "Contact Us",
       class: "btn-rose",
     },

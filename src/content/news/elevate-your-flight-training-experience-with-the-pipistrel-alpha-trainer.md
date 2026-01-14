@@ -40,7 +40,7 @@ Looking to enhance your flight training experience? The Pipistrel Alpha Trainer,
 
 ### Get in touch
 
-Call us at [(941) 360-9074](tel:9413609074) or [contact us](/contact-us) to learn more about our flight training programs or to schedule a tour of our facilities. Discover why Cirrus Aviation is the premier choice for aviation training in Sarasota!
+Call us at [(941) 360-9074](tel:9413609074) or [contact us](/contact-us#contact-us-form) to learn more about our flight training programs or to schedule a tour of our facilities. Discover why Cirrus Aviation is the premier choice for aviation training in Sarasota!
 
 ---
 

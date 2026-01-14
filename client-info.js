@@ -33,16 +33,16 @@ const info = {
   "aircrafts": []
 }
 
+// {{contact.email}}, no-reply@mail.cirrusaviationsarasota.com, nayda@cirrusaviation.com, studentservices@cirrusaviation.com, dispatch@cirrusaviation.com
+
 
 /* 
 TODO : Make sure this is followed:
-- Manter sitemap do site original
+- Maintain the sitemap from the original website (avoid redirects in important pages)
 - No pricing on course pages
 
 TODO : 
 - Landing page
-  - Add FAQ
-  - Add Blog feed
   - Add marquee on military / airline future
 - Update flight training programs
  */

@@ -93,6 +93,7 @@ export const GMAPS = "https://maps.app.goo.gl/tFoDLw257P1CvaKt6";
 export const EMAIL_ADDRESS = "dispatch@cirrusaviation.com"; // TODO : Update?
 export const FACEBOOK_URL = "https://www.facebook.com/cirrusaviation";
 export const INSTAGRAM_URL = "https://www.instagram.com/cirrus_aviation";
+export const INSTAGRAM_PROFILE = "@cirrus_aviation";
 export const LINKEDIN_URL = "https://www.linkedin.com/company/cirrus-aviation-inc.";
 export const X_URL = "https://twitter.com/CirrusAviation1";
 export const YOUTUBE_URL = "https://www.youtube.com/user/CirrusAviation1";
@@ -118,10 +119,11 @@ export const COURSES = [
   "Private Pilot License (PPL)",
   "Instrument Rating (IR)",
   "Commercial Pilot License (CPL)",
+  "Multi-Engine",
   "Certified Flight Instructor (CFI)",
-  "Multi-Engine Land (MEL) Add-On",
+  "Certified Flight Instructor Instrument (CFII)",
   "Multi-Engine Instructor (MEI)",
-  "Flight Simulator",
+  "Career Track",
 ];
 
 export const OTHER_COURSES = ["Aircraft Rental", "Aircraft Brokerage"];
