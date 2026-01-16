@@ -1,0 +1,34 @@
+---
+import { COMPANY_NAME, ADDRESS_CITY, KEYWORDS, COURSES } from "../data/consts";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import FAQsSection from "../components/sections/FAQsSection.astro";
+
+const data = {
+  pageTitle: `FAQ | ${COMPANY_NAME}`,
+  pageDescription: `Clear all your doubts with the answers to the most frequently asked questions about aviation or flight training at ${COMPANY_NAME}. We are a ${ADDRESS_CITY}-based flight school and aviation services provider built on decades of hands-on experience in pilot training and aircraft operations. We also offer a variety of flight training programs, including ${COURSES.join(", ")}.`,
+  pageKeywords: KEYWORDS,
+  header: {
+    image: {
+      src: "/src/assets/cfi-and-student-explanation-cirrus-aviation-north-port-ground-school-landscape.webp",
+      alt: "CFI making explanation to student",
+      objectPosition: "object-center lg:object-right",
+    },
+    title: "Frequently Asked Questions",
+    subTitle:
+      "Find out about flight training requirements, available student resources or anything else you might have questions about. If there is something you want to know that is not listed here, please contact us directly and we will answer your questions promptly.",
+    cta: [
+      {
+        url: "/contact-us#contact-us-form",
+        text: "Contact Us",
+      },
+    ],
+  },
+};
+---
+
+<BaseLayout pageTitle={data.pageTitle} pageDescription={data.pageDescription} pageKeywords={data.pageKeywords}>
+  <Header data={data.header} />
+
+  <FAQsSection />
+</BaseLayout>
