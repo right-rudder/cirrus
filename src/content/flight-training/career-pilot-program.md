@@ -7,10 +7,10 @@ image:
   alt: "View from inside the cockpit of a pilot flying an airplane"
 
 programIntroduction:
-  subTitle: "Professional Pilot Training"
   title: "Career Pilot Program"
+  subTitle: "Professional Pilot Training"
   descriptionParagraphs:
-    - "The Career Pilot Program at Cirrus Aviation is designed for individuals who want to pursue aviation as a profession and are prepared to commit to a demanding, structured training environment. Demand for professional pilots continues to grow, creating strong opportunities for those with the right preparation."
+    - "The Career Pilot Program at Cirrus Aviation is designed for individuals who want to pursue aviation as a profession and are prepared to commit to a demanding, structured training environment. Demand for professional pilots continues to grow, with an expectation of over <b>600,000 new pilots needed in the next 20 years</b>, creating strong opportunities for those with the right preparation, and with this course you can prepare yourself to <b>become one of them</b>."
     - "Cirrus Aviation offers both degree and non-degree career pathways, supporting high school graduates, international students, military veterans, and individuals seeking a career change. Our program combines FAA-approved Part 141 training with decades of instructional experience and industry relationships."
     - "Students are expected to approach training as both a full-time job and a professional evaluation. Accelerated students train full-time, while part-time options are available for those balancing other commitments."
   highlights:
@@ -18,27 +18,25 @@ programIntroduction:
       highlightValue: "FAA Part 141, accelerated or part-time"
     - highlightName: "Duration"
       highlightValue: "From 5 to 18 months"
+      observation: Individual performance may vary based on personal diligence, flying full-time or part-time, aptitude, weather, and the type aircraft you choose for your training.
     - highlightName: "Course Cost"
       highlightValue: "Contact us for program pricing"
-
-programHighlights:
-  benefits:
-    - "Private Pilot License (PPL)"
-    - "Instrument Rating (IFR)"
-    - "Commercial Pilot License (CPL)"
-    - "Multi-Engine Rating (MEL)"
-    - "Flight Instructor Certificates (CFI, CFII, MEI)"
-  requirements:
-    - "Meet all FAA requirements for each certificate and rating"
-    - "Proof of U.S. citizenship or completed TSA approval"
-    - "Ability to speak, read, write, and understand English"
-    - "Meet age requirements for each rating"
-    - "Hold an FAA First Class Medical Certificate"
+  programHighlights: 
+    benefits:
+      - "From novice to Commercial Pilot in just a few months"
+      - "A structured, FAA-approved, and well tested course to head start your aviation career"
+      - "A diverse portfolio of pilot licenses, including Private Pilot License (PPL), Instrument Rating (IFR), Commercial Pilot License (CPL), and Multi-Engine Rating (MEL)"
+    requirements:
+      - "Meet all FAA requirements for each certificate and rating"
+      - "Proof of U.S. citizenship or completed TSA approval"
+      - "Ability to speak, read, write, and understand English"
+      - "Meet age requirements for each rating"
+      - "Hold an FAA First Class Medical Certificate before you can fly solo"
 
 programExpectations:
   image:
-    src: "/src/assets/cessna-172-cirrus-aviation-sarasota-flight-training.jpg"
-    alt: "Plane taking off with sun in the background"
+    src: "/src/assets/airport-runway-sunset-cirrus-aviation-flight-school-riverview.webp"
+    alt: "Airport runway with planes in sight and the sunset in the horizon"
   title: "Training Environment and Expectations"
   descriptionParagraphs:
     - "This is a rigorous training environment designed to prepare students for professional aviation standards. Progression is performance-based, not automatic."
@@ -46,56 +44,58 @@ programExpectations:
   listItems:
     - "Standardized syllabus flights under FAA Part 141"
     - "Consistent emergency procedure training"
-    - "Performance, preparation, and professionalism drive progression"
+    - "Performance, preparation, and professionalism driven progression"
 
 whatIsIncluded:
-  subTitle: "Comprehensive Package"
   title: "What the Program Includes"
+  subTitle: "Comprehensive Package"
   descriptionParagraphs:
     - "The Career Pilot Program provides a structured pathway through multiple certificates and ratings under Cirrus Aviation’s FAA Part 141 approval."
   bulletPointLists:
-    - title: "Ground & Flight Training"
+    - icon: "M21 16v-5.9l-8.05 4.375q-.45.25-.95.25t-.95-.25l-8.45-4.6q-.275-.15-.388-.375T2.1 9t.113-.5t.387-.375l8.45-4.6q.225-.125.463-.188T12 3.275t.488.063t.462.187l9.525 5.2q.25.125.388.363T23 9.6V16q0 .425-.288.713T22 17t-.712-.288T21 16m-9.95 4.475l-5-2.7q-.5-.275-.775-.75T5 16v-3.8l6.05 3.275q.45.25.95.25t.95-.25L19 12.2V16q0 .55-.275 1.025t-.775.75l-5 2.7q-.225.125-.462.188t-.488.062t-.488-.062t-.462-.188"
+      title: "Ground & Flight Training"
       items:
-        - "300+ hours of structured ground instruction"
-        - "Up to 220 hours of single-engine flight time"
-        - "Up to 10 hours of multi-engine flight time"
-    - title: "FAA Certifications & Tests"
+        - "Structured Ground School instruction"
+        - "250+ flight time"
+        - "Multi-engine and single-engine flight time"
+        - "50+ hours of cross-country flight time"
+    - icon: "M14 8.947L22 14v2l-8-2.526v5.36l3 1.666V22l-4.5-1L8 22v-1.5l3-1.667v-5.36L3 16v-2l8-5.053V3.5a1.5 1.5 0 0 1 3 0z"
+      title: "FAA Certifications"
       items:
         - "Private Pilot (PPL)"
         - "Instrument Rating (IFR)"
         - "Commercial Pilot (CPL)"
         - "Multi-Engine Rating (MEL)"
-    - title: "Housing & Pilot Kit"
+    - icon: "m22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9c-2-2-5-2.4-7.4-1.3L9 6L6 9L1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4"
+      title: "Resources"
       items:
-        - "Housing for up to 8 months"
-        - "David Clark headset"
-        - "iPad mini with Pivot case"
-        - "Aviation apps (1 year)"
-        - "Flight bag, E6-B, vision limiting device"
-        - "Sporty’s online academics for private, instrument, and commercial training"
-        - "One-year Pilot Network membership"
-        - "Renter’s insurance and AOPA membership"
+        - "Degree and non-degree curriculums"
+        - "Adjustments to fit the needs of high school, international students, and post high school people"
+        - "Adjustments to fit the needs of the military veterans"
 
 whyUs:
   title: "What Is a Professional Pilot"
   subTitle: "Our Philosophy"
+  img:
+    src: "/src/assets/pilot-standing-side-plane-tail-cirrus-aviation-flight-school-bradenton.jpg"
+    alt: "Pilot standing next to an airplane's tail"
   topic: 
     title: "Mindset Over Paycheck"
     descriptionParagraphs:
-      - "At Cirrus Aviation, a professional pilot is defined by discipline, preparation, and consistency. Professionalism means never accepting 'good enough' and approaching every flight with intention and accountability."
+      - "At Cirrus Aviation, a professional pilot is defined by discipline, preparation, and consistency. Professionalism means never accepting \"good enough\" and approaching every flight with intention and accountability."
       - "This mindset is expected from the first day of training and reinforced throughout every phase of the program."
   bulletList: 
     title: "Instructor Experience"
     descriptionParagraphs:
-      - "Cirrus Aviation’s instructors bring extensive experience from general aviation, airline, military, and commercial operations. Their role extends beyond teaching maneuvers to shaping judgment, habits, and decision-making."
+      - "Cirrus Aviation’s instructors bring extensive experience from years of studying, training, and teaching to fly. Their role extends beyond teaching maneuvers to shaping judgment, habits, and decision-making."
     bulletPoints:
-      - "Decades of combined instructional experience"
-      - "Backgrounds in General Aviation, Airlines, and Military"
-      - "Experience across Parts 91, 121, 125, and 135 operations"
+      - "Our curriculum follows proven, standardized training methods aligned with FAA requirements."
+      - "Our Certified Flight Instructors are trained to work with first-time students, providing clear instruction, consistent guidance and expertise from years of experience."
+      - "We focus on safety, confidence, and steady progress, not pressure or shortcuts."
 
 careerPathways:
-  subTitle: "Future Opportunities"
   title: "Career Outcomes After Training"
+  subTitle: "Future Opportunities"
   descriptionParagraphs:
     - "Upon completion, graduates hold a Commercial Pilot License with multi-engine and instrument ratings, allowing them to be paid to fly aircraft they are qualified in."
     - "Many graduates build experience as flight instructors, while others pursue opportunities in corporate aviation, charter operations, cargo flying, and international markets. U.S. airline pathways typically require additional flight time beyond program completion."
@@ -128,8 +128,8 @@ enrollmentProcess:
       description: "Discuss payment options, financing, or out-of-pocket arrangements with admissions."
 
 trainingProgression:
-  subTitle: "Program Flow"
   title: "Structured Progression Through Ratings"
+  subTitle: "Program Flow"
   descriptionParagraphs:
     - "The Career Pilot Program follows a proven FAA Part 141 progression through certificates and ratings."
     - "Training emphasizes real-world application, professionalism, and safe decision-making."
@@ -164,11 +164,11 @@ trainingProgression:
   outcome: "Graduates earn professional pilot certifications and are positioned to pursue instructor, corporate, international, or airline career paths."
 
 finalCTA:
+  title: "Start the Conversation"
+  subTitle: "Final Note"
   image:
     src: "/src/assets/cessna-172-cirrus-aviation-sarasota-flight-training.jpg"
     alt: "Plane taking off with sun in the background"
-  subTitle: "Final Note"
-  title: "Start the Conversation"
   descriptionParagraphs:
     - "The Career Pilot Program is demanding by design and intended for those committed to professional excellence."
     - "If you are ready to pursue aviation as a career, Cirrus Aviation is ready to help you define and execute your path forward."
@@ -179,8 +179,8 @@ finalCTA:
       url: "tel:9109008043"
 
 faq:
-  subTitle: "Common Questions"
   title: "Frequently Asked Questions"
+  subTitle: "Common Questions"
   qnas:
     - question: "Is this program suitable for hobbyists or part-time students?"
       answer: "This program is designed for career-focused pilots. While part-time pacing is available, the curriculum and expectations are professional in nature."

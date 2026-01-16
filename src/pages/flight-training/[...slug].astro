@@ -5,6 +5,9 @@ import type { CollectionEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import WhyUs from "../../components/program/WhyUs.astro";
+import ProgramIntro from "../../components/program/ProgramIntro.astro";
+import ProgramExpectations from "../../components/program/ProgramExpectations.astro";
+import WhatIsIncluded from "../../components/program/WhatIsIncluded.astro";
 
 // Static Path Generation
 export async function getStaticPaths() {
@@ -49,5 +52,11 @@ const programKeywords = PROGRAM_KEYWORDS[`${program.id}`];
 >
   <Header data={header} />
 
-  <!-- <WhyUs data={data.whyUs} /> -->
+  {data.programIntroduction && <ProgramIntro data={data.programIntroduction} />}
+
+  {data.programExpectations && <ProgramExpectations data={data.programExpectations} />}
+
+  {data.whatIsIncluded && <WhatIsIncluded data={data.whatIsIncluded} />}
+
+  {data.whyUs && <WhyUs data={data.whyUs} />}
 </BaseLayout>
