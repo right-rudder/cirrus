@@ -23,6 +23,7 @@ export const menu: MenuItem[] = [
     children: [
       { label: "New to Flying", url: "/new-to-flying" },
       { label: "Discovery Flight", url: "/take-a-discovery-flight" },
+      { label: "FAQs", url: "/faqs" },
     ],
   },
   {
@@ -30,12 +31,12 @@ export const menu: MenuItem[] = [
     url: "/flight-training",
     children: [
       {
-        label: "Flight Training",
+        label: "All Programs",
         url: "/flight-training",
       },
       {
         label: "Career Pilot Program",
-        url: "/flight-training/career-pilot",
+        url: "/flight-training/career-pilot-program",
       },
       {
         label: "Private Pilot",
@@ -123,7 +124,6 @@ export const menu: MenuItem[] = [
     children: [
       { label: "About Us", url: "/about-us" },
       { label: "Our Fleet", url: "/about-us/fleet" },
-      { label: "FAQ", url: "/about-us/faq" },
       { label: "News and Highlights", url: "/news" },
       { label: "Contact Us", url: "/contact-us" },
     ],
@@ -139,7 +139,7 @@ export const footerMenu: MenuItem[] = [
       { label: "Discovery Flight", url: "/take-a-discovery-flight" },
       { label: "Aircraft Services", url: "/services" },
       { label: "Resources", url: "/resources" },
-      { label: "FAQ", url: "/about-us/faq" },
+      { label: "FAQs", url: "/faqs" },
       {
         label: "Flight Schedule Login",
         url: "https://app.flightschedulepro.com/Account/Login/139257",
@@ -156,12 +156,12 @@ export const footerMenu: MenuItem[] = [
     url: "/flight-training/",
     children: [
       {
-        label: "Flight Training",
+        label: "All Programs",
         url: "/flight-training",
       },
       {
         label: "Career Pilot Program",
-        url: "/flight-training/career-pilot",
+        url: "/flight-training/career-pilot-program",
       },
       {
         label: "Private Pilot",
@@ -235,7 +235,9 @@ const { pathname, navBarBG = false } = Astro.props;
                           : ""
                       }
                     >
-                      {child.label}
+                      <span>
+                        {child.label}
+                      </span>
                     </a>
                   </li>
                 ))}
@@ -402,6 +404,20 @@ const { pathname, navBarBG = false } = Astro.props;
   .sub-menu li a:hover,
   .sub-menu li a.menu-link-hover {
     @apply text-slate-950;
+  }
+
+  .sub-menu li a span {
+    @apply block w-fit relative;
+  }
+
+  .sub-menu li a span::after {
+    content: "";
+    @apply absolute left-0 right-0 -bottom-1 bg-lime-500 rounded-full h-1 transition-all duration-300 ease-in-out max-w-0;
+  }
+
+  .sub-menu li a:hover span::after,
+  .sub-menu li a.menu-link-hover span::after {
+    @apply max-w-full;
   }
 
   .container-desktop-nav .hamburger .hamburger-menu-x,

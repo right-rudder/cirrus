@@ -59,7 +59,6 @@ const formData: FormData = {
     {
       id: "message",
       label: "Message",
-      required: true,
       placeholder: "Anything else we need to know?",
       type: "textarea",
       colSpan: "full",

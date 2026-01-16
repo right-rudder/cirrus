@@ -56,6 +56,8 @@ if ((f.type === "checkboxes") && f.options) {
           min={f.min}
           max={f.max}
           autocomplete={f.autocomplete}
+          data-min-date={f.dataSetMinDate}
+          data-max-date={f.dataSetMaxDate}
         />
       ) : null}
       {f.type === "select" ? (
@@ -119,6 +121,11 @@ if ((f.type === "checkboxes") && f.options) {
           </div>
         </fieldset>
       ) : null}
+      {
+        (f.type === "date") && ((typeof f.dataSetMinDate !== "undefined") || (typeof f.dataSetMaxDate !== "undefined")) ? (
+          <label data-for={f.id} class="text-slate-300 text-sm font-medium"></label>
+        ) : null
+      }
     </div>
   )
 }

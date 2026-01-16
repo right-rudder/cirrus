@@ -7,11 +7,12 @@ interface Props {
   categories?: string[];
   limit?: number;
   showCategory?: boolean;
+  showLinkToFAQsPage?: boolean;
 }
 
 type FAQ = CollectionEntry<"faqs">;
 
-const { id = "faqs", categories, limit, showCategory = false } = Astro.props;
+const { id = "faqs", categories, limit, showCategory = false, showLinkToFAQsPage = false } = Astro.props;
 
 let faqs = await getCollection("faqs");
 
@@ -79,9 +80,16 @@ const displayFaqs = limit ? sortedFaqs.slice(0, limit) : sortedFaqs;
         class="flex flex-col items-center mt-12"
       >
         <p class="text-slate-600 text-2xl text-center mb-4">Got Any More Questions?</p>
-        <a href="/contact-us#contact-us-form" class="btn-rose">
-          Contact Us
-        </a>
+        <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+          {showLinkToFAQsPage && (
+            <a href="/faqs" class="btn-rose">
+              More FAQs
+            </a>
+          )}
+          <a href="/contact-us#contact-us-form" class="btn-rose">
+            Contact Us
+          </a>
+        </div>
       </div>
     )
   }

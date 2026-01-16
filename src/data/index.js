@@ -200,7 +200,7 @@ export const data = {
       {
         type: "only-image",
         img: {
-          src: "/src/assets/inside-airplane-two-pilots-landing-on-runway-cirrus-aviation-st-petersburg-certified-flight-instructor.jpg",
+          src: "/src/assets/inside-airplane-two-pilots-landing-on-runway-cirrus-aviation-st-petersburg-certified-flight-instructor.webp",
           alt: "View from inside and airplane of two pilots almost landing with the runway close in sight",
         },
         title: `Aircraft Checkout<br/>And Rental Rates`,
@@ -210,21 +210,5 @@ export const data = {
         },
       },
     ],
-  },
-  
-  cta: {
-    title: "Ready to Take the Left Seat?",
-    description:
-      "Whether you’re chasing a lifelong dream or starting a professional aviation career, our experienced instructors and modern training aircraft are here to help you take off with confidence. Your journey to the cockpit starts today.",
-    cta: {
-      url: "/contact-us#contact-us-form",
-      text: "Start Today",
-    },
-    img: {
-      src: "/src/assets/stock/airplane-flying-mountains-background-cirrus-aviation-commercial-pilot-bradenton.jpg",
-      alt: "Airplane flying with mountains in the background",
-      objectPosition: "object-bottom",
-      quality: 90,
-    },
   },
 };

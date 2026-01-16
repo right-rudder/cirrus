@@ -22,7 +22,7 @@ const data = {
     {
       url: "/",
       text: "Home Page",
-      class: "btn-rose-outline",
+      class: "btn-rose-outline text-rose-600! hover:text-white!",
     },
     {
       url: "/contact-us#contact-us-form",
@@ -37,7 +37,7 @@ const data = {
   <Header data={data.header} position="center" />
 
   <SimpleSection title={data.title} subTitle={data.subTitle} size="large">
-    <div class="flex gap-4 flex-wrap items-center justify-center">
+    <div data-aos="fade-down" data-aos-delay="300" class="flex gap-4 flex-wrap items-center justify-center">
       {
         data.cta.map((item) => (
           <a href={item.url} class={item.class}>

@@ -1,12 +1,12 @@
 ---
-import { COMPANY_NAME, COURSES, KEYWORDS } from "../data/consts";
+import { ADDRESS_CITY, ADDRESS_STATE_ABBR, COMPANY_NAME, COURSES, KEYWORDS } from "../data/consts";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import SimpleSection from "../components/sections/SimpleSection.astro";
 
 const data = {
   pageTitle: `Discovery Flight Confirmation | ${COMPANY_NAME}`,
-  pageDescription: `Discovery Flight scheduling submission confirmation, we have received your request and will respond within one business day. ${COMPANY_NAME} is a flight school based in Sarasota, FL, that offers a variety of flight training programs, including ${COURSES.join(", ")}.`,
+  pageDescription: `Discovery Flight scheduling submission confirmation, we have received your request and will respond within one business day. ${COMPANY_NAME} is a flight school based in ${ADDRESS_CITY}, ${ADDRESS_STATE_ABBR}, that offers a variety of flight training programs, including ${COURSES.join(", ")}.`,
   pageKeywords: KEYWORDS,
   header: {
     image: {

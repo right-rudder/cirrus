@@ -44,8 +44,8 @@ export const data = {
   },
 
   journeyRoadmap: {
-    title: "The Training Path Explained",
-    subTitle: "What your journey will be like",
+    title: "Your Training Path",
+    subTitle: "What the journey will be like",
     cards: [
       {
         title: "Discovery Flight",

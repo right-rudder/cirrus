@@ -1,5 +1,5 @@
 ---
-import { COMPANY_NAME, KEYWORDS } from "../../data/consts";
+import { ADDRESS_CITY, ADDRESS_STATE, COMPANY_NAME, KEYWORDS } from "../../data/consts";
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
@@ -10,7 +10,7 @@ const posts = (await getCollection("news")).sort((a, b) => b.data.pubDate.valueO
 const data = {
   pageTitle: `News and Highlights | ${COMPANY_NAME}`,
   pageDescription:
-    `Read the latest aviation news from ${COMPANY_NAME}. We are a flight school based in Sarasota, Florida, and have multiple flight training programs for you to choose from, start training at ${COMPANY_NAME} today.`,
+    `Read the latest aviation news from ${COMPANY_NAME}. We are a flight school based in ${ADDRESS_CITY}, ${ADDRESS_STATE}, and have multiple flight training programs for you to choose from, start training at ${COMPANY_NAME} today.`,
   pageKeywords: KEYWORDS,
   header: {
     image: {
