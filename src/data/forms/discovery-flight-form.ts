@@ -45,6 +45,7 @@ const formData: FormData = {
       label: "Preferred Discovery Flight date",
       type: "date",
       required: true,
+      dataSetMinDate: 1,
     },
     {
       id: "flight_time",
@@ -70,7 +71,32 @@ const formData: FormData = {
         },
       ],
     },
-    /* TODO : Add Siesta Key Beach coastline, St Armands Circle, Longboat Key */
+    {
+      id: "discovery-flight-sights",
+      label: "What would you like to see in your Discovery Flight?",
+      type: "checkboxes",
+      required: true,
+      options: [
+        {
+          value: "Siesta Key Beach coastline",
+          label: "Siesta Key Beach coastline",
+        },
+        {
+          value: "St. Armands Circle",
+          label: "St. Armands Circle",
+        },
+        {
+          value: "Longboat Key",
+          label: "Longboat Key",
+        },
+        {
+          value: "Other",
+          label: "Other",
+        },
+      ],
+      colSpan: "full",
+      addClass: "sm:grid-cols-2",
+    },
     {
       id: "additional-info",
       label: "Additional Information",
