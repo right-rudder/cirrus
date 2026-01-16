@@ -7,8 +7,8 @@ image:
   alt: "Cessna 172s instrument panel"
 
 programIntroduction:
-  subTitle: "Precision Flight Training"
   title: "Instrument Airplane Rating"
+  subTitle: "Precision Flight Training"
   descriptionParagraphs:
     - "The Instrument Rating is often considered the most important safety rating a pilot can earn. It is the bridge between flying as a hobbyist in fair weather and operating as a professional aviator who commands the aircraft regardless of visibility."
     - "At Cirrus Aviation, we don't just teach you to pass a written test. We teach you to trust your instruments, manage complex avionics, and make sound aeronautical decisions when the horizon disappears."
@@ -33,10 +33,10 @@ programIntroduction:
       - "Ability to speak, read, write, and understand English"
 
 programExpectations:
-  image: 
+  title: "A Higher Standard of Precision"
+  image:
     src: "/src/assets/cessna-172-cirrus-aviation-sarasota-flight-training.jpg"
     alt: "Plane taking off with sun in the background"
-  title: "A Higher Standard of Precision"
   descriptionParagraphs:
     - "Instrument flying is a cerebral discipline. It requires rote memorization of regulations and procedures, followed by the ability to correlate that knowledge with precise 'stick and rudder' skills."
     - "We expect you to treat this training with professional dedication. You will be challenged to maintain strict altitude and heading tolerances while communicating with ATC and managing navigation systems."
@@ -46,8 +46,8 @@ programExpectations:
     - "We emphasize 'never accepting good enough'—we train until you are proficient"
 
 whatIsIncluded:
-  subTitle: "Course Breakdown"
   title: "What is Included in the Tuition"
+  subTitle: "Course Breakdown"
   descriptionParagraphs:
     - "Our Instrument Rating course is a comprehensive package designed to take you from a VFR pilot to a competent IFR aviator in 8 weeks."
   bulletPointLists:
@@ -68,19 +68,24 @@ whatIsIncluded:
         - "Pilot supplies (charts/approach plates) are student responsibility"
 
 whyUs:
-  subTitle: "The M2A Difference"
-  title: "Why Train for IFR with M2A?"
-  topicTitle: "Real-World Experience"
-  topicDescriptionParagraphs:
-    - "Instrument flying is about more than chasing needles on a gauge. It is about understanding weather, ATC systems, and personal limits."
-    - "Our senior instructors have centuries of collective experience in the USAF, airlines, and corporate aviation. They have flown in the conditions you are learning to handle, providing mentorship that goes far beyond the textbook."
-  bulletTitle: "Our Approach"
-  bulletDescriptionParagraphs:
-    - "We combine the structure of a Part 141 environment with the personalized care of a family-run academy. We are 'paying it forward' to the next generation of pilots."
-  bulletPoints:
-    - "Zero-cancellation record for checkrides (12+ years)"
-    - "Technologically advanced fleet"
-    - "Mentorship from active airline and military pilots"
+  title: "Why Train for IFR with Cirrus?"
+  subTitle: "The Cirrus Difference"
+  img:
+    src: "/src/assets/pilot-standing-side-plane-tail-cirrus-aviation-flight-school-bradenton.jpg"
+    alt: "Pilot standing next to an airplane's tail"
+  topic:
+    title: "Real-World Experience"
+    descriptionParagraphs:
+      - "Instrument flying is about more than chasing needles on a gauge. It is about understanding weather, ATC systems, and personal limits."
+      - "Our senior instructors have centuries of collective experience in the USAF, airlines, and corporate aviation. They have flown in the conditions you are learning to handle, providing mentorship that goes far beyond the textbook."
+  bulletList: 
+    title: "Our Approach"
+    descriptionParagraphs:
+      - "We combine the structure of a Part 141 environment with the personalized care of a family-run academy. We are 'paying it forward' to the next generation of pilots."
+    bulletPoints:
+      - "Zero-cancellation record for checkrides (12+ years)"
+      - "Technologically advanced fleet"
+      - "Mentorship from active airline and military pilots"
 
 targetAudience:
   title: "Who Should Take This Course?"
@@ -92,8 +97,8 @@ targetAudience:
   notFor: "This course is not for those looking for a 'quick pass' without learning the deeper systems and weather theory required for safe IFR flight."
 
 trainingProgression:
-  subTitle: "Curriculum Flow"
   title: "8 Weeks to IFR Proficiency"
+  subTitle: "Curriculum Flow"
   descriptionParagraphs:
     - "The course is broken down into logical phases, ensuring you master basic attitude instrument flying before progressing to complex approaches and cross-country procedures."
   phases:
@@ -132,8 +137,8 @@ enrollmentProcess:
       description: "You may pay out-of-pocket or apply for a loan through our partner, Stratus Financial."
 
 faq:
-  subTitle: "Common Questions"
   title: "Instrument Rating FAQ"
+  subTitle: "Common Questions"
   qnas:
     - question: "Can I do this course part-time?"
       answer: "While we specialize in full-time professional training, a la carte Part 141 courses can be scheduled. However, Part 141 requires a structured timeline. If you need total flexibility, we may discuss Part 61 options (billed hourly, self-paced)."
@@ -143,11 +148,11 @@ faq:
       answer: "No, the cost includes up to 40 hours of flight time in our technologically advanced aircraft."
 
 finalCTA:
-  image: 
+  title: "Master the Skies"
+  subTitle: "Ready to Level Up?"
+  image:
     src: "/src/assets/cessna-172-cirrus-aviation-sarasota-flight-training.jpg"
     alt: "Plane taking off with sun in the background"
-  subTitle: "Ready to Level Up?"
-  title: "Master the Skies"
   descriptionParagraphs:
     - "Don't let the weather ground you. Gain the skills, precision, and confidence to fly in the clouds with Cirrus Aviation."
     - "Your instrument rating is the most rewarding challenge you will face as a pilot. Let's get started."

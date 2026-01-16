@@ -38,7 +38,7 @@ programExpectations:
     alt: "Plane taking off with sun in the background"
   title: "Building the Right Habits"
   descriptionParagraphs:
-    - "We expect you to treat this course like a job. The habits you form during your private pilot training will stay with you for your entire flying career. M2A is dedicated to ensuring those habits are professional, safe, and precise."
+    - "We expect you to treat this course like a job. The habits you form during your private pilot training will stay with you for your entire flying career. Cirrus is dedicated to ensuring those habits are professional, safe, and precise."
     - "You will have homework every day. We perform emergency procedure drills on every syllabus flight to ensure you are prepared for the unexpected."
   listItems:
     - "Expect a rigorous schedule with daily study requirements"
@@ -67,7 +67,7 @@ whatIsIncluded:
         - "Students must live locally or arrange their own accommodation for a la carte training."
 
 whyUs:
-  subTitle: "The M2A Standard"
+  subTitle: "The Cirrus Standard"
   title: "Why Train With Us?"
   topicTitle: "Experience Matters"
   topicDescriptionParagraphs:

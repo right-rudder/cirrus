@@ -68,17 +68,22 @@ whatIsIncluded:
 whyUs:
   subTitle: "The Cirrus Aviation Difference"
   title: "Why Train with Cirrus Aviation?"
-  topicTitle: "Experience & Innovation"
-  topicDescriptionParagraphs:
-    - "Founded in 1994 at Sarasota-Bradenton International Airport, Cirrus Aviation has grown from a single-aircraft operation into a modern, forward-thinking flight training organization. Innovation has always been part of our DNA—from early GPS adoption to advanced avionics, simulators, and next-generation aircraft."
-  bulletTitle: "Standards & Support"
-  bulletDescriptionParagraphs:
-    - "Our FAA Part 141 certificate ensures that syllabi, instructors, aircraft, simulators, and maintenance are individually approved and continuously monitored. Students benefit from a fully integrated training environment supported by dedicated staff and strong industry partnerships."
-  bulletPoints:
-    - "Over 30 years of continuous flight training experience"
-    - "In-house maintenance and standardized training fleet"
-    - "University, airline, and industry partnerships including Liberty University and SkyWest"
-    - "GI Bill®, Student Visa, and Sallie Mae approved"
+  img:
+    src: "/src/assets/pilot-standing-side-plane-tail-cirrus-aviation-flight-school-bradenton.jpg"
+    alt: "Pilot standing next to an airplane's tail"
+  topic:
+    title: "Experience & Innovation"
+    descriptionParagraphs:
+      - "Founded in 1994 at Sarasota-Bradenton International Airport, Cirrus Aviation has grown from a single-aircraft operation into a modern, forward-thinking flight training organization. Innovation has always been part of our DNA—from early GPS adoption to advanced avionics, simulators, and next-generation aircraft."
+  bulletList: 
+    title: "Standards & Support"
+    descriptionParagraphs:
+      - "Our FAA Part 141 certificate ensures that syllabi, instructors, aircraft, simulators, and maintenance are individually approved and continuously monitored. Students benefit from a fully integrated training environment supported by dedicated staff and strong industry partnerships."
+    bulletPoints:
+      - "Over 30 years of continuous flight training experience"
+      - "In-house maintenance and standardized training fleet"
+      - "University, airline, and industry partnerships including Liberty University and SkyWest"
+      - "GI Bill®, Student Visa, and Sallie Mae approved"
 
 targetAudience:
   title: "Who This Course Is For"

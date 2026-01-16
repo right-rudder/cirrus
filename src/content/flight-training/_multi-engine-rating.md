@@ -64,16 +64,22 @@ whatIsIncluded:
 whyUs:
   subTitle: "Experience Matters"
   title: "Learn from Heavy Metal Pilots"
-  topicTitle: "Real-World Multi-Engine Experience"
-  topicDescriptionParagraphs:
-    - "Multi-engine aerodynamics are unforgiving. You want to learn these skills from instructors who have managed complex aircraft in the most demanding environments possible—from combat zones to airline operations."
-  bulletTitle: "The M2A Difference"
-  bulletDescriptionParagraphs:
-    - "We don't just teach you to pass a test. We teach you the discipline required to command a complex machine safely. Our instructors bring centuries of combined experience to the cockpit."
-  bulletPoints:
-    - "Military-grade procedural discipline"
-    - "Safety-first approach to Vmc and engine-out training"
-    - "Efficient, results-oriented syllabus"
+  img:
+    src: "/src/assets/pilot-standing-side-plane-tail-cirrus-aviation-flight-school-bradenton.jpg"
+    alt: "Pilot standing next to an airplane's tail"
+
+  topic:
+    title: "Real-World Multi-Engine Experience"
+    descriptionParagraphs:
+      - "Multi-engine aerodynamics are unforgiving. You want to learn these skills from instructors who have managed complex aircraft in the most demanding environments possible—from combat zones to airline operations."
+  bulletList: 
+    title: "The Cirrus Difference"
+    descriptionParagraphs:
+      - "We don't just teach you to pass a test. We teach you the discipline required to command a complex machine safely. Our instructors bring centuries of combined experience to the cockpit."
+    bulletPoints:
+      - "Military-grade procedural discipline"
+      - "Safety-first approach to Vmc and engine-out training"
+      - "Efficient, results-oriented syllabus"
 
 careerPathways:
   subTitle: "Career Progression"
@@ -100,7 +106,7 @@ enrollmentProcess:
     - title: "Prerequisites Check"
       description: "Ensure you hold a current Private or Commercial ASEL certificate and a valid medical."
     - title: "Schedule Your Week"
-      description: "Contact M2A to book your dedicated 1-week training block. Availability fills quickly."
+      description: "Contact Cirrus to book your dedicated 1-week training block. Availability fills quickly."
     - title: "Secure Financing"
       description: "Payment or financing must be secured prior to the start of the training block."
     - title: "Arrival & Training"
