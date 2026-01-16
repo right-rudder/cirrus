@@ -34,7 +34,7 @@ const flightTrainingCollection = defineCollection({
       highlights: z.array(z.object({
         highlightName: z.string(),
         highlightValue: z.string(),
-        pricingObservation: z.string().optional()
+        observation: z.string().optional()
       })).optional(),
       programHighlights: z.object({
         benefits: z.array(z.string()),
@@ -74,6 +74,7 @@ const flightTrainingCollection = defineCollection({
       subTitle: z.string(),
       descriptionParagraphs: z.array(z.string()).optional(),
       bulletPointLists: z.array(z.object({
+        icon: z.string().optional(),
         title: z.string(),
         items: z.array(z.string())
       })).optional()
@@ -83,6 +84,10 @@ const flightTrainingCollection = defineCollection({
     whyUs: z.object({
       title: z.string(),
       subTitle: z.string().optional(),
+      img: z.object({
+        src: z.string(),
+        alt: z.string(),
+      }),
       topic: z.object({
         title: z.string(),
         descriptionParagraphs: z.array(z.string()),

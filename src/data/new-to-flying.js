@@ -99,8 +99,8 @@ export const data = {
         alt: "CFI making explanation to student",
       },
       {
-        src: "/src/assets/pilot-standing-side-plane-tail-cirrus-aviation-flight-school-bradenton-scaled.webp",
-        alt: "Pilot standing to the side of a plane's tail",
+        src: "/src/assets/about-us/two-pilot-walking-cirrus-aviation-discovery-flight-bradenton-scaled.webp",
+        alt: "Two pilots walking on the runway",
       },
       {
         src: "/src/assets/stock/plane-flying-cirrus-aviation-commercial-pilot-florida.webp",
