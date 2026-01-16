@@ -1,0 +1,123 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ImageComp from "../ImageComp.astro";
+import { FaCheckCircle, FaRegCheckCircle, FaRegClock } from "react-icons/fa";
+
+type Program = CollectionEntry<"flight-training">;
+
+const { program } = Astro.props as { program: Program };
+---
+
+<article
+  class="group w-full flex flex-col bg-slate-900 text-white rounded-sm overflow-hidden shadow-lg transition-all duration-500 lg:flex-row lg:hover:shadow-2xl"
+  data-program-step="true"
+>
+  {/* Top Image Container */}
+  <div class="relative size-full lg:w-1/2 overflow-hidden">
+    <ImageComp
+      src={program.data.image.src}
+      alt={program.data.image.alt}
+      class="size-full object-cover object-center transition-transform duration-500 ease-in-out group-hover:scale-105"
+    />
+    <div class="absolute inset-0 size-full bg-radial from-white/20 to-slate-900/30 z-10"></div>
+  </div>
+  {/* Card Content */}
+  <div class="relative p-8 flex-1 flex flex-col transition duration-500">
+    {/* Badge & Duration */}
+    <div class="flex items-center justify-between mb-6">
+      <div class="flex items-center gap-3">
+        {
+          program.data.programIntroduction?.highlights?.find((h) =>
+            h.highlightName.toLowerCase().includes("duration")
+          ) && (
+            <div class="flex items-center gap-1.5 text-sm text-slate-600 bg-slate-100 px-3 py-1.5 rounded-full">
+              <FaRegClock className="size-4" />
+              <span class="font-medium">
+                {
+                  program.data.programIntroduction.highlights.find((h) =>
+                    h.highlightName.toLowerCase().includes("duration")
+                  )?.highlightValue
+                }
+              </span>
+            </div>
+          )
+        }
+      </div>
+      {
+        program.data.programIntroduction?.highlights?.find(
+          (h) => h.highlightName.toLowerCase().includes("cost") || h.highlightName.toLowerCase().includes("price")
+        ) && (
+          <div class="text-sm font-bold text-rose-600">
+            {
+              program.data.programIntroduction.highlights.find(
+                (h) => h.highlightName.toLowerCase().includes("cost") || h.highlightName.toLowerCase().includes("price")
+              )?.highlightValue
+            }
+          </div>
+        )
+      }
+    </div>
+
+    {/* Title */}
+    <h3 class="text-2xl font-title font-bold mb-3">
+      {program.data.title}
+    </h3>
+
+    {/* Description */}
+    <p class="mb-18 leading-relaxed flex-1">{program.data.description}</p>
+
+    {/* Highlights */}
+    {
+      program.data.programIntroduction?.programHighlights?.benefits &&
+        program.data.programIntroduction.programHighlights.benefits.length > 0 && (
+          <div class="p-6 rounded-sm bg-slate-100 text-slate-900">
+            <h4 class="text-sm font-semibold uppercase tracking-wider mb-3">What You Get</h4>
+            <ul class="space-y-2.5">
+              {program.data.programIntroduction.programHighlights.benefits.slice(0, 4).map((highlight) => (
+                <li class="flex items-center text-base gap-3">
+                  <FaCheckCircle className="shrink-0 size-5 text-rose-600" />
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+    }
+
+    {/* Requirements Preview */}
+    {
+      program.data.programIntroduction?.programHighlights?.requirements &&
+        program.data.programIntroduction.programHighlights.requirements.length > 0 && (
+          <div class="my-6">
+            <div class="flex items-center gap-2 text-xs">
+              <FaRegCheckCircle className="w-4 h-4" />
+              <span class="font-medium">
+                {program.data.programIntroduction.programHighlights.requirements.length} Requirements
+              </span>
+            </div>
+          </div>
+        )
+    }
+
+    {/* CTA Link */}
+    <a href={`/flight-training/${program.id}`} class="btn-rose w-fit ml-auto"> View Program Details </a>
+  </div>
+</article>
+
+<style>
+  @import "tailwindcss";
+
+  @media screen and (min-width: 1024px) {
+    [data-program-step] {
+      @apply opacity-60! scale-[0.98]!;
+    }
+
+    [data-program-step][data-active="true"] {
+      @apply opacity-100! scale-100!;
+    }
+
+    [data-program-step][data-active="true"] img {
+      @apply scale-105;
+    }
+  }
+</style>
