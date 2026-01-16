@@ -1,0 +1,56 @@
+---
+import { COMPANY_NAME, PROGRAM_KEYWORDS } from "../../data/consts";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import SectionBulletPoints from "../../components/sections/SectionBulletPoints.astro";
+import WhyUs from "../../components/program/whyUs.astro";
+
+// Static Path Generation
+export async function getStaticPaths() {
+  const flightTrainingPrograms = await getCollection("flight-training");
+  return flightTrainingPrograms.map((program) => ({
+    params: { slug: program.id },
+    props: { program },
+  }));
+}
+
+// Props
+type Props = {
+  program: CollectionEntry<"flight-training">;
+};
+
+const { program } = Astro.props;
+const { data } = program;
+
+const header = {
+  image: {
+    src: program.data.image.src,
+    alt: program.data.image.alt,
+  },
+  title: program.data.title,
+  subTitle: program.data.description,
+  cta: [
+    {
+      url: "/enroll",
+      text: "Enroll Now",
+    },
+  ],
+};
+
+console.log(program);
+
+const programKeywords = PROGRAM_KEYWORDS[`${program.id}`];
+---
+
+<BaseLayout
+  pageTitle={`${data.title} | ${COMPANY_NAME}`}
+  pageDescription]={data.description}
+  pageImage={data.image}
+  pageKeywords={`${data.title}, ${COMPANY_NAME}, ${data.title} requirements, ${programKeywords}`}
+>
+  <Header data={header} />
+
+  <WhyUs data={data.whyUs} />
+</BaseLayout>

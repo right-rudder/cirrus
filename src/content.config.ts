@@ -14,6 +14,154 @@ const blogCollection = defineCollection({
   }),
 });
 
+const flightTrainingCollection = defineCollection({
+  loader: glob({base: './src/content/flight-training', pattern: '**/[^_]*.{md,mdx}'}),
+  schema: z.object({
+    // Standard metadata
+    title: z.string(),
+    description: z.string(),
+    order: z.number().optional(),
+    image: z.object({
+      src: z.string(),
+      alt: z.string(),
+    }),
+
+    // 1. Introduction Section
+    programIntroduction: z.object({
+      title: z.string(),
+      subTitle: z.string().optional(),
+      descriptionParagraphs: z.array(z.string()).optional(),
+      highlights: z.array(z.object({
+        highlightName: z.string(),
+        highlightValue: z.string(),
+        pricingObservation: z.string().optional()
+      })).optional(),
+      programHighlights: z.object({
+        benefits: z.array(z.string()),
+        requirements: z.array(z.string())
+      }).optional()
+    }).optional(),
+
+    //  Training Environment/Expectations
+    programExpectations: z.object({
+      image: z.object({
+        src: z.string(),
+        alt: z.string(),
+      }),
+      title: z.string(),
+      descriptionParagraphs: z.array(z.string()),
+      listItems: z.array(z.string()).optional()
+    }).optional(),
+
+    // 2. First CTA Section
+    firstCTA: z.object({
+      image: z.object({
+        src: z.string(),
+        alt: z.string(),
+      }),
+      title: z.string(),
+      subTitle: z.string().optional(),
+      descriptionParagraphs: z.array(z.string()),
+    }).optional(),
+
+    // 3. What is Included Section
+    whatIsIncluded: z.object({
+      image: z.object({
+        src: z.string(),
+        alt: z.string(),
+      }).optional(), 
+      title: z.string(),
+      subTitle: z.string(),
+      descriptionParagraphs: z.array(z.string()).optional(),
+      bulletPointLists: z.array(z.object({
+        title: z.string(),
+        items: z.array(z.string())
+      })).optional()
+    }).optional(),
+
+    // 4. Why Us Section
+    whyUs: z.object({
+      title: z.string(),
+      subTitle: z.string().optional(),
+      topic: z.object({
+        title: z.string(),
+        descriptionParagraphs: z.array(z.string()),
+      }).optional(),
+      bulletList: z.object({
+        title: z.string(),
+        descriptionParagraphs: z.array(z.string()),
+        bulletPoints: z.array(z.string()),
+      }).optional(),
+      closing: z.object({
+        title: z.string(),
+        descriptionParagraphs: z.array(z.string()),
+      }).optional(),
+    }).optional(),
+
+    //  Career/Incentives (Incentive-Based Progression)
+    careerPathways: z.object({
+      title: z.string(),
+      subTitle: z.string().optional(),
+      descriptionParagraphs: z.array(z.string()).optional(),
+      opportunities: z.array(z.string()),
+      disclaimer: z.string().optional()
+    }).optional(),
+
+    //  Target Audience (Who This Program Is For)
+    targetAudience: z.object({
+      title: z.string(),
+      items: z.array(z.string()),
+      notFor: z.string().optional()
+    }).optional(),
+
+    // 5. Training Progression Section
+    trainingProgression: z.object({
+      title: z.string(),
+      subTitle: z.string().optional(),
+      descriptionParagraphs: z.array(z.string()),
+      phases: z.array(z.object({
+        phaseTitle: z.string(),
+        phaseBulletPoints: z.array(z.string())
+      })).optional(),
+      outcome: z.string().optional()
+    }).optional(),
+
+    //  Enrollment Process (How to Get Started)
+    enrollmentProcess: z.object({
+      title: z.string(),
+      steps: z.array(z.object({
+        title: z.string(),
+        description: z.string()
+      }))
+    }).optional(),
+
+    // 6. FAQ Section
+    faq: z.object({
+      title: z.string(),
+      subTitle: z.string().optional(),
+      qnas: z.array(z.object({
+        question: z.string(),
+        answer: z.string()
+      }))
+    }).optional(),
+
+    // 7. Final CTA Section
+    finalCTA: z.object({
+      image: z.object({
+        src: z.string(),
+        alt: z.string(),
+      }),
+      title: z.string(),
+      subTitle: z.string().optional(),
+      descriptionParagraphs: z.array(z.string()),
+      ctas: z.array(z.object({
+        url: z.string(),
+        text: z.string(),
+      })),
+    }).optional(),
+  }),
+});
+
 const faqsCollection = defineCollection({
   type: "content",
   schema: z.object({
@@ -23,4 +171,8 @@ const faqsCollection = defineCollection({
   }),
 });
 
-export const collections = { news: blogCollection, faqs: faqsCollection };
+export const collections = { 
+  "flight-training": flightTrainingCollection, 
+  news: blogCollection, 
+  faqs: faqsCollection 
+};

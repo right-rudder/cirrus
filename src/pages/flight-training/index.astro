@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import Header from "../../components/Header.astro";
+import { COMPANY_NAME, COURSES, COURSES_OBJ } from "../../data/consts";
+import CTA from "../../components/sections/CTA.astro";
+import SimpleSection from "../../components/sections/SimpleSection.astro";
+import CardProgram from "../../components/cards/CardProgram.astro";
+import ImageComp from "../../components/ImageComp.astro";
+
+type Program = CollectionEntry<"flight-training">;
+
+const programs = await getCollection("flight-training");
+const sortedPrograms = programs.sort((a: Program, b: Program) => (a.data.order || 999) - (b.data.order || 999));
+
+const data = {
+  pageTitle: `Flight Training Programs | ${COMPANY_NAME}`,
+  pageDescription: `Explore the flight training program options at ${COMPANY_NAME}. From ${COURSES_OBJ.privatePilot} to ${COURSES_OBJ.commercialPilot}, as well as, ${COURSES.filter((item) => [COURSES_OBJ.privatePilot, COURSES_OBJ.commercialPilot].includes(item)).join(", ")}, we have options for all your flight training needs.`,
+  pageKeywords: `flight school programs, professional pilot track, private pilot license, instrument rating, commercial pilot certificate, multi-engine training, ${COMPANY_NAME} flight courses`,
+
+  header: {
+    image: {
+      src: "/src/assets/cessna-172-cirrus-aviation-sarasota-flight-training.jpg",
+      alt: "Plane taking off with sun in the background",
+    },
+    title: "Flight Training Programs",
+    subTitle: "Explore our comprehensive flight training programs designed to take you from zero to hero",
+    cta: [
+      {
+        url: "/enroll",
+        text: "Enroll Now",
+      },
+    ],
+  },
+
+  introSection: {
+    bgImage: {
+      src: "/src/assets/cirrus-aviation-logo-wings-no-text.png",
+      alt: `${COMPANY_NAME} Logo`,
+    },
+    title: "Choose Your Path",
+    subTitle: "Career Pilot Track & Individual Ratings",
+    description: `From our intensive Career Pilot program to individual flight training courses, we offer a clear roadmap for every aviation goal. Join ${COMPANY_NAME} today and take the first step toward your dream career in the sky.
+    <br /><br />
+    <strong>Select the program that fits your mission, and we’ll provide the mentorship to get you there.</strong>`,
+  },
+};
+---
+
+<BaseLayout pageTitle={data.pageTitle} pageDescription={data.pageDescription} pageKeywords={data.pageKeywords}>
+  <Header data={data.header} />
+
+  <!-- Section Header -->
+  <SimpleSection title={data.introSection.title} subTitle={data.introSection.subTitle} size="large" bg="bg-slate-100">
+    <div class="relative">
+      <div data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="250">
+        <ImageComp src={data.introSection.bgImage.src} alt={data.introSection.bgImage.alt} class="absolute left-1/2 -translate-x-1/2 -top-48 opacity-15 brightness-0 w-full lg:w-3/4" />
+      </div>
+      <p
+        data-aos="fade-down"
+        data-aos-delay="200"
+        class="text-lg text-slate-600 mb-8 max-w-5xl text-center mx-auto"
+        set:html={data.introSection.description}
+      />
+    </div>
+  </SimpleSection>
+
+  <!-- Programs Grid -->
+  <SimpleSection bg="bg-slate-100">
+    <div class="flex flex-wrap justify-center gap-6">
+      {sortedPrograms.map((program) => <CardProgram program={program} />)}
+    </div>
+  </SimpleSection>
+
+  <CTA />
+
+  <script>
+    const programCards = document.querySelectorAll("[data-program-step]");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry: any) => {
+          entry.target.dataset.active = entry.isIntersecting;
+        });
+      },
+      {
+        root: null,
+        threshold: 0.6,
+      }
+    );
+
+    programCards.forEach((container) => observer.observe(container));
+  </script>
+</BaseLayout>
