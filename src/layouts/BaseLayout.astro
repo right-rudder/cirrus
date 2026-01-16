@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar.astro";
 import HeaderContact from "../components/HeaderContact.astro";
 import "@fontsource-variable/montserrat";
 import "@fontsource/hind";
+import ChatWidget from "../components/widgets/ChatWidget.astro";
 
 const { pathname } = Astro.url;
 const { pageTitle, pageDescription, pageImage, pageKeywords, customBreadcrumbs, navBarBG = false } = Astro.props;
@@ -166,6 +167,8 @@ const breadcrumbs = generateBreadcrumbs(pathname, customBreadcrumbs);
       )}
     </main>
     <Footer />
+
+    <ChatWidget />
 
     <script>
       import AOS from "aos";
