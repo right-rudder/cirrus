@@ -22,10 +22,12 @@ export type Field = {
   colSpan?: string;
   row?: number;
   step?: number | string;
-  min?: string;
-  max?: string;
+  min?: string; 
+  max?: string; 
   autocomplete?: string;
   addClass?: string;
+  dataSetMinDate?: number; /* How many days from the current date (0 means the current date is allowed) is the minimum allowed date */
+  dataSetMaxDate?: number; /* How many days from the current date (0 means the current date is allowed) is the maximum allowed date */
 };
 
 export type FormData = {

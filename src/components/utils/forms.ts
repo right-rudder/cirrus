@@ -1,6 +1,7 @@
 import type { FormData } from "./types";
 import { PHONE_NUMBER } from "../../data/consts";
 import { PORTAL_API_KEY, PORTAL_URL, SCHOOL_RANDOM_ID } from "astro:env/client";
+import { formatDate } from "./utils";
 
 export class Form {
   formData: FormData;
@@ -21,16 +22,62 @@ export class Form {
     this.attachEvents();
   }
 
+  setupFields() {
+    this.form = document.getElementById(this.formData.id);
+    this.submitBtn = document.getElementById(`${this.formData.id}-submitBtn`);
+    this.acceptTerms = document.getElementById(`${this.formData.id}-agree_to_terms_and_conditions`);
+    this.errorMsgContainer = document.getElementById(`${this.formData.id}-error-message`);
+
+    this.checkVariables();
+
+    const dateFields: any = document.querySelectorAll(`#${this.form.id} input[type="date"]`);
+
+    dateFields.forEach((input: any) => {
+      const hasMinDate = typeof input.dataset.minDate !== "undefined";
+      const hasMaxDate = typeof input.dataset.maxDate !== "undefined";
+      if (!(hasMinDate || hasMaxDate)) return;
+
+      const minDate = new Date();
+      const maxDate = new Date();
+
+      if (hasMinDate) {
+        /* How many days from the current date (0 means the current date is allowed) is the minimum allowed date */
+        const datasetMinDate = Number.parseInt(input.dataset.minDate);
+
+        minDate.setHours(0, 0, 0, 0);
+        minDate.setDate(minDate.getDate() + datasetMinDate);
+
+        input.min = `${minDate.toISOString().split('T')[0]}`;
+      }
+      
+      if (hasMaxDate) {
+        /* How many days from the current date (0 means the current date is allowed) is the maximum allowed date */
+        const datasetMaxDate = Number.parseInt(input.dataset.maxDate);
+
+        maxDate.setHours(12, 0, 0);
+        maxDate.setDate(maxDate.getDate() + datasetMaxDate);
+
+        input.max = `${maxDate.toISOString().split('T')[0]}`;
+      }
+
+      const bottomLabel = document.querySelector(`#${this.form.id} label[data-for="${input.id}"]`);
+      if (bottomLabel) {
+        bottomLabel.classList.add("mt-2");
+        if (input.min && input.max) {
+          bottomLabel.textContent = `The accepted dates are from ${formatDate(minDate)} to ${formatDate(maxDate)}.`;
+        } else if (input.min) {
+          bottomLabel.textContent = `The minimum accepted date is ${formatDate(minDate)}.`;
+        } else if (input.max) {
+          bottomLabel.textContent = `The maximum accepted date is ${formatDate(maxDate)}.`;
+        }
+      }
+    });
+  }
+
   attachEvents() {
     document.addEventListener("DOMContentLoaded", () => {
-      this.form = document.getElementById(this.formData.id);
-      this.submitBtn = document.getElementById(`${this.formData.id}-submitBtn`);
-      this.acceptTerms = document.getElementById(`${this.formData.id}-agree_to_terms_and_conditions`);
-      this.errorMsgContainer = document.getElementById(`${this.formData.id}-error-message`);
-
-      this.checkVariables();
-
-      // Initialize and keep in sync
+      this.setupFields();
+      
       this.updateSubmitButtonState(this.checkFormValidity(), undefined);
 
       this.form.addEventListener("input", () => {
