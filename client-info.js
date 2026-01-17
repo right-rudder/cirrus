@@ -55,6 +55,8 @@ TODO :
   - Add marquee on military / airline future
 - Update flight training programs
 - Add share action to blog posts
+- Search google with site:https://www.cirrusaviation.com for the best ranked pages
+- Original chat widget color: #30DD33FF
  */
 
 const info2 =

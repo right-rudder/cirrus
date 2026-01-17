@@ -18,7 +18,7 @@ let faqs = await getCollection("faqs");
 
 // Filter by category if specified
 if (categories) {
-  faqs = faqs.filter((faq: FAQ) => categories.includes(String(faq.data.category).toLowerCase()));
+  faqs = faqs.filter((faq: FAQ) => categories.includes(String(faq.data.category)));
 }
 
 // Sort by order

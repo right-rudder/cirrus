@@ -103,6 +103,16 @@ const flightTrainingCollection = defineCollection({
       }).optional(),
     }).optional(),
 
+    //  Target Audience (Who This Program Is For)
+    targetAudience: z.object({
+      title: z.string(),
+      items: z.array(z.object({
+        icon: z.string(),
+        text: z.string()
+      })),
+      notFor: z.string().optional()
+    }).optional(),
+    
     //  Career/Incentives (Incentive-Based Progression)
     careerPathways: z.object({
       title: z.string(),
@@ -112,21 +122,19 @@ const flightTrainingCollection = defineCollection({
       disclaimer: z.string().optional()
     }).optional(),
 
-    //  Target Audience (Who This Program Is For)
-    targetAudience: z.object({
-      title: z.string(),
-      items: z.array(z.string()),
-      notFor: z.string().optional()
-    }).optional(),
-
     // 5. Training Progression Section
     trainingProgression: z.object({
       title: z.string(),
       subTitle: z.string().optional(),
-      descriptionParagraphs: z.array(z.string()),
-      phases: z.array(z.object({
-        phaseTitle: z.string(),
-        phaseBulletPoints: z.array(z.string())
+      cards: z.array(z.object({
+        title: z.string(),
+        subTitle: z.string(),
+        image: z.object({
+          src: z.string(),
+          alt: z.string(),
+        }),
+        descriptionParagraphs: z.array(z.string()).optional(),
+        bulletPoints: z.array(z.string()).optional(),
       })).optional(),
       outcome: z.string().optional()
     }).optional(),
@@ -139,18 +147,8 @@ const flightTrainingCollection = defineCollection({
         description: z.string()
       }))
     }).optional(),
-
-    // 6. FAQ Section
-    faq: z.object({
-      title: z.string(),
-      subTitle: z.string().optional(),
-      qnas: z.array(z.object({
-        question: z.string(),
-        answer: z.string()
-      }))
-    }).optional(),
-
-    // 7. Final CTA Section
+    
+    // 6. Final CTA Section
     finalCTA: z.object({
       image: z.object({
         src: z.string(),
@@ -163,6 +161,18 @@ const flightTrainingCollection = defineCollection({
         url: z.string(),
         text: z.string(),
       })),
+    }).optional(),
+    
+    // 7. FAQ Section
+    faq: z.object({
+      title: z.string().optional(),
+      subTitle: z.string().optional(),
+      qnas: z.array(z.object({
+        question: z.string(),
+        answer: z.string()
+      })).optional(),
+      categories: z.array(z.string()).optional(),
+      showCategory: z.boolean().optional(),
     }).optional(),
   }),
 });

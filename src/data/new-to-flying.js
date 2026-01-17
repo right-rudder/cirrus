@@ -51,7 +51,7 @@ export const data = {
         title: "Discovery Flight",
         subTitle: "Your first time at the controls",
         description: "A Discovery Flight is your introduction to aviation and the best way to see what learning to fly is really like. You will sit in the pilot’s seat alongside a Certified Flight Instructor and take an active role in flying the aircraft. No prior experience is required, this flight is designed specifically for first-time students.\n\nDuring the flight, your instructor will explain the basics of aircraft control, what you are seeing and feeling, and how pilots safely operate in the air. It is a relaxed, hands-on experience that allows you to ask questions, explore the cockpit, and decide if flight training is right for you, with no obligation to continue.",
-        img: {
+        image: {
           src: "/src/assets/sea-and-islands-seen-from-a-flying-airplane-cirrus-aviation-discovery-flight-sarasota.jpg",
           alt: "Sea and islands seen from above through an airplane window",
         },
@@ -64,7 +64,7 @@ export const data = {
         title: "Private Pilot Training",
         subTitle: "Build skills and confidence as a pilot",
         description: "Private Pilot Training is where you develop the skills and knowledge needed to fly an aircraft safely and confidently on your own. Training is conducted one-on-one with a Certified Flight Instructor and combines flight lessons with structured ground instruction to build a strong foundation.\n\nYou will learn how to perform takeoffs and landings, navigate cross-country flights, understand weather conditions, follow FAA regulations, and make sound aeronautical decisions. Progress is made step by step, allowing you to build confidence while developing safe habits that will stay with you throughout your flying career.",
-        img: {
+        image: {
           src: "/src/assets/student-and-cfi-ppl-pass-cirrus-aviation-private-pilot-sarasota.jpg",
           alt: "Student and CFI smiling at the camera while holding a certificate in front of a plane",
         }
@@ -73,7 +73,7 @@ export const data = {
         title: "Optional Next Steps",
         subTitle: "Advance your training when you’re ready",
         description: `After earning your Private Pilot Certificate, many pilots choose to continue their training to expand their capabilities and flying opportunities. These next steps are entirely optional and depend on your personal interests, travel needs, or long-term goals.\n\nAdvanced training options include an Instrument Rating, which allows you to fly in a wider range of weather conditions, or Commercial Pilot training for those considering aviation as a career. ${COMPANY_NAME} works with you to evaluate your goals and create a training path that fits your schedule and ambitions, without pressure to move faster than you’re ready for.`,
-        img: {
+        image: {
           src: "/src/assets/cessna-172s-instrument-panel-cirrus-aviation-flight-school-florida.jpg",
           alt: "Cessna 172s instrument panel",
         }

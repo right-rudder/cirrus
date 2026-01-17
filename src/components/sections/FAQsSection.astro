@@ -7,10 +7,11 @@ const {
   subTitle = "Clear any doubts you might have",
   limit = undefined,
   categories = undefined,
+  showCategory = true,
   showLinkToFAQsPage = false,
 } = Astro.props;
 ---
 
 <SimpleSection title={title} subTitle={subTitle} bg="bg-slate-100">
-  <FAQs showCategory={true} categories={categories} showLinkToFAQsPage={showLinkToFAQsPage} limit={limit} />
+  <FAQs showCategory={showCategory} categories={categories} showLinkToFAQsPage={showLinkToFAQsPage} limit={limit} />
 </SimpleSection>
