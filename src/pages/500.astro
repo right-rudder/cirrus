@@ -1,0 +1,50 @@
+---
+import { COMPANY_NAME, KEYWORDS } from "../data/consts";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import SimpleSection from "../components/sections/SimpleSection.astro";
+
+const data = {
+  pageTitle: `500 | ${COMPANY_NAME}`,
+  pageDescription:
+    `500 page, server error. If you need information or would like to report a problem, please contact ${COMPANY_NAME}.`,
+  pageKeywords: KEYWORDS,
+  header: {
+    image: {
+      src: "/src/assets/cessna-172s-instrument-panel-cirrus-aviation-flight-school-florida.jpg",
+      alt: "Cessna 172s instrument panel",
+    },
+    title: "500<br/><br/>Server Error",
+  },
+  title: "An Unforeseen Error Has Occurred",
+  subTitle: "If this problem persists please contact us so we can help you.",
+  cta: [
+    {
+      url: "/",
+      text: "Home Page",
+      class: "btn-rose-outline text-rose-600! hover:text-white!",
+    },
+    {
+      url: "/contact-us#contact-us-form",
+      text: "Contact Us",
+      class: "btn-rose",
+    },
+  ],
+};
+---
+
+<BaseLayout pageTitle={data.pageTitle} pageDescription={data.pageDescription} pageKeywords={data.pageTitle}>
+  <Header data={data.header} position="center" />
+
+  <SimpleSection title={data.title} subTitle={data.subTitle} size="large">
+  <div data-aos="fade-down" data-aos-delay="300" class="flex gap-4 flex-wrap items-center justify-center">
+    {
+      data.cta.map((item) => (
+        <a href={item.url} class={item.class}>
+          {item.text}
+        </a>
+      ))
+    }
+  </div>
+</SimpleSection>
+</BaseLayout>

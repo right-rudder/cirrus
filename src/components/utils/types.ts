@@ -11,7 +11,7 @@ export type Field = {
   id: string;
   name?: string;
   label: string;
-  type?: string;
+  type: "text" | "tel" | "email" | "date" | "month" | "number" | "time" | "textarea" | "select" | "checkboxes";
   required?: boolean;
   placeholder?: string;
   pattern?: string;
@@ -19,10 +19,23 @@ export type Field = {
   datalistId?: string;
   rows?: number;
   options?: FieldOption[];
-  colSpan?: number;
+  colSpan?: string;
   row?: number;
   step?: number | string;
-  min?: string;
-  max?: string;
+  min?: string; 
+  max?: string; 
   autocomplete?: string;
+  addClass?: string;
+  dataSetMinDate?: number; /* How many days from the current date (0 means the current date is allowed) is the minimum allowed date */
+  dataSetMaxDate?: number; /* How many days from the current date (0 means the current date is allowed) is the maximum allowed date */
+};
+
+export type FormData = {
+  id: string;
+  method?: string;
+  action?: string;
+  redirection: string;
+  campaign: string;
+  fields: Field[];
+  submitBtnText?: string;
 };

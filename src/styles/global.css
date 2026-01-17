@@ -1,31 +1,8 @@
 @import "tailwindcss";
+@import "aos/dist/aos.css";
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-primary-50: oklch(98.345% 0.03182 126.355);
-  --color-primary-100: oklch(96.373% 0.07109 128.26);
-  --color-primary-200: oklch(93.21% 0.1291 129.475);
-  --color-primary-300: oklch(89.056% 0.19115 131.459);
-  --color-primary-400: oklch(84.2% 0.22139 133.38);
-  --color-primary-500: oklch(75.019% 0.21579 135.347);
-  --color-primary-600: oklch(64.347% 0.18838 136.095);
-  --color-primary-700: oklch(52.966% 0.15181 136.026);
-  --color-primary-800: oklch(44.91% 0.12115 135.357);
-  --color-primary-900: oklch(40.278% 0.10252 135.11);
-  --color-primary-950: oklch(27.332% 0.07523 136.264);
-
-  --color-accent-50: oklch(0.985 0.002 247.839);
-  --color-accent-100: oklch(0.967 0.003 264.542);
-  --color-accent-200: oklch(0.928 0.006 264.531);
-  --color-accent-300: oklch(0.872 0.01 258.338);
-  --color-accent-400: oklch(0.707 0.022 261.325);
-  --color-accent-500: oklch(0.551 0.027 264.364);
-  --color-accent-600: oklch(0.446 0.03 256.802);
-  --color-accent-700: oklch(0.373 0.034 259.733);
-  --color-accent-800: oklch(0.278 0.033 256.848);
-  --color-accent-900: oklch(0.21 0.034 264.665);
-  --color-accent-950: oklch(0.13 0.028 261.692);
-
   --animate-slow-zoom: slow-zoom 30s ease forwards;
 
   @keyframes slow-zoom {
@@ -40,11 +17,6 @@
 
 .btn-lime {
   @apply bg-lime-500 border border-lime-500 text-slate-950 font-semibold rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition duration-300 cursor-pointer hover:bg-slate-950 hover:border-slate-950 hover:text-lime-500;
-}
-
-.btn-lime:disabled,
-.btn-lime-dark:disabled {
-  @apply bg-gray-700! border-gray-700! text-gray-400! cursor-not-allowed!;
 }
 
 .btn-lime-dark {
@@ -67,30 +39,21 @@
   @apply bg-lime-800/20 text-slate-50 border border-lime-800 rounded-sm px-4 py-2 flex items-center justify-center gap-2 hover:bg-lime-800 transition font-semibold cursor-pointer;
 }
 
-.btn-white-rose {
-  @apply bg-white text-slate-900 rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition duration-300 cursor-pointer hover:bg-slate-900 hover:text-rose-500;
+.btn-rose-white {
+  @apply bg-white text-slate-900 rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition duration-300 cursor-pointer hover:bg-rose-600 hover:text-white;
 }
 
-.btn-white-lime {
+.btn-lime-white {
   @apply bg-white text-lime-700 rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition duration-300 cursor-pointer hover:bg-slate-900 hover:text-lime-400;
 }
 
-/* TODO : Remove */
-/* .eyebrow {
-  @apply text-slate-100 bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-sm text-sm border-b-2 border-l-2 border-r-2 border-t border-slate-500 mb-0! lg:text-base;
+.btn-rose-outline {
+  @apply bg-transparent text-white border border-rose-600 rounded-sm px-4 py-2 flex items-center justify-center gap-2 transition duration-300 cursor-pointer hover:bg-rose-800 hover:border-rose-800;
 }
 
-a.eyebrow {
-  @apply text-slate-100 bg-transparent font-semibold uppercase px-3 py-1 w-fit rounded-sm text-sm border-b-2 border-l-2 border-r-2 border-t border-lime-500 mb-0! lg:text-base hover:bg-lime-500 duration-300 ease-in-out;
+button[type="submit"]:disabled {
+  @apply bg-gray-700 border-gray-700 text-gray-400 cursor-not-allowed;
 }
-
-.eyebrow-light {
-  @apply bg-white text-lime-900 font-semibold uppercase px-3 py-1 w-fit rounded-sm text-sm mb-2;
-}
-
-.eyebrow-dark {
-  @apply bg-slate-600 text-white font-semibold uppercase px-3 py-1 w-fit rounded-sm text-sm mb-2;
-} */
 
 body {
   font-family: "Hind", Helvetica, Arial, sans-serif;
@@ -101,27 +64,20 @@ body {
   overflow-wrap: break-word;
   font-size: 20px;
   line-height: 1.7;
-  /* background-color: hsl(220, 43%, 11%, 0.5); */
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Montserrat", Helvetica, Arial, sans-serif;
 }
 
-a:focus {
+a:focus, button:focus {
   @apply outline-none ring-2 ring-slate-500 ring-offset-2 ring-offset-slate-900;
 }
 
-button:focus {
-  @apply outline-none ring-2 ring-slate-500 ring-offset-2 ring-offset-slate-900;
-}
-
-input:focus {
-  @apply outline-none ring-2 ring-slate-500 ring-offset-2 ring-offset-slate-900;
-}
-
-textarea:focus {
-  @apply outline-none ring-2 ring-slate-500 ring-offset-2 ring-offset-slate-900;
+input:focus,
+textarea:focus,
+select:focus {
+  @apply outline-none ring-2 ring-rose-700 ring-offset-2 ring-offset-slate-900;
 }
 
 strong,
@@ -166,10 +122,6 @@ hr {
   body {
     font-size: 18px;
   }
-}
-
-.font-force-roboto {
-  font-family: "Roboto Variable", "Atkinson", sans-serif;
 }
 
 .sr-only {

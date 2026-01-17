@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import FAQsSection from "../components/sections/FAQsSection.astro";
+import CTA from "../components/sections/CTA.astro";
+import VideoSection from "../components/sections/VideoSection.astro";
+import InstagramPost from "../components/widgets/InstagramPost.astro";
+import SectionBulletPoints from "../components/sections/SectionBulletPoints.astro";
+import SectionRoadmap from "../components/sections/SectionRoadmap.astro";
+import SectionImageGrid from "../components/sections/SectionImageGrid.astro";
+
+import { data } from "../data/new-to-flying";
+---
+
+<BaseLayout pageTitle={data.pageTitle} pageDescription={data.pageDescription} pageKeywords={data.pageKeywords}>
+  <Header data={data.header} />
+
+  <VideoSection data={data.journeyStart} />
+
+  <SectionRoadmap data={data.journeyRoadmap} />
+  
+  <SectionImageGrid data={data.journeyFuture} />
+
+  <SectionBulletPoints data={data.whyUs}>
+    <InstagramPost data={data.whyUs.instagram} />
+  </SectionBulletPoints>
+  
+  <FAQsSection showLinkToFAQsPage={true} limit={5} />
+
+  <CTA data={data.cta} />
+</BaseLayout>

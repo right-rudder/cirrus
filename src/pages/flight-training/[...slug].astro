@@ -1,0 +1,80 @@
+---
+import { COMPANY_NAME, PROGRAM_KEYWORDS } from "../../data/consts";
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import WhyUs from "../../components/program/WhyUs.astro";
+import ProgramIntro from "../../components/program/ProgramIntro.astro";
+import ProgramExpectations from "../../components/program/ProgramExpectations.astro";
+import WhatIsIncluded from "../../components/program/WhatIsIncluded.astro";
+import CareerPathways from "../../components/program/CareerPathways.astro";
+import TargetAudience from "../../components/program/TargetAudience.astro";
+import SectionRoadmap from "../../components/sections/SectionRoadmap.astro";
+import EnrollmentProcess from "../../components/program/EnrollmentProcess.astro";
+import FinalCTA from "../../components/program/FinalCTA.astro";
+import FAQsSection from "../../components/sections/FAQsSection.astro";
+
+// Static Path Generation
+export async function getStaticPaths() {
+  const flightTrainingPrograms = await getCollection("flight-training");
+  return flightTrainingPrograms.map((program) => ({
+    params: { slug: program.id },
+    props: { program },
+  }));
+}
+
+// Props
+type Props = {
+  program: CollectionEntry<"flight-training">;
+};
+
+const { program } = Astro.props;
+const { data } = program;
+
+const header = {
+  image: {
+    src: program.data.image.src,
+    alt: program.data.image.alt,
+  },
+  title: program.data.title,
+  subTitle: program.data.description,
+  cta: [
+    {
+      url: "/enroll",
+      text: "Enroll Now",
+    },
+  ],
+};
+
+const programKeywords = PROGRAM_KEYWORDS[`${program.id}`];
+---
+
+<BaseLayout
+  pageTitle={`${data.title} | ${COMPANY_NAME}`}
+  pageDescription]={data.description}
+  pageImage={data.image}
+  pageKeywords={`${data.title}, ${COMPANY_NAME}, ${data.title} requirements, ${programKeywords}`}
+>
+  <Header data={header} />
+
+  {data.programIntroduction && <ProgramIntro data={data.programIntroduction} />}
+
+  {data.programExpectations && <ProgramExpectations data={data.programExpectations} />}
+
+  {data.whatIsIncluded && <WhatIsIncluded data={data.whatIsIncluded} />}
+
+  {data.whyUs && <WhyUs data={data.whyUs} />}
+
+  {data.targetAudience && <TargetAudience data={data.targetAudience} />}
+
+  {data.careerPathways && <CareerPathways data={data.careerPathways} />}
+
+  {data.trainingProgression && <SectionRoadmap data={data.trainingProgression} size="large" />}
+
+  {data.enrollmentProcess && <EnrollmentProcess data={data.enrollmentProcess} />}
+
+  {data.finalCTA && <FinalCTA data={data.finalCTA} />}
+
+  {data.faq && <FAQsSection showCategory={data.faq.showCategory} categories={data.faq.categories} showLinkToFAQsPage={true} />}
+</BaseLayout>

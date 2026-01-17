@@ -41,27 +41,25 @@ export const PRIMARY_KEYWORDS = {
 };
 
 // Secondary keywords by program type
-export const PROGRAM_KEYWORDS = {
-  privatePilot:
+export const PROGRAM_KEYWORDS: any = {
+  "private-pilot":
     "private pilot training Sarasota, learn to fly Florida, PPL course KSRQ, beginner flight lessons Sarasota",
-  instrument:
+  "instrument-rating":
     "instrument rating Sarasota, IFR training Florida, instrument proficiency check KSRQ, fly in all weather Florida",
-  commercial:
-    "commercial pilot training Sarasota, professional pilot program Florida, advanced flight training KSRQ, career pilot school Sarasota",
-  flightInstructor:
-    "CFI training Sarasota, CFI course Florida, become a flight instructor Sarasota, aviation instructor certification Florida",
-  multiEngine:
+  "multi-engine-rating":
     "multi-engine rating Florida, twin-engine training Sarasota, MEL course, complex aircraft training Sarasota",
-  flightSimulation:
+  "flight-simulation":
     "flight simulation Florida, flight simulator Sarasota, AATD flight simulator, Advanced Aviation Training Device",
+
+  /* TODO : Fill */
+  "career-pilot-program": "",
 };
 
 // Location-focused keywords
 export const LOCATION_KEYWORDS = {
   primary:
     "Sarasota-Bradenton International Airport flight training, Sarasota flight lessons, Bradenton flight lessons",
-  secondary:
-    `Clearwater flight school, Riverview aviation training, Florida flight instruction, Tampa flight lessons, Punta Gorda pilot school, Venice FL flight training, St. Petersburg pilot training,
+  secondary: `Clearwater flight school, Riverview aviation training, Florida flight instruction, Tampa flight lessons, Punta Gorda pilot school, Venice FL flight training, St. Petersburg pilot training,
     Parrish flight training, Ellenton flight school, North Port aviation training, Ft. Myers pilot school`,
 };
 
@@ -81,6 +79,9 @@ export const LOGO_PRIMARY = "/cirrus-aviation-logo.png";
 export const LOGO_SECONDARY = "/cirrus-aviation-logo.png";
 export const PHONE_NUMBER = "(941) 360-9074";
 export const PHONE_NUMBER_HEADER = "(941) 360-9074";
+export const EMAIL_ADDRESS = "dispatch@cirrusaviation.com"; // TODO : Update? marketing@cirrusaviation.com?
+
+// Address
 export const ADDRESS_LINE_1 = "8191 N. Tamiami Trail";
 export const ADDRESS_LINE_2 = "Sarasota, FL 34243";
 export const AIRPORT = "Sarasota-Bradenton International Airport";
@@ -88,16 +89,9 @@ export const AIRPORT_CODE = "KSRQ";
 export const ADDRESS = "8191 N. Tamiami Trail, Sarasota, Florida 34243, United States";
 export const ADDRESS_CITY = "Sarasota";
 export const ADDRESS_STATE = "Florida";
+export const ADDRESS_STATE_ABBR = "FL";
 export const ADDRESS_ZIP = "34243";
 export const GMAPS = "https://maps.app.goo.gl/tFoDLw257P1CvaKt6";
-export const EMAIL_ADDRESS = "dispatch@cirrusaviation.com"; // TODO : Update?
-export const FACEBOOK_URL = "https://www.facebook.com/cirrusaviation";
-export const INSTAGRAM_URL = "https://www.instagram.com/cirrus_aviation";
-export const LINKEDIN_URL = "https://www.linkedin.com/company/cirrus-aviation-inc.";
-export const X_URL = "https://twitter.com/CirrusAviation1";
-export const YOUTUBE_URL = "https://www.youtube.com/user/CirrusAviation1";
-export const YELP_URL = "https://www.yelp.com/biz/cirrus-aviation-sarasota";
-export const GITHUB_URL = "";
 
 export const LOCATIONS = [
   {
@@ -114,21 +108,47 @@ export const LOCATIONS = [
   },
 ];
 
+// Socials
+export const FACEBOOK_URL = "https://www.facebook.com/cirrusaviation";
+export const INSTAGRAM_URL = "https://www.instagram.com/cirrus_aviation";
+export const INSTAGRAM_PROFILE = "@cirrus_aviation";
+export const LINKEDIN_URL = "https://www.linkedin.com/company/cirrus-aviation-inc.";
+export const X_URL = "https://twitter.com/CirrusAviation1";
+export const YOUTUBE_URL = "https://www.youtube.com/user/CirrusAviation1";
+export const YELP_URL = "https://www.yelp.com/biz/cirrus-aviation-sarasota";
+export const GITHUB_URL = "";
+
 export const COURSES = [
   "Private Pilot License (PPL)",
   "Instrument Rating (IR)",
-  "Commercial Pilot License (CPL)",
-  "Certified Flight Instructor (CFI)",
-  "Multi-Engine Land (MEL) Add-On",
-  "Multi-Engine Instructor (MEI)",
-  "Flight Simulator",
+  "Multi-Engine",
+  "Career Pilot",
 ];
+
+export const COURSES_OBJ = {
+  privatePilot: "Private Pilot License (PPL)",
+  instrumentRating: "Instrument Rating (IR)",
+  multiEngine: "Multi-Engine",
+  careerTrack: "Career Pilot",
+}
 
 export const OTHER_COURSES = ["Aircraft Rental", "Aircraft Brokerage"];
 
 export const FLEET = [
   {
-    title: "Cessna 172",
+    title: "Cessna 172 Skyhawk SP - N393SP",
+    path: "",
+  },
+  {
+    title: "Cessna 172 Skyhawk SP - N171RA",
+    path: "",
+  },
+  {
+    title: "Cessna 172 Skyhawk SP - N56206",
+    path: "",
+  },
+  {
+    title: "Cessna 172 Skyhawk SP - N17409",
     path: "",
   },
 ];

@@ -1,0 +1,206 @@
+---
+import { FaFlag } from "react-icons/fa";
+import ImageComp from "../ImageComp.astro";
+import SimpleSection from "../sections/SimpleSection.astro";
+
+import {
+  RiNumber1,
+  RiNumber2,
+  RiNumber3,
+  RiNumber4,
+  RiNumber5,
+  RiNumber6,
+  RiNumber7,
+  RiNumber8,
+  RiNumber9,
+} from "react-icons/ri";
+
+const { data, size = "medium" } = Astro.props;
+---
+
+<SimpleSection title={data.title} subTitle={data.subTitle} size={size}>
+  <div class="relative flex flex-col gap-6">
+    <span id="roadmap-sticky-sentinel" class="block h-px" aria-hidden="true"></span>
+
+    <div class="hidden absolute left-1/2 -translate-x-1/2 top-8 -bottom-4 w-3 bg-rose-600 rounded-full z-20 lg:block">
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 size-12 bg-white border-8 border-rose-600 rounded-full">
+      </div>
+    </div>
+
+    <div
+      id="roadmap-starting-point"
+      class=`hidden sticky top-28 left-1/2 -translate-x-1/2 size-12 bg-white border-8 border-rose-600 rounded-full z-30 transition-all duration-300 ease-in-out 
+       lg:block`
+    >
+    </div>
+
+    {
+      data.cards.map((item: any, index: number) => (
+        <div
+          data-roadmap-step
+          class={`flex flex-col-reverse gap-6 transition-all duration-300 ease-in-out lg:gap-0 lg:items-center ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
+        >
+          <div class={`lg:min-w-1/2 lg:px-12 ${index % 2 === 0 ? "lg:text-right" : "lg:text-left"}`}>
+            <h3 class="text-slate-900 font-bold text-4xl mb-4">{item.title}</h3>
+
+            <p class="text-slate-600 mb-12 text-2xl">{item.subTitle}</p>
+
+            {item.descriptionParagraphs && (
+              <div>
+                {item.descriptionParagraphs.map((paragraph: string) => (
+                  <p class="text-slate-600 text-lg whitespace-pre-line mb-6">{paragraph}</p>
+                ))}
+              </div>
+            )}
+
+            {item.bulletPoints && (
+              <ul class="space-y-4 mb-6">
+                {item.bulletPoints.map((point: string) => (
+                  <li
+                    class={`text-slate-600 text-lg flex items-center gap-4 ${index % 2 === 0 ? "lg:flex-row-reverse" : "lg:flex-row"}`}
+                  >
+                    <div class="p-2 rounded-full border-4 border-rose-600 flex items-center justify-center">
+                      <FaFlag className="size-4 text-rose-600 shrink-0" />
+                    </div>
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {item.cta && (
+              <a class="btn-rose w-fit mt-2 lg:ml-auto" href={item.cta.url}>
+                {item.cta.text}
+              </a>
+            )}
+          </div>
+          <div class="roadmap-image-container relative group overflow-hidden -mx-6 max-h-[75vh] lg:rounded-sm lg:min-w-1/2 lg:mx-0">
+            <ImageComp
+              src={item.image.src}
+              alt={item.image.alt}
+              class="object-center object-cover transition duration-300 ease-in-out lg:aspect-square"
+            />
+            <div class="roadmap-image-overlay opacity-0 absolute inset-0 size-full bg-radial from-white/20 to-slate-900/30 z-10 transition duration-300 ease-in-out" />
+
+            <div
+              class={`roadmap-step-counter p-4 absolute left-4 top-4 lg:top-8 z-20 transition duration-300 ease-in-out flex items-center justify-center text-white text-2xl bg-slate-900 rounded-sm ${index % 2 === 0 ? "lg:left-8" : "lg:left-[unset] lg:right-8"}`}
+            >
+              {index === 0 ? (
+                <RiNumber1 />
+              ) : index === 1 ? (
+                <RiNumber2 />
+              ) : index === 2 ? (
+                <RiNumber3 />
+              ) : index === 3 ? (
+                <RiNumber4 />
+              ) : index === 4 ? (
+                <RiNumber5 />
+              ) : index === 5 ? (
+                <RiNumber6 />
+              ) : index === 6 ? (
+                <RiNumber7 />
+              ) : index === 7 ? (
+                <RiNumber8 />
+              ) : index === 8 ? (
+                <RiNumber9 />
+              ) : (
+                index + 1
+              )}
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  {
+    data.outcome && (
+      <div
+        data-aos="zoom-in"
+        class="max-w-3xl mx-auto mt-16 rounded-sm p-8 border-x-4 border-x-rose-600 border-slate-200 border shadow-xl text-center"
+      >
+        <h3 class="flex items-center justify-center gap-6 text-3xl font-bold mb-6">
+          <FaFlag className="-scale-x-[1] text-rose-600" />
+          Final Outcome
+          <FaFlag className="text-rose-600" />
+        </h3>
+        <p class="text-2xl max-w-xl mx-auto">{data.outcome}</p>
+      </div>
+    )
+  }
+</SimpleSection>
+
+<style>
+  @import "tailwindcss";
+
+  @media screen and (min-width: 1024px) {
+    @keyframes scale-pulse {
+      0%,
+      100% {
+        transform: scale(1.1);
+        box-shadow: 0 0 4px 2px rgba(236, 0, 63, 0.4);
+      }
+      50% {
+        transform: scale(1.2);
+        box-shadow: 0 0 4px 2px rgba(236, 0, 63, 0.4);
+      }
+    }
+
+    .is-stuck {
+      animation: scale-pulse 2s ease-in-out infinite;
+    }
+
+    [data-roadmap-step] {
+      @apply opacity-60! scale-[0.98]!;
+    }
+
+    [data-roadmap-step][data-active="true"] {
+      @apply opacity-100! scale-100!;
+    }
+
+    [data-roadmap-step][data-active="true"] img {
+      @apply scale-105;
+    }
+
+    [data-roadmap-step][data-active="true"] .roadmap-image-container > .roadmap-image-container {
+      @apply opacity-100;
+    }
+
+    [data-roadmap-step][data-active="true"] .roadmap-image-container > .roadmap-step-counter {
+      @apply scale-125 bg-rose-600;
+    }
+  }
+</style>
+
+<script>
+  const sentinel = document.getElementById("roadmap-sticky-sentinel");
+  const sticky = document.getElementById("roadmap-starting-point");
+
+  if (sentinel && sticky) {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        sticky.classList.toggle("is-stuck", !entry.isIntersecting);
+      },
+      {
+        rootMargin: "-96px 0px 0px 0px", // matches top-24
+      }
+    );
+
+    observer.observe(sentinel);
+  }
+
+  const imageContainers = document.querySelectorAll("[data-roadmap-step]");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry: any) => {
+        entry.target.dataset.active = entry.isIntersecting;
+      });
+    },
+    {
+      root: null,
+      threshold: 0.6,
+    }
+  );
+
+  imageContainers.forEach((container) => observer.observe(container));
+</script>

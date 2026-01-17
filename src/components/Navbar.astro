@@ -3,201 +3,7 @@ import ImageComp from "./ImageComp.astro";
 import { COMPANY_NAME, PHONE_NUMBER_HEADER } from "../data/consts";
 import { FaPhoneSquareAlt } from "react-icons/fa";
 import Socials from "./Socials.astro";
-
-export type MenuItem = {
-  label: string;
-  url: string;
-  children?: MenuItem[];
-};
-
-export type NavbarButton = {
-  text: string;
-  href: string;
-  style: string;
-};
-
-export const menu: MenuItem[] = [
-  {
-    label: "Start Here",
-    url: "/new-to-flying",
-    children: [
-      { label: "New to Flying", url: "/new-to-flying" },
-      { label: "Discovery Flight", url: "/discovery-flight" },
-    ],
-  },
-  {
-    label: "Flight Training",
-    url: "/flight-training",
-    children: [
-      {
-        label: "Flight Training",
-        url: "/flight-training",
-      },
-      {
-        label: "Career Pilot Program",
-        url: "/flight-training/career-pilot",
-      },
-      {
-        label: "Private Pilot",
-        url: "/flight-training/private-pilot",
-      },
-      {
-        label: "Instrument Rating",
-        url: "/flight-training/instrument-rating",
-      },
-      {
-        label: "Commercial Pilot",
-        url: "/flight-training/commercial-pilot",
-      },
-      {
-        label: "Multi Engine",
-        url: "/flight-training/multi-engine",
-      },
-      {
-        label: "Certified Flight Instructor",
-        url: "/flight-training/cfi",
-      },
-      {
-        label: "Flight Simulator Lab",
-        url: "/flight-training/flight-simulation",
-      },
-      {
-        label: "IFR Ground School",
-        url: "/flight-training/ifr-ground-school",
-      },
-    ],
-  },
-  {
-    label: "Services",
-    url: "/services",
-    children: [
-      { label: "Services", url: "/services" },
-      { label: "Aircraft Rental", url: "/services/aircraft-rental" },
-      { label: "Aircraft Brokerage", url: "/services/aircraft-brokerage" },
-      { label: "Airman Testing", url: "/services/airman-testing" },
-    ],
-  },
-  {
-    label: "Resources",
-    url: "/resources",
-    children: [
-      {
-        label: "Resources",
-        url: "/resources",
-      },
-      {
-        label: "Education",
-        url: "/resources/education",
-      },
-      {
-        label: "Financing",
-        url: "/resources/financing",
-      },
-      {
-        label: "Insurance",
-        url: "/resources/insurance",
-      },
-      {
-        label: "Scholarships",
-        url: "/resources/scholarships",
-      },
-      {
-        label: "Customer Forms",
-        url: "/resources/customer-forms",
-      },
-    ],
-  },
-  {
-    label: "Flight Schedule",
-    url: "https://app.flightschedulepro.com/Account/Login/139257",
-    children: [
-      {
-        label: "Login",
-        url: "https://app.flightschedulepro.com/Account/Login/139257",
-      },
-      {
-        label: "Sign Up",
-        url: "https://app.flightschedulepro.com/Account/Signup/139257",
-      },
-    ],
-  },
-  {
-    label: "About Us",
-    url: "/about-us",
-    children: [
-      { label: "About Us", url: "/about-us" },
-      { label: "Our Fleet", url: "/about-us/fleet" },
-      { label: "FAQ", url: "/about-us/faq" },
-      { label: "Blog", url: "/blog" },
-      { label: "Contact Us", url: "/contact-us" },
-    ],
-  },
-];
-
-export const footerMenu: MenuItem[] = [
-  {
-    label: "Quick Links",
-    url: "",
-    children: [
-      { label: "New to Flying", url: "/new-to-flying" },
-      { label: "Discovery Flight", url: "/discovery-flight" },
-      { label: "Aircraft Services", url: "/services" },
-      { label: "Resources", url: "/resources" },
-      { label: "FAQ", url: "/about-us/faq" },
-      {
-        label: "Flight Schedule Login",
-        url: "https://app.flightschedulepro.com/Account/Login/139257",
-      },
-      {
-        label: "Flight Schedule Sign Up",
-        url: "https://app.flightschedulepro.com/Account/Signup/139257",
-      },
-      { label: "Contact Us", url: "/contact-us" },
-    ],
-  },
-  {
-    label: "Flight Training",
-    url: "/flight-training/",
-    children: [
-      {
-        label: "Flight Training",
-        url: "/flight-training",
-      },
-      {
-        label: "Career Pilot Program",
-        url: "/flight-training/career-pilot",
-      },
-      {
-        label: "Private Pilot",
-        url: "/flight-training/private-pilot",
-      },
-      {
-        label: "Instrument Rating",
-        url: "/flight-training/instrument-rating",
-      },
-      {
-        label: "Commercial Pilot",
-        url: "/flight-training/commercial-pilot",
-      },
-      {
-        label: "Multi Engine",
-        url: "/flight-training/multi-engine",
-      },
-      {
-        label: "Certified Flight Instructor",
-        url: "/flight-training/cfi",
-      },
-      {
-        label: "Flight Simulator Lab",
-        url: "/flight-training/flight-simulation",
-      },
-      {
-        label: "IFR Ground School",
-        url: "/flight-training/ifr-ground-school",
-      },
-    ],
-  },
-];
+import { menu } from "../data/menus";
 
 const { pathname, navBarBG = false } = Astro.props;
 ---
@@ -224,22 +30,22 @@ const { pathname, navBarBG = false } = Astro.props;
             class={`menu-item group text-base xl:text-lg 2xl:text-xl relative transition-colors duration-300 ease-in-out ${item.children ? "has-children" : ""}`}
             data-index={index}
           >
-            <a href={item.url} class="whitespace-nowrap">{item.label}</a>
+            <a href={item.url} class="whitespace-nowrap">
+              {item.label}
+            </a>
             {item.children && (
-              <ul class="sub-menu absolute top-full left-0 z-40 min-w-56 bg-white border border-white list-none py-2 rounded-sm invisible opacity-0 translate-y-1.5 pointer-events-none transition-all duration-300 ease-in-out group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
+              <ul class="sub-menu absolute top-full left-0 z-40 min-w-56 bg-white border border-white list-none py-2 rounded-sm invisible opacity-0 translate-y-1.5 pointer-events-none transition-all duration-300 ease-in-out shadow shadow-slate-900/30 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto">
                 {item.children.map((child) => (
                   <li>
                     <a
                       href={child.url}
                       class={
-                        (child.url === pathname ||
-                          child.url + "/" === pathname) &&
-                        child.url !== "/"
+                        (child.url === pathname || child.url + "/" === pathname) && child.url !== "/"
                           ? "menu-link-hover"
                           : ""
                       }
                     >
-                      {child.label}
+                      <span>{child.label}</span>
                     </a>
                   </li>
                 ))}
@@ -252,9 +58,7 @@ const { pathname, navBarBG = false } = Astro.props;
 
     <!-- Buttons -->
     <div class="buttons">
-      <a href="/contact" class="btn-lime text-base! xl:text-lg!">
-        Contact Us
-      </a>
+      <a href="/contact-us#contact-us-form" class="btn-lime text-base! xl:text-lg!"> Contact Us </a>
     </div>
 
     <!-- Mobile Hamburger -->
@@ -305,9 +109,7 @@ const { pathname, navBarBG = false } = Astro.props;
                     <a
                       href={child.url}
                       class={
-                        (child.url === pathname ||
-                          child.url + "/" === pathname) &&
-                        child.url !== "/"
+                        (child.url === pathname || child.url + "/" === pathname) && child.url !== "/"
                           ? "menu-link-hover"
                           : ""
                       }
@@ -324,9 +126,7 @@ const { pathname, navBarBG = false } = Astro.props;
     </ul>
 
     <div class="mobile-buttons">
-      <a href="/contact" class="btn-lime text-lg!">
-        Contact Us
-      </a>
+      <a href="/contact-us#contact-us-form" class="btn-lime text-lg!"> Contact Us </a>
 
       <div class="flex justify-center items-center gap-3">
         <Socials />
@@ -352,28 +152,25 @@ const { pathname, navBarBG = false } = Astro.props;
 </nav>
 
 <style>
+  @import "tailwindcss";
+
   .navbar.scrolled,
   .navbar.force-navbar-bg {
-    background: hsl(220, 43%, 11%, 0.6);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    @apply bg-[hsl(220,43%,11%,0.6)] backdrop-blur-sm shadow-[0_4px_8px_rgba(0,0,0,0.05)];
   }
 
   .menu-item a {
-    font-weight: 500;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    color: white;
+    @apply font-medium uppercase transition-all duration-300 ease-in-out text-white;
   }
 
   .menu-item a:hover,
   .menu-item a:has(+ ul > li > a.menu-link-hover) {
-    color: #7ccf00; /* text-lime-500 */
+    @apply text-lime-500;
   }
 
   .navbar.scrolled .nav > .menu-item > a,
   .navbar.force-navbar-bg .nav > .menu-item > a {
-    color: white;
+    @apply text-white;
   }
 
   .navbar.scrolled .nav > .menu-item > a:hover,
@@ -381,11 +178,8 @@ const { pathname, navBarBG = false } = Astro.props;
   .navbar.scrolled .nav > .menu-item a:has(+ ul > li > a.menu-link-hover),
   .navbar.force-navbar-bg .nav > .menu-item > a:hover,
   .navbar.force-navbar-bg .nav > .menu-item > a.menu-link-hover,
-  .navbar.force-navbar-bg
-    .nav
-    > .menu-item
-    a:has(+ ul > li > a.menu-link-hover) {
-    color: #7ccf00; /* text-lime-500 */
+  .navbar.force-navbar-bg .nav > .menu-item a:has(+ ul > li > a.menu-link-hover) {
+    @apply text-lime-500;
   }
 
   /* Dropdown (desktop) */
@@ -407,172 +201,121 @@ const { pathname, navBarBG = false } = Astro.props;
   /* Small invisible “bridge” to prevent hover loss between item and submenu */
   .menu-item::after {
     content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    height: 10px; /* adjust if you like */
-    background: transparent;
+    @apply absolute left-0 right-0 top-full h-2.5 bg-transparent;
   }
 
   /* Dropdown items */
   .sub-menu li a {
-    display: block;
-    padding: 0.5rem 1rem;
-    white-space: nowrap;
-    color: #314158; /* text-slate-700 */ /* TODO : Define better option */
-    color: #45556c; /* text-slate-600 */
-    transition:
-      background 0.3s ease,
-      color 0.3s ease,
-      transform 0.3s ease;
-    position: relative;
+    @apply block py-2 px-4 whitespace-nowrap text-slate-600 transition-all duration-300 ease-in-out relative;
   }
 
   .sub-menu li a:hover,
   .sub-menu li a.menu-link-hover {
-    color: black;
+    @apply text-slate-950;
+  }
+
+  .sub-menu li a span {
+    @apply block w-fit relative;
+  }
+
+  .sub-menu li a span::after {
+    content: "";
+    @apply absolute left-0 right-0 -bottom-1 bg-lime-500 rounded-full h-1 transition-all duration-300 ease-in-out max-w-0;
+  }
+
+  .sub-menu li a:hover span::after,
+  .sub-menu li a.menu-link-hover span::after {
+    @apply max-w-full;
   }
 
   .container-desktop-nav .hamburger .hamburger-menu-x,
   .container-desktop-nav.open .hamburger .hamburger-menu-bars {
-    display: none;
+    @apply hidden;
   }
 
   .container-desktop-nav.open .hamburger .hamburger-menu-x,
   .container-desktop-nav .hamburger .hamburger-menu-bars {
-    display: block;
+    @apply block;
   }
 
   .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 4px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: white;
+    @apply hidden flex-col gap-1 bg-none border-none cursor-pointer text-white;
   }
 
   /* Mobile sheet (base) */
   .mobile-menu {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #f3f4f6;
-    padding: 0 1rem;
-    max-height: 0;
-    overflow: hidden;
-    transition: all 0.5s ease;
+    @apply absolute w-full h-screen top-full left-0 bg-slate-900 text-white px-4 max-h-0 overflow-hidden transition-all duration-500 ease-in-out;
   }
   .mobile-menu.open {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    max-height: 100vh;
-    overflow: visible;
+    @apply py-4 max-h-screen overflow-visible;
   }
 
   /* Mobile submenu animation (base) */
   .mobile-submenu {
-    max-height: 0;
-    overflow: hidden;
     transition:
       max-height 0.5s ease,
       opacity 0.3s ease;
-    opacity: 0;
+    @apply max-h-0 overflow-hidden opacity-0;
   }
   .mobile-submenu.open {
-    max-height: 20rem;
-    opacity: 1;
+    @apply max-h-80 opacity-100;
   }
 
   /* ===== MOBILE-ONLY CHANGES BELOW ===== */
   @media (max-width: 1023px) {
     .navbar,
     .navbar.scrolled {
-      background: #1d293d;
-      padding: 0.5rem; /* p-4 */
+      @apply bg-slate-900 p-2;
     }
 
     .nav,
     .buttons {
-      display: none;
+      @apply hidden;
     }
     .hamburger {
-      display: flex;
+      @apply flex;
     }
 
     /* Closed state: no vertical padding, zero height */
     .mobile-menu {
-      padding: 0 16px;
+      @apply px-4;
     }
 
     /* Open state: add vertical padding + usable height */
     .mobile-menu.open {
-      padding-top: 12px;
-      padding-bottom: 14px;
-      max-height: calc(100vh - 64px);
-      overflow: auto;
+      @apply pt-3 pb-3.5 max-h-[100vh-64px] overflow-auto;
     }
 
-    /* Parent rows: larger tap targets + right chevron */
+    /* Parent rows: larger tap targets */
     .mobile-item > a {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 4px;
-      font-weight: 600;
-      color: #314158; /* slate-700 */
-      transition: color 0.3s ease-in-out;
+      @apply flex items-center justify-between py-3 px-1 font-semibold transition-colors duration-300 ease-in-out;
     }
 
     /* Submenu styling */
     .mobile-submenu {
-      border-left: 2px solid #0f172b; /* slate-900 */
-      margin-left: 10px;
-      padding-left: 6px;
+      @apply border-l-2 border-white ml-2.5 pl-1.5;
     }
     a:has(+ .mobile-submenu.open),
     a:has(+ .mobile-submenu .menu-link-hover) {
-      color: #0f172b; /* slate-900 */
+      @apply text-lime-500;
     }
     .mobile-submenu li a {
-      display: block;
-      padding: 10px 12px 10px 18px;
-      border-radius: 6px;
-      color: #314158; /* slate-700 */
-      transition: all 0.2s ease-in-out;
+      @apply block py-2.5 pr-3 pl-[18px] rounded-md transition-all duration-200 ease-in-out;
     }
-    .mobile-submenu li a:hover {
-      background: oklch(0.278 0.033 256.848);
-      color: #f3f4f6;
-      font-weight: bold;
-    }
-
+    .mobile-submenu li a:hover,
     .mobile-submenu li a.menu-link-hover {
-      background: oklch(0.278 0.033 256.848);
-      color: #f3f4f6;
-      font-weight: bold;
+      @apply text-lime-500;
     }
 
     /* Sticky full-width CTA */
     .mobile-buttons {
-      background-color: #f3f4f6;
-      bottom: 0;
-      padding: 12px 0 14px;
-      border-top: 1px solid #0f172b; /* slate-900 */
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      @apply bg-transparent pt-3 pb-3.5 border-t border-t-slate-900 flex flex-col gap-3;
     }
   }
 
   @media screen and (min-width: 1280px) {
     .nav {
-      gap: 2rem;
+      @apply gap-8;
     }
   }
 </style>
@@ -585,8 +328,7 @@ const { pathname, navBarBG = false } = Astro.props;
 
   function updateNavbar() {
     if (
-      ((window.scrollY > 40 || window.innerWidth <= 1023) &&
-        !navbar.classList.contains("scrolled")) ||
+      ((window.scrollY > 40 || window.innerWidth <= 1023) && !navbar.classList.contains("scrolled")) ||
       navbar.classList.contains("force-navbar-bg")
     ) {
       navbar.classList.add("scrolled");
@@ -594,11 +336,7 @@ const { pathname, navBarBG = false } = Astro.props;
       return;
     }
 
-    if (
-      window.scrollY <= 40 &&
-      window.innerWidth > 1023 &&
-      navbar.classList.contains("scrolled")
-    ) {
+    if (window.scrollY <= 40 && window.innerWidth > 1023 && navbar.classList.contains("scrolled")) {
       navbar.classList.remove("scrolled");
     }
   }
@@ -638,19 +376,16 @@ const { pathname, navBarBG = false } = Astro.props;
 
         const isOpen = submenu.classList.contains("open");
 
-        document
-          .querySelectorAll(".mobile-submenu.open")
-          .forEach((openSubmenu) => {
-            if (openSubmenu !== submenu) {
-              openSubmenu.classList.remove("open");
-              openSubmenu.style.maxHeight = "0px";
-              openSubmenu.style.opacity = "0";
+        document.querySelectorAll(".mobile-submenu.open").forEach((openSubmenu) => {
+          if (openSubmenu !== submenu) {
+            openSubmenu.classList.remove("open");
+            openSubmenu.style.maxHeight = "0px";
+            openSubmenu.style.opacity = "0";
 
-              const openLink =
-                openSubmenu.parentElement.querySelector(":scope > a.open");
-              if (openLink) openLink.classList.remove("open");
-            }
-          });
+            const openLink = openSubmenu.parentElement.querySelector(":scope > a.open");
+            if (openLink) openLink.classList.remove("open");
+          }
+        });
 
         submenu.classList.toggle("open", !isOpen);
         link.classList.toggle("open", !isOpen);
@@ -669,12 +404,10 @@ const { pathname, navBarBG = false } = Astro.props;
   document.querySelectorAll("#mobile-menu a").forEach((link) => {
     link.addEventListener("click", (e) => {
       const parentItem = link.closest(".mobile-item");
-      const hasSubmenu =
-        parentItem && parentItem.querySelector(".mobile-submenu");
+      const hasSubmenu = parentItem && parentItem.querySelector(".mobile-submenu");
 
       // If this link just toggles a submenu, do nothing here
-      if (hasSubmenu && e.target.closest("a").nextElementSibling === hasSubmenu)
-        return;
+      if (hasSubmenu && e.target.closest("a").nextElementSibling === hasSubmenu) return;
 
       // Close mobile menu if it's open
       if (mobileMenu.classList.contains("open")) {

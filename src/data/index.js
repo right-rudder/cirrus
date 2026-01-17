@@ -2,6 +2,7 @@ import { LiaPlaneSolid } from "react-icons/lia";
 import { LiaFlag } from "react-icons/lia";
 import { LiaGraduationCapSolid } from "react-icons/lia";
 import { LiaCompass } from "react-icons/lia";
+import { COMPANY_NAME } from "./consts";
 
 export const data = {
   header: {
@@ -11,12 +12,12 @@ export const data = {
     },
     videoSrc:
       "/media/airplane-taking-flight-cirrus-aviation-flight-school-florida.mp4",
-    title: "Learn to Fly at Cirrus Aviation",
+    title: `Learn to Fly at ${COMPANY_NAME}`,
     subTitle:
-      "Earn your Private Pilot License, or begin an exciting career as a commercial pilot. No matter your path, Cirrus Aviation can help you achieve your dream.",
+      `Earn your Private Pilot License, or begin an exciting career as a commercial pilot. No matter your path, ${COMPANY_NAME} can help you achieve your dream.`,
     cta: [
       {
-        url: "https://www.cirrusaviation.com/contact-us",
+        url: "https://www.cirrusaviation.com/contact-us#contact-us-form",
         text: "Learn More About Flight Training",
       },
     ],
@@ -78,7 +79,7 @@ export const data = {
         },
         title: "Career Pilot Program",
         description:
-          "Demand for professional pilots is growing and there are ample opportunities for those with the right training. If you’re interested in a flying career, Cirrus Aviation offers aviation degree and non-degree curriculums.",
+          `Demand for professional pilots is growing and there are ample opportunities for those with the right training. If you’re interested in a flying career, ${COMPANY_NAME} offers aviation degree and non-degree curriculums.`,
         cta: {
           url: "https://www.cirrusaviation.com/career-pilot-program",
           text: "Learn How To Start Your Career",
@@ -108,7 +109,7 @@ export const data = {
         description:
           "Ever wondered what it’s like to fly an airplane? In our “Discovery Flight” package, a Certified Flight Instructor will give you a lesson in our AL172 Flight Simulator, and then cap it off with a flying lesson in the airplane.",
         cta: {
-          url: "https://www.cirrusaviation.com/take-a-discovery-flight",
+          url: "/take-a-discovery-flight#discovery-flight-form",
           text: "See What Flight Training Is Like",
         },
       },
@@ -116,16 +117,19 @@ export const data = {
   },
 
   aboutUs: {
-    title: "About Cirrus Aviation",
+    title: `About ${COMPANY_NAME}`,
     subTitle: "Get to know us",
     description: `We are a Sarasota-based flight school and aviation services provider built on decades of hands-on experience in pilot training and aircraft operations. As an FAA-approved training organization, we work with aircraft every day—training pilots, managing fleets, and upholding the highest standards of safety, professionalism, and regulatory compliance.
 
     That operational foundation shapes everything we do, from flight training to aircraft brokerage and aviation services. Our team brings practical insight, transparency, and a long-term ownership mindset to every client relationship, helping pilots and aircraft owners make confident, well-informed decisions at every stage of their aviation journey.`,
     cta: {
-      url: "https://www.cirrusaviation.com/contact-us",
+      url: "https://www.cirrusaviation.com/contact-us#contact-us-form",
       text: "Contact Us",
     },
-    videoURL: "https://www.youtube.com/embed/HBrcyC1FsdU?si=YNRDgoNCVJ1J0794",
+    video: {
+      type: "youtube",
+      url: "https://www.youtube.com/embed/HBrcyC1FsdU?si=YNRDgoNCVJ1J0794",
+    },
   },
 
   explore: {
@@ -136,7 +140,7 @@ export const data = {
       {
         type: "only-image",
         img: {
-          src: "/src/assets/asian-pilot-smiling-to-camera-inside-cockpit-cirrus-aviation-tampa-discovery-flight.jpg",
+          src: "/src/assets/stock/asian-pilot-smiling-to-camera-inside-cockpit-cirrus-aviation-tampa-discovery-flight.jpg",
           alt: "Asian pilot smiling at the camera inside an airplane's cockpit",
         },
         title: "International Students",
@@ -148,7 +152,7 @@ export const data = {
       {
         type: "only-image",
         img: {
-          src: "/src/assets/soldier-talking-on-handheld-radio-obscured-by-shadow-cirrus-aviation-private-pilot-clearwater.jpg",
+          src: "/src/assets/stock/soldier-talking-on-handheld-radio-obscured-by-shadow-cirrus-aviation-private-pilot-clearwater.jpg",
           alt: "Soldier talking on a handheld radio while obscured by shadow",
         },
         title: "Use Your GI Bill",
@@ -196,36 +200,15 @@ export const data = {
       {
         type: "only-image",
         img: {
-          src: "/src/assets/inside-airplane-two-pilots-landing-on-runway-cirrus-aviation-st-petersburg-certified-flight-instructor.jpg",
+          src: "/src/assets/inside-airplane-two-pilots-landing-on-runway-cirrus-aviation-st-petersburg-certified-flight-instructor.webp",
           alt: "View from inside and airplane of two pilots almost landing with the runway close in sight",
         },
         title: `Aircraft Checkout<br/>And Rental Rates`,
-        description: "Read more about the requirements to rent an aircraft with Cirrus Aviation.",
+        description: `Read more about the requirements to rent an aircraft with ${COMPANY_NAME}.`,
         cta: {
           url: "https://www.cirrusaviation.com/portfolio/portfolio-item-3/",
         },
       },
     ],
-  },
-
-  faqs: {
-    title: "Frequently Asked Questions",
-    subTitle: "Clear any doubts you might have",
-  },
-  
-  cta: {
-    title: "Ready to Take the Left Seat?",
-    description:
-      "Whether you’re chasing a lifelong dream or starting a professional aviation career, our experienced instructors and modern training aircraft are here to help you take off with confidence. Your journey to the cockpit starts today.",
-    cta: {
-      url: "/contact-us",
-      text: "Start Today",
-    },
-    img: {
-      src: "/src/assets/stock/airplane-taking-off-sunset-cirrus-aviation-private-pilot-sarasota.jpg",
-      alt: "Airplane taking of with the sunset in the background",
-      objectPosition: "object-bottom",
-      quality: 90,
-    },
   },
 };

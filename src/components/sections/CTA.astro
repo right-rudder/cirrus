@@ -1,19 +1,33 @@
 ---
 import ImageComp from "../ImageComp.astro";
 
-const { data } = Astro.props;
+const {
+  data = {
+    title: "Ready to Take the Left Seat?",
+    description:
+      "Whether you’re chasing a lifelong dream or starting a professional aviation career, our experienced instructors and modern training aircraft are here to help you take off with confidence. Your journey to the cockpit starts today.",
+    cta: {
+      url: "/contact-us#contact-us-form",
+      text: "Start Today",
+    },
+    img: {
+      src: "/src/assets/stock/airplane-flying-mountains-background-cirrus-aviation-commercial-pilot-bradenton.jpg",
+      alt: "Airplane flying with mountains in the background",
+      objectPosition: "object-bottom",
+      quality: 90,
+    },
+  },
+} = Astro.props;
 ---
 
 <section class="bg-white">
   <div class="flex flex-col lg:flex-row">
-    <div
-      class="max-w-3xl p-12 flex flex-col justify-center lg:py-24 lg:ml-auto lg:text-right lg:items-end"
-    >
-      <h2 class="text-slate-900 text-5xl font-bold mb-12">{data.title}</h2>
-      <p class="text-slate-700 text-xl whitespace-pre-line mb-8">
+    <div class="max-w-3xl py-12 px-6 flex flex-col justify-center lg:py-24 lg:ml-auto lg:text-right lg:items-end">
+      <h2 data-aos="fade-down" class="text-slate-900 text-5xl font-bold mb-12">{data.title}</h2>
+      <p data-aos="fade-down" data-aos-delay="100" class="text-slate-700 text-xl whitespace-pre-line mb-8">
         {data.description}
       </p>
-      <a class="btn-rose w-fit" href={data.cta.url}>{data.cta.text}</a>
+      <a data-aos="fade-down" data-aos-delay="200" class="btn-rose w-fit" href={data.cta.url}>{data.cta.text}</a>
     </div>
     <ImageComp
       src={data.img.src}

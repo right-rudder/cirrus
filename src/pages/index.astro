@@ -7,48 +7,38 @@ import ElfsightGoogleReviews from "../components/widgets/ElfsightGoogleReviews.a
 import CTA from "../components/sections/CTA.astro";
 import { data } from "../data/index";
 import FAQsSection from "../components/sections/FAQsSection.astro";
+import BlogFeed from "../components/BlogFeed.astro";
+import SimpleSection from "../components/sections/SimpleSection.astro";
 ---
 
 <BaseLayout>
   <Header data={data.header} />
 
-  <section class="py-24 px-4 bg-white">
+  <SimpleSection>
     <CardList data={data.cards} />
-  </section>
+  </SimpleSection>
 
   <!-- TODO : Add airline marquee -->
 
   <!-- TODO : Improve program list -->
 
-  <section class="py-24 px-4 bg-slate-100">
-    <h2 class="text-slate-900 text-5xl text-center mb-4 font-bold">
-      {data.path.title}
-    </h2>
-    <p class="text-slate-600 text-2xl text-center mb-12">
-      {data.path.subTitle}
-    </p>
+  <SimpleSection title={data.path.title} subTitle={data.path.subTitle} bg="bg-slate-100">
     <CardList data={data.path.cards} />
-  </section>
+  </SimpleSection>
 
   <ElfsightGoogleReviews />
 
   <VideoSection data={data.aboutUs} />
 
-  <section class="py-24 px-4 bg-slate-100">
-    <h2 class="text-slate-900 text-5xl text-center mb-4 font-bold">
-      {data.explore.title}
-    </h2>
-    <p class="text-slate-600 text-2xl text-center mb-12">
-      {data.explore.subTitle}
-    </p>
+  <SimpleSection title={data.explore.title} subTitle={data.explore.subTitle} bg="bg-slate-100">
     <CardList data={data.explore.cards} />
-  </section>
+  </SimpleSection>
 
-  <FAQsSection data={data.faqs} />
+  <FAQsSection showLinkToFAQsPage={true} />
 
-  <CTA data={data.cta} />
-
-  <!-- TODO : Add blog feed -->
+  <BlogFeed />
+  
+  <CTA />
 
   <!-- TODO : Add newsletter -->
 </BaseLayout>

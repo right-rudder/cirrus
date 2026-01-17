@@ -1,0 +1,98 @@
+---
+import { data } from "../../data/forms/contact-us-form";
+import FormComp from "./FormComp.astro";
+---
+
+<section class="bg-white px-4 py-12 sm:px-6 xl:px-8 xl:py-20" aria-labelledby="contact-heading">
+  <div class="flex flex-col gap-8 max-w-7xl mx-auto xl:gap-12 xl:flex-row">
+    {/* LEFT: Info panel */}
+    <div class="max-w-5xl w-full mx-auto overflow-hidden rounded-lg text-slate-900 top-28 xl:w-1/2 xl:self-start xl:sticky">
+      <div class="text-slate-900 p-6 sm:p-8 xl:p-10">
+        <h2 class="text-4xl font-extrabold text-slate-950 sm:text-5xl">
+          {data.info.title}
+        </h2>
+        {
+          data.info.intro && (
+            <p class="text-muted-200 text-xl/5 font-light mt-6 max-w-prose">{data.info.intro}</p>
+          )
+        }
+
+        <ul class="mt-12 space-y-6">
+          {
+            data.info.addressLine1 && (
+              <li class="flex items-center gap-4">
+                <svg viewBox="0 0 24 24" class="h-10 w-10 text-rose-500">
+                  <path
+                    fill="currentColor"
+                    d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"
+                  />
+                </svg>
+                <div>
+                  <p class="text-muted-100 font-bold">{data.info.locationLabel || "Location"}</p>
+                  <div class="flex flex-wrap gap-1">
+                    <p class="text-muted-300">{data.info.addressLine1},</p>
+                    {data.info.addressLine2 && <p class="text-muted-300">{data.info.addressLine2}</p>}
+                  </div>
+                </div>
+              </li>
+            )
+          }
+
+          {
+            data.info.phoneValue && (
+              <li class="flex items-center gap-4">
+                <svg viewBox="0 0 24 24" class="h-10 w-10 text-rose-500">
+                  <path
+                    fill="currentColor"
+                    d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.11.37 2.31.57 3.58.57a1 1 0 0 1 1 1v3.49a1 1 0 0 1-1 1C10.29 22 2 13.71 2 3.99a1 1 0 0 1 1-1H6.5a1 1 0 0 1 1 1c0 1.27.2 2.47.57 3.58a1 1 0 0 1-.24 1.01l-2.2 2.21Z"
+                  />
+                </svg>
+                <div>
+                  <p class="text-muted-100 font-bold">{data.info.phoneLabel || "Phone"}</p>
+                  <a
+                    href={`tel:${data.info.phoneValue}`}
+                    class="text-muted-300 transition-colors duration-300 ease-in-out hover:text-rose-500!"
+                  >
+                    {data.info.phoneValue}
+                  </a>
+                </div>
+              </li>
+            )
+          }
+        </ul>
+      </div>
+    </div>
+
+    {/* RIGHT: Form */}
+    <div class="max-w-5xl w-full mx-auto bg-slate-900 rounded-sm p-6 text-white font-semibold sm:p-8 xl:p-10 xl:min-w-3xl">
+      {
+        data.eyebrow && (
+          <p class="relative tracking-widest mb-8 w-fit">
+            {data.eyebrow}
+            <span class="absolute left-0 right-0 -bottom-2 bg-rose-500 h-1 rounded-b-full" />
+          </p>
+        )
+      }
+
+      {
+        data.heading && (
+          <h2 id="contact-heading" class="text-4xl font-bold mb-4 sm:text-5xl">
+            {data.heading}
+          </h2>
+        )
+      }
+
+      {data.subheading && <p class="text-lg max-w-prose">{data.subheading}</p>}
+
+      <FormComp content={data.form} />
+    </div>
+  </div>
+</section>
+
+<script>
+  import { data } from "../../data/forms/contact-us-form";
+  import { CONTACT_US_WEBHOOK_URL } from "astro:env/client";
+  import { Form } from "../../components/utils/forms";
+
+  new Form(data.form, CONTACT_US_WEBHOOK_URL);
+</script>

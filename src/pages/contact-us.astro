@@ -1,0 +1,33 @@
+---
+import { COMPANY_NAME, KEYWORDS } from "../data/consts";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import ContactUsForm from "../components/forms/FormContactUs.astro";
+
+const data = {
+  pageTitle: `Contact Us | ${COMPANY_NAME}`,
+  pageDescription: `Contact ${COMPANY_NAME} for any questions about flight training programs, discovery flights, pilot training financing or anything aviation related.`,
+  pageKeywords: KEYWORDS,
+  header: {
+    image: {
+      src: "/src/assets/stock/airport-runway-cirrus-aviation-career-pilot-punta-gorda-landscape.webp",
+      alt: "Airport runway with clouds and sunset in the horizon",
+      objectPosition: "object-center lg:object-right"
+    },
+    title: "Contact Us",
+    subTitle: "Got any questions about our flight training programs, scheduling a discovery flight, financing your training or anything else aviation related?<br/>Fill in the form below and our team will answer all of your inquiries.",
+    cta: [
+      {
+        url: "#contact-us-form",
+        text: "Contact Us",
+      },
+    ],
+  },
+};
+---
+
+<BaseLayout pageTitle={data.pageTitle} pageDescription={data.pageDescription} pageKeywords={data.pageKeywords}>
+  <Header data={data.header} />
+
+  <ContactUsForm />
+</BaseLayout>

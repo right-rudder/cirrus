@@ -1,0 +1,34 @@
+---
+import SimpleSection from "../sections/SimpleSection.astro";
+import { FaCircleCheck } from "react-icons/fa6";
+
+const { data } = Astro.props;
+---
+
+<SimpleSection title={data.title} subTitle={data.subTitle} size="large">
+  <div class="text-slate-600 max-w-5xl mx-auto">
+    {
+      data.descriptionParagraphs && (
+        <div class="mb-8 text-center space-y-4 max-w-4xl mx-auto text-lg">
+          {data.descriptionParagraphs.map((paragraph: string) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+      )
+    }
+
+    <div class="rounded-sm p-8 border-l-4 border-l-rose-600 border-slate-200 border shadow-xl">
+      <ul class="space-y-4">
+        {
+          data.opportunities.map((item: string) => (
+            <li class="flex items-start gap-4">
+              <FaCircleCheck className="size-5 shrink-0 text-rose-600" />
+              <span class="text-lg font-medium text-slate-900">{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+      {data.disclaimer && <p class="mt-6 text-sm text-slate-500 italic border-t pt-4">* {data.disclaimer}</p>}
+    </div>
+  </div>
+</SimpleSection>

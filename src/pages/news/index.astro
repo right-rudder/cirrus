@@ -1,0 +1,34 @@
+---
+import { ADDRESS_CITY, ADDRESS_STATE, COMPANY_NAME, KEYWORDS } from "../../data/consts";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import CardBlog from "../../components/cards/CardBlog.astro";
+
+const posts = (await getCollection("news")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const data = {
+  pageTitle: `News and Highlights | ${COMPANY_NAME}`,
+  pageDescription:
+    `Read the latest aviation news from ${COMPANY_NAME}. We are a flight school based in ${ADDRESS_CITY}, ${ADDRESS_STATE}, and have multiple flight training programs for you to choose from, start training at ${COMPANY_NAME} today.`,
+  pageKeywords: KEYWORDS,
+  header: {
+    image: {
+      src: "/src/assets/cessna-172s-instrument-panel-cirrus-aviation-flight-school-florida.jpg",
+      alt: "Cessna 172s instrument panel",
+    },
+    title: "News and Highlights",
+    subTitle: `Read the latest news from ${COMPANY_NAME}`,
+  },
+};
+---
+
+<BaseLayout pageTitle={data.pageTitle} pageDescription={data.pageDescription} pageKeywords={data.pageTitle}>
+  <Header data={data.header} />
+
+  <section class="py-24 px-4 bg-slate-100">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {posts.map((post) => <CardBlog blogEntry={post} />)}
+    </div>
+  </section>
+</BaseLayout>

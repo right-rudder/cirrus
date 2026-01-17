@@ -1,0 +1,18 @@
+---
+interface Props {
+  title?: string;
+  subTitle?: string;
+  bg?: string;
+  size?: "medium" | "large"
+}
+
+const { title, subTitle, bg = "bg-white", size = "medium" } = Astro.props;
+---
+
+<section class={`py-24 px-6 ${bg}`}>
+  <div class="max-w-7xl mx-auto">
+    {title && <h2 data-aos="fade-down" class={`text-slate-900 text-center font-bold ${size === "medium" ? "text-5xl mb-4" : "mb-8 text-5xl md:text-6xl"}`}>{title}</h2>}
+    {subTitle && <p data-aos="fade-down" data-aos-delay="100" class={`text-slate-600 text-center mb-12 ${size === "medium" ? "text-2xl" : "text-3xl"}`}>{subTitle}</p>}
+    <slot />
+  </div>
+</section>

@@ -4,30 +4,67 @@ import ImageComp from "../ImageComp.astro";
 import { formatDate, capitalize } from "../utils/utils";
 
 interface Props {
-  blogEntry: CollectionEntry<"blog">;
+  blogEntry: CollectionEntry<"news">;
+  index?: number;
 }
 
-const { blogEntry } = Astro.props;
+const { blogEntry, index } = Astro.props;
 ---
 
-<a
-  href={`/blog/${blogEntry.id}`}
-  class="group flex flex-col bg-white rounded-sm overflow-hidden shadow transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl"
->
-  <ImageComp src={blogEntry.data.heroImage} alt={blogEntry.data.heroImageAlt} class="w-full object-cover object-center md:h-64" />
-  <div class="flex-1 p-4 flex flex-col gap-4 justify-between">
-    <p class="text-slate-500 text-sm flex flex-wrap gap-4 items-center">
-      <span class="px-2 py-1 rounded-sm bg-slate-200 text-slate-900 text-xs w-fit"
-        >{capitalize(blogEntry.data.category)}</span
-      >
-      <span>{formatDate(blogEntry.data.pubDate)}</span>
-      <span>•</span>
-      <span>{capitalize(blogEntry.data.author)}</span>
-    </p>
-    <p class="text-slate-900 font-semibold text-xl transition duration-500 ease-in-out group-hover:text-rose-500">
-      {blogEntry.data.title}
-    </p>
-    <p class="text-slate-500 text-base">{blogEntry.data.description}</p>
-    <button class="btn-dark text-base">Read More</button>
-  </div>
-</a>
+{
+  ((typeof index === "number") && (index >= 0)) ? (
+    <a
+      data-aos="fade-right"
+      data-aos-delay={index * 50}
+      href={`/news/${blogEntry.id}`}
+      class="group flex flex-col bg-white rounded-sm overflow-hidden shadow transition-all! duration-500 ease-in-out hover:scale-105 hover:shadow-2xl"
+    >
+      <ImageComp
+        src={blogEntry.data.heroImage}
+        alt={blogEntry.data.heroImageAlt}
+        class="w-full object-cover object-center md:h-64"
+      />
+      <div class="flex-1 p-4 flex flex-col gap-4 justify-between">
+        <p class="text-slate-500 text-sm flex flex-wrap gap-4 items-center">
+          <span class="px-2 py-1 rounded-sm bg-slate-200 text-slate-900 text-xs w-fit">
+            {capitalize(blogEntry.data.category)}
+          </span>
+          <span>{formatDate(blogEntry.data.pubDate)}</span>
+          <span>•</span>
+          <span>{capitalize(blogEntry.data.author)}</span>
+        </p>
+        <p class="text-slate-900 font-semibold text-xl transition duration-500 ease-in-out group-hover:text-rose-500">
+          {blogEntry.data.title}
+        </p>
+        <p class="text-slate-500 text-base">{blogEntry.data.description}</p>
+        <button class="btn-dark text-base">Read More</button>
+      </div>
+    </a>
+  ) : (
+    <a
+      href={`/news/${blogEntry.id}`}
+      class="group flex flex-col bg-white rounded-sm overflow-hidden shadow transition-all duration-500 ease-in-out hover:scale-105 hover:shadow-2xl"
+    >
+      <ImageComp
+        src={blogEntry.data.heroImage}
+        alt={blogEntry.data.heroImageAlt}
+        class="w-full object-cover object-center md:h-64"
+      />
+      <div class="flex-1 p-4 flex flex-col gap-4 justify-between">
+        <p class="text-slate-500 text-sm flex flex-wrap gap-4 items-center">
+          <span class="px-2 py-1 rounded-sm bg-slate-200 text-slate-900 text-xs w-fit">
+            {capitalize(blogEntry.data.category)}
+          </span>
+          <span>{formatDate(blogEntry.data.pubDate)}</span>
+          <span>•</span>
+          <span>{capitalize(blogEntry.data.author)}</span>
+        </p>
+        <p class="text-slate-900 font-semibold text-xl transition duration-500 ease-in-out group-hover:text-rose-500">
+          {blogEntry.data.title}
+        </p>
+        <p class="text-slate-500 text-base">{blogEntry.data.description}</p>
+        <button class="btn-dark text-base">Read More</button>
+      </div>
+    </a>
+  )
+}

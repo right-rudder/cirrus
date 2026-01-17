@@ -1,0 +1,36 @@
+---
+import ImageComp from "../ImageComp.astro";
+import { FaFlag } from "react-icons/fa6";
+
+const { data } = Astro.props;
+---
+
+<section class="bg-slate-900 text-white">
+  <div class="flex flex-col lg:flex-row">
+    <ImageComp src={data.image.src} alt={data.image.alt} class="lg:w-1/2" />
+
+    <div class="flex-col gap-4 justify-center items-center py-12 px-6 lg:py-24 lg:px-12 lg:w-1/2">
+      <h2 class="text-5xl mb-12">{data.title}</h2>
+      {
+        data.descriptionParagraphs.map((paragraph: string) => (
+          <p class="text-slate-50 whitespace-pre-line mb-8">{paragraph}</p>
+        ))
+      }
+
+      {data.listItems && (
+        <ul class="text-xl pt-8">
+          {
+            data.listItems.map((item: string) => (
+              <li class="mb-4 flex gap-4 items-center">
+                <div class="p-2 rounded-full border-4 border-rose-600 flex items-center justify-center">
+                  <FaFlag className="size-4 text-rose-600 shrink-0" />
+                </div>
+                {item}
+              </li>
+            ))
+          }
+        </ul>
+      )}
+    </div>
+  </div>
+</section>

@@ -1,9 +1,11 @@
 ---
 import ImageComp from "../ImageComp.astro";
 
-const { data} = Astro.props;
+const { data, index } = Astro.props;
 ---
 <a
+  data-aos="fade-right"
+  data-aos-delay={(index * 50) + 200}
   href={data.cta.url}
   target={data.cta.url.includes("http") ? "_blank" : ""}
   class="group rounded-sm overflow-hidden shadow relative min-h-64"
@@ -11,7 +13,7 @@ const { data} = Astro.props;
   <ImageComp
     src={data.img.src}
     alt={data.img.alt}
-    class="absolute left-0 top-0 size-full object-cover transition-all duration-300 ease-in-out group-hover:scale-105 group-hover"
+    class="absolute left-0 top-0 size-full object-cover transition-all duration-500 ease-in-out group-hover:scale-105 group-hover"
   />
   <div
     class={`size-full py-6 px-4 rounded-sm bg-slate-900/50 text-white text-center backdrop-blur-sm transition duration-500 flex flex-col items-center justify-center gap-4 lg:justify-start lg:translate-y-3/5 group-hover:translate-y-0 group-hover:bg-rose-900/50`}

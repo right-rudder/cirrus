@@ -1,17 +1,17 @@
 ---
-import FAQs from "../FAQs.astro"
+import FAQs from "../FAQs.astro";
+import SimpleSection from "./SimpleSection.astro";
 
-const { data } = Astro.props;
+const {
+  title = "Frequently Asked Questions",
+  subTitle = "Clear any doubts you might have",
+  limit = undefined,
+  categories = undefined,
+  showCategory = true,
+  showLinkToFAQsPage = false,
+} = Astro.props;
 ---
 
-<section class="py-24 px-4 bg-slate-100">
-    <div class="max-w-7xl mx-auto">
-      <h2 class="text-slate-900 text-5xl text-center mb-4 font-bold">
-        {data.title}
-      </h2>
-      <p class="text-slate-600 text-2xl text-center mb-12">
-        {data.subTitle}
-      </p>
-      <FAQs showCategory={true} />
-    </div>
-  </section>
+<SimpleSection title={title} subTitle={subTitle} bg="bg-slate-100">
+  <FAQs showCategory={showCategory} categories={categories} showLinkToFAQsPage={showLinkToFAQsPage} limit={limit} />
+</SimpleSection>

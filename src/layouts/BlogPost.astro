@@ -1,10 +1,11 @@
 ---
+import { KEYWORDS } from "../data/consts";
 import type { CollectionEntry } from "astro:content";
 import BaseLayout from "./BaseLayout.astro";
 import Header from "../components/Header.astro";
 import { formatDate, capitalize } from "../components/utils/utils";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"news">["data"];
 
 const { title, description, pubDate, author, heroImage, heroImageAlt, category } = Astro.props;
 
@@ -18,7 +19,7 @@ const header = {
 };
 ---
 
-<BaseLayout pageTitle={title} pageDescription={description}
+<BaseLayout pageTitle={title} pageDescription={description} pageKeywords={KEYWORDS}
   ><!-- TODO : Add keywords? -->
   <Header data={header} />
   <main class="bg-slate-100 min-h-screen">
