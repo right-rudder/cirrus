@@ -8,6 +8,12 @@ import WhyUs from "../../components/program/WhyUs.astro";
 import ProgramIntro from "../../components/program/ProgramIntro.astro";
 import ProgramExpectations from "../../components/program/ProgramExpectations.astro";
 import WhatIsIncluded from "../../components/program/WhatIsIncluded.astro";
+import CareerPathways from "../../components/program/CareerPathways.astro";
+import TargetAudience from "../../components/program/TargetAudience.astro";
+import SectionRoadmap from "../../components/sections/SectionRoadmap.astro";
+import EnrollmentProcess from "../../components/program/EnrollmentProcess.astro";
+import FinalCTA from "../../components/program/FinalCTA.astro";
+import FAQsSection from "../../components/sections/FAQsSection.astro";
 
 // Static Path Generation
 export async function getStaticPaths() {
@@ -59,4 +65,16 @@ const programKeywords = PROGRAM_KEYWORDS[`${program.id}`];
   {data.whatIsIncluded && <WhatIsIncluded data={data.whatIsIncluded} />}
 
   {data.whyUs && <WhyUs data={data.whyUs} />}
+
+  {data.targetAudience && <TargetAudience data={data.targetAudience} />}
+
+  {data.careerPathways && <CareerPathways data={data.careerPathways} />}
+
+  {data.trainingProgression && <SectionRoadmap data={data.trainingProgression} size="large" />}
+
+  {data.enrollmentProcess && <EnrollmentProcess data={data.enrollmentProcess} />}
+
+  {data.finalCTA && <FinalCTA data={data.finalCTA} />}
+
+  {data.faq && <FAQsSection showCategory={data.faq.showCategory} categories={data.faq.categories} showLinkToFAQsPage={true} />}
 </BaseLayout>

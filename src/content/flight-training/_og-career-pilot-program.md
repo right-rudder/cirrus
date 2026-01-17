@@ -114,7 +114,7 @@ enrollmentProcess:
   title: "How to Get Started"
   steps:
     - title: "Schedule a Tour"
-      description: "Schedule a tour of the facility. If you cannot attend in person, call (910) 900-8043."
+      description: "Schedule a tour of the facility. If you cannot attend in person, call (941) 360-9074."
     - title: "Obtain Medical Certificate"
       description: "Schedule your exam using the FAA Aviation Medical Examiner locator to obtain your FAA First Class Medical Certificate."
     - title: "Schedule Program"
@@ -169,8 +169,8 @@ finalCTA:
   ctas:
     - text: "Contact Us"
       url: "/contact"
-    - text: "Call (910) 900-8043"
-      url: "tel:9109008043"
+    - text: "Call (941) 360-9074"
+      url: "tel:9413609074"
 faq:
   subTitle: "Common Questions"
   title: "Frequently Asked Questions"

@@ -88,9 +88,12 @@ whyUs:
 targetAudience:
   title: "Who This Course Is For"
   items:
-    - "First-time students with no prior flight experience"
-    - "Individuals exploring aviation as a hobby or future career"
-    - "Students seeking structured, professional flight training"
+    - icon: ""
+      text: "First-time students with no prior flight experience"
+    - icon: ""
+      text: "Individuals exploring aviation as a hobby or future career"
+    - icon: ""
+      text: "Students seeking structured, professional flight training"
   notFor: "Those looking for a casual, informal, or unstructured approach to learning to fly."
 
 trainingProgression:
@@ -98,27 +101,43 @@ trainingProgression:
   title: "From First Flight to Certification"
   descriptionParagraphs:
     - "Training is divided into progressive phases, each building skill, knowledge, and confidence while maintaining consistent safety and performance standards."
-  phases:
-    - phaseTitle: "Phase 1: Pre-Solo"
-      phaseBulletPoints:
+  cards:
+    - title: "Phase 1: Pre-Solo"
+      subTitle: ""
+      image:
+        src: "/src/assets/pilot-standing-side-plane-tail-cirrus-aviation-flight-school-bradenton.jpg"
+        alt: "Pilot standing next to an airplane's tail"
+      bulletPoints:
         - "Aircraft systems and basic aerodynamics"
         - "Fundamental flight maneuvers and radio communication"
         - "Takeoffs, landings, and emergency procedures"
         - "Outcome: First Solo Flight"
-    - phaseTitle: "Phase 2: Cross-Country & Night"
-      phaseBulletPoints:
+    - title: "Phase 2: Cross-Country & Night"
+      subTitle: ""
+      image:
+        src: "/src/assets/pilot-standing-side-plane-tail-cirrus-aviation-flight-school-bradenton.jpg"
+        alt: "Pilot standing next to an airplane's tail"
+      bulletPoints:
         - "Flight planning and navigation"
         - "Night flying operations"
         - "Solo cross-country experience"
         - "Outcome: Solo Cross-Country Endorsements"
-    - phaseTitle: "Phase 3: Checkride Preparation"
-      phaseBulletPoints:
+    - title: "Phase 3: Checkride Preparation"
+      subTitle: ""
+      image:
+        src: "/src/assets/pilot-standing-side-plane-tail-cirrus-aviation-flight-school-bradenton.jpg"
+        alt: "Pilot standing next to an airplane's tail"
+      bulletPoints:
         - "Maneuver refinement to FAA ACS standards"
         - "Oral exam preparation"
         - "Final evaluations and stage checks"
         - "Outcome: FAA Private Pilot Certificate"
-    - phaseTitle: "Checklist: Minimum FAA Requirements for a PPL"
-      phaseBulletPoints:
+    - title: "Checklist: Minimum FAA Requirements for a PPL"
+      subTitle: ""
+      image:
+        src: "/src/assets/pilot-standing-side-plane-tail-cirrus-aviation-flight-school-bradenton.jpg"
+        alt: "Pilot standing next to an airplane's tail"
+      bulletPoints:
         - At least 35 total flight hours
         - 20 hours of flight training with a Certified Flight Instructor
         - 5 hours of solo flight

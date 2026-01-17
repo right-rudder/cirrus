@@ -90,10 +90,14 @@ whyUs:
 targetAudience:
   title: "Who Should Take This Course?"
   items:
-    - "Private pilots looking to enhance safety and utility"
-    - "Career-track pilots building toward their Commercial rating"
-    - "Aircraft owners who need lower insurance rates and travel reliability"
-    - "Pilots ready to develop a professional-grade instrument scan"
+    - icon: ""
+      text: "Private pilots looking to enhance safety and utility"
+    - icon: ""
+      text: "Career-track pilots building toward their Commercial rating"
+    - icon: ""
+      text: "Aircraft owners who need lower insurance rates and travel reliability"
+    - icon: ""
+      text: "Pilots ready to develop a professional-grade instrument scan"
   notFor: "This course is not for those looking for a 'quick pass' without learning the deeper systems and weather theory required for safe IFR flight."
 
 trainingProgression:
@@ -101,24 +105,40 @@ trainingProgression:
   subTitle: "Curriculum Flow"
   descriptionParagraphs:
     - "The course is broken down into logical phases, ensuring you master basic attitude instrument flying before progressing to complex approaches and cross-country procedures."
-  phases:
-    - phaseTitle: "Phase 1: Basic Attitude Instrument Flying"
-      phaseBulletPoints:
+  cards:
+    - title: "Phase 1: Basic Attitude Instrument Flying"
+      subTitle: ""
+      image:
+        src: "/src/assets/pilot-standing-side-plane-tail-cirrus-aviation-flight-school-bradenton.jpg"
+        alt: "Pilot standing next to an airplane's tail"
+      bulletPoints:
         - "Control and performance method"
         - "Full panel and partial panel flying"
         - "Recovery from unusual attitudes"
-    - phaseTitle: "Phase 2: Navigation & Systems"
-      phaseBulletPoints:
+    - title: "Phase 2: Navigation & Systems"
+      subTitle: ""
+      image:
+          src: "/src/assets/pilot-standing-side-plane-tail-cirrus-aviation-flight-school-bradenton.jpg"
+          alt: "Pilot standing next to an airplane's tail"
+      bulletPoints:
         - "Intercepting and tracking navigational courses (VOR/GPS)"
         - "Holding procedures and entries"
         - "IFR flight planning and clearance copy"
-    - phaseTitle: "Phase 3: Approaches"
-      phaseBulletPoints:
+    - title: "Phase 3: Approaches"
+      subTitle: ""
+      image:
+        src: "/src/assets/pilot-standing-side-plane-tail-cirrus-aviation-flight-school-bradenton.jpg"
+        alt: "Pilot standing next to an airplane's tail"
+      bulletPoints:
         - "Precision approaches (ILS)"
         - "Non-precision approaches (RNAV/GPS, VOR)"
         - "Missed approach procedures and circling"
-    - phaseTitle: "Phase 4: Cross-Country & Checkride Prep"
-      phaseBulletPoints:
+    - title: "Phase 4: Cross-Country & Checkride Prep"
+      subTitle: ""
+      image:
+        src: "/src/assets/pilot-standing-side-plane-tail-cirrus-aviation-flight-school-bradenton.jpg"
+        alt: "Pilot standing next to an airplane's tail"
+      bulletPoints:
         - "IFR Cross-country flight under ATC control"
         - "Final stage checks and mock checkrides"
         - "Outcome: Instrument Airplane Rating"
@@ -128,24 +148,13 @@ enrollmentProcess:
   title: "Steps to Enroll"
   steps:
     - title: "Schedule a Tour"
-      description: "Come see our fleet and meet the team. Call (910) 900-8043 if you are out of town."
+      description: "Come see our fleet and meet the team. Call (941) 360-9074 if you are out of town."
     - title: "Verify Documents"
       description: "Ensure your Medical Certificate and Passport/Citizenship documents are valid and ready."
     - title: "Schedule Program"
       description: "Contact us to secure your slot. We will assign your primary instructor and set your start date."
     - title: "Secure Financing"
       description: "You may pay out-of-pocket or apply for a loan through our partner, Stratus Financial."
-
-faq:
-  title: "Instrument Rating FAQ"
-  subTitle: "Common Questions"
-  qnas:
-    - question: "Can I do this course part-time?"
-      answer: "While we specialize in full-time professional training, a la carte Part 141 courses can be scheduled. However, Part 141 requires a structured timeline. If you need total flexibility, we may discuss Part 61 options (billed hourly, self-paced)."
-    - question: "How long does it take?"
-      answer: "The Part 141 Instrument course is designed to be completed in 8 weeks of dedicated training."
-    - question: "Do I need my own plane?"
-      answer: "No, the cost includes up to 40 hours of flight time in our technologically advanced aircraft."
 
 finalCTA:
   title: "Master the Skies"
@@ -159,6 +168,17 @@ finalCTA:
   ctas:
     - text: "Enroll Now"
       url: "/contact"
-    - text: "Call (910) 900-8043"
-      url: "tel:9109008043"
+    - text: "Call (941) 360-9074"
+      url: "tel:9413609074"
+
+faq:
+  title: "Instrument Rating FAQ"
+  subTitle: "Common Questions"
+  qnas:
+    - question: "Can I do this course part-time?"
+      answer: "While we specialize in full-time professional training, a la carte Part 141 courses can be scheduled. However, Part 141 requires a structured timeline. If you need total flexibility, we may discuss Part 61 options (billed hourly, self-paced)."
+    - question: "How long does it take?"
+      answer: "The Part 141 Instrument course is designed to be completed in 8 weeks of dedicated training."
+    - question: "Do I need my own plane?"
+      answer: "No, the cost includes up to 40 hours of flight time in our technologically advanced aircraft."
 ---

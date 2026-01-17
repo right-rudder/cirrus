@@ -95,9 +95,12 @@ careerPathways:
 targetAudience:
   title: "Who This Rating Is For"
   items:
-    - "Commercial pilots building credentials for airline careers"
-    - "Private pilots seeking to upgrade to faster, more capable aircraft"
-    - "Pilots who need an accelerated, no-nonsense training footprint"
+    - icon: ""
+      text: "Commercial pilots building credentials for airline careers"
+    - icon: ""
+      text: "Private pilots seeking to upgrade to faster, more capable aircraft"
+    - icon: ""
+      text: "Pilots who need an accelerated, no-nonsense training footprint"
   notFor: "Student pilots who have not yet achieved a Private Pilot Certificate."
 
 enrollmentProcess:
@@ -117,23 +120,39 @@ trainingProgression:
   title: "The 1-Week Roadmap"
   descriptionParagraphs:
     - "This course moves fast. We utilize a structured Part 141 approach to ensure every hour is efficient and directed toward the checkride."
-  phases:
-    - phaseTitle: "Days 1-2: Systems & Basic Control"
-      phaseBulletPoints:
+  cards:
+    - title: "Days 1-2: Systems & Basic Control"
+      subTitle: ""
+      image:
+        src: "/src/assets/pilot-standing-side-plane-tail-cirrus-aviation-flight-school-bradenton.jpg"
+        alt: "Pilot standing next to an airplane's tail"
+      bulletPoints:
         - "Multi-engine aerodynamics and systems ground school"
         - "Normal takeoffs, landings, and maneuvering"
         - "Introduction to single-engine operations"
-    - phaseTitle: "Days 3-4: Emergency Procedures"
-      phaseBulletPoints:
+    - title: "Days 3-4: Emergency Procedures"
+      subTitle: ""
+      image:
+        src: "/src/assets/pilot-standing-side-plane-tail-cirrus-aviation-flight-school-bradenton.jpg"
+        alt: "Pilot standing next to an airplane's tail"
+      bulletPoints:
         - "Engine failure after takeoff"
         - "Single-engine approaches and go-arounds"
         - "Vmc demonstrations and drag demos"
-    - phaseTitle: "Day 5: Checkride Prep"
-      phaseBulletPoints:
+    - title: "Day 5: Checkride Prep"
+      subTitle: ""
+      image:
+        src: "/src/assets/pilot-standing-side-plane-tail-cirrus-aviation-flight-school-bradenton.jpg"
+        alt: "Pilot standing next to an airplane's tail"
+      bulletPoints:
         - "Mock checkride flight"
         - "Final review of oral knowledge areas"
-    - phaseTitle: "Day 6-7: Evaluation"
-      phaseBulletPoints:
+    - title: "Day 6-7: Evaluation"
+      subTitle: ""
+      image:
+        src: "/src/assets/pilot-standing-side-plane-tail-cirrus-aviation-flight-school-bradenton.jpg"
+        alt: "Pilot standing next to an airplane's tail"
+      bulletPoints:
         - "FAA Practical Test (Checkride)"
   outcome: "Issuance of Commercial or Private Pilot Multi-Engine Land Rating."
 
@@ -149,8 +168,8 @@ finalCTA:
   ctas:
     - text: "Schedule Your Week"
       url: "/contact"
-    - text: "Call (910) 900-8043"
-      url: "tel:9109008043"
+    - text: "Call (941) 360-9074"
+      url: "tel:9413609074"
 
 faq:
   subTitle: "Q&A"

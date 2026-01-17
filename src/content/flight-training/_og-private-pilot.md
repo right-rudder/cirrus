@@ -118,7 +118,7 @@ enrollmentProcess:
   title: "Steps to Enroll"
   steps:
     - title: "Schedule a Tour"
-      description: "Come see our facility and fleet. If you are out of town, call (910) 900-8043 to speak with admissions."
+      description: "Come see our facility and fleet. If you are out of town, call (941) 360-9074 to speak with admissions."
     - title: "Obtain Medical Certificate"
       description: "Secure your FAA Medical Certificate via an Aviation Medical Examiner (AME). A First Class Medical is recommended if you plan to fly professionally."
     - title: "Schedule Your Start"
@@ -149,6 +149,6 @@ finalCTA:
   ctas:
     - text: "Contact Us"
       url: "/contact"
-    - text: "Call (910) 900-8043"
-      url: "tel:9109008043"
+    - text: "Call (941) 360-9074"
+      url: "tel:9413609074"
 ---
