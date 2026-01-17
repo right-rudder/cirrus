@@ -1,0 +1,54 @@
+---
+import { FaCircleInfo } from "react-icons/fa6";
+
+const { data } = Astro.props;
+---
+
+<section class="bg-slate-900 text-white px-4 py-12">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-5xl mb-6">{data.title}</h2>
+
+    {
+      data.items && (
+        <ul class="text-xl flex flex-col gap-6 mb-6 lg:flex-row">
+          {data.items.map((item: any) => (
+            <div class="group p-8 flex items-center rounded-sm bg-slate-950 transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-lg">
+              <div class="text-xl flex items-center gap-6 transition-colors duration-300 ease-in-out group-hover:text-rose-600">
+                {item.icon && (
+                  <div class="size-24 shrink-0 p-2 rounded-sm bg-slate-800 items-center justify-center transition-colors duration-300 ease-in-out lg:size-16 xl:size-24 group-hover:bg-rose-600">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      class="shrink-0 text-white size-full"
+                    >
+                      <path d={item.icon} fill="currentColor" />
+                    </svg>
+                  </div>
+                )}
+                {item.text}
+              </div>
+            </div>
+          ))}
+        </ul>
+      )
+    }
+
+    {
+      data.notFor && (
+        <div class="border-l-4 rounded-sm border-sky-400 bg-sky-50 h-fit py-6 px-4">
+          <div class="flex">
+            <div class="shrink-0">
+              <FaCircleInfo className="size-7 text-sky-400" />
+            </div>
+            <div class="ml-3 text-sky-700">
+              <p class="text-2xl font-bold mb-1">Note</p>
+              <p class="text-xl text-sky-700 whitespace-pre-line">{data.notFor}</p>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  </div>
+</section>

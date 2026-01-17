@@ -51,7 +51,7 @@ function mapIndexToSuperscript(index: number) {
               {data.highlights
                 .filter((item: any) => item.observation)
                 .map((item: any, index: number) => (
-                  <p class="text-slate-400 text-base">
+                  <p class="text-slate-600 text-base">
                     {mapIndexToSuperscript(index)} {item.observation}
                   </p>
                 ))}
@@ -63,8 +63,8 @@ function mapIndexToSuperscript(index: number) {
 
     {
       data.programHighlights && (
-        <div data-aos="fade-down" data-aos-delay="400" data-aos-anchor="program-intro" class="flex flex-row gap-24">
-          <div class="max-w-1/2">
+        <div data-aos="fade-down" data-aos-delay="400" data-aos-anchor="program-intro" class="flex flex-col gap-6 lg:gap-24 lg:flex-row">
+          <div class="lg:max-w-1/2">
             <h3 class="text-slate-900 font-bold text-3xl mb-4">Program Benefits</h3>
             <ul>
               {data.programHighlights.benefits.map((text: string) => (
@@ -76,7 +76,7 @@ function mapIndexToSuperscript(index: number) {
             </ul>
           </div>
 
-          <div class="max-w-1/2">
+          <div class="lg:max-w-1/2">
             <h3 class="text-slate-900 font-bold text-3xl mb-4">Requirements</h3>
             <ul>
               {data.programHighlights.requirements.map((text: string) => (
